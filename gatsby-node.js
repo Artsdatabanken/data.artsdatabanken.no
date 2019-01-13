@@ -20,29 +20,38 @@ const getPokemonData = names =>
 
 exports.createPages = async ({ actions: { createPage } }) => {
   const allPokemon = await getPokemonData(["pikachu", "charizard", "squirtle"]);
-
+  console.log(allPokemon);
   // Create a page that lists all Pokémon.
+  const typer = [
+    {
+      kode: "NA_T",
+      navn: "Fastmark",
+      bilde: "https://artsdatabanken.no/Media/F1832?mode=320x320"
+    },
+    {
+      kode: "NA_I",
+      navn: "Is",
+      bilde: "https://artsdatabanken.no/Media/F1832?mode=320x320"
+    }
+  ];
+
   createPage({
+    path: `/nin/`,
+    component: require.resolve("./src/templates/typer.js"),
+    context: { typer }
+  });
+  /*  createPage({
     path: `/`,
     component: require.resolve("./src/templates/all-pokemon.js"),
     context: { allPokemon }
   });
-
+*/
   // Create a page for each Pokémon.
-  allPokemon.forEach(pokemon => {
+  typer.forEach(type => {
     createPage({
-      path: `/pokemon/${pokemon.name}/`,
-      component: require.resolve("./src/templates/pokemon.js"),
-      context: { pokemon }
-    });
-
-    // Create a page for each ability of the current Pokémon.
-    pokemon.abilities.forEach(ability => {
-      createPage({
-        path: `/pokemon/${pokemon.name}/ability/${ability.name}/`,
-        component: require.resolve("./src/templates/ability.js"),
-        context: { pokemon, ability }
-      });
+      path: `/nin/${type.navn}/`,
+      component: require.resolve("./src/templates/type.js"),
+      context: { type }
     });
   });
 };
