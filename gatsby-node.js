@@ -1,35 +1,46 @@
-const axios = require("axios");
+//const slug = require(`slug`);
 
-const get = endpoint => axios.get(`https://pokeapi.co/api/v2${endpoint}`);
-const getData = names => get(`/pokemon/${name}`);
+//const axios = require("axios");
+//const get = endpoint => axios.get(`https://pokeapi.co/api/v2${endpoint}`);
+//const getData = names => get(`/pokemon/${name}`);
 
-exports.createPages = async ({ actions: { createPage } }) => {
-  const typer = [
-    {
-      kode: "NA_T",
-      path: "Natursystem/Fastmark",
-      navn: "Fastmark",
-      bilde: "https://artsdatabanken.no/Media/F1832?mode=320x320"
-    },
-    {
-      kode: "NA_I",
-      path: "Natursystem/Snø- og issystemer",
-      navn: "Is",
-      bilde: "https://artsdatabanken.no/Media/F1832?mode=320x320"
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  return graphql(
+    `
+      {
+        allNinJson {
+          edges {
+            node {
+              kode
+              navn
+              bilde
+              sti
+            }
+          }
+        }
+      }
+    `
+  ).then(result => {
+    console.log(result);
+    if (result.errors) {
+      throw result.errors;
     }
-  ];
-
-  createPage({
-    path: `/nin/`,
-    component: require.resolve("./src/templates/typer.js"),
-    context: { typer }
+    makePages(createPage, result.data.allNinJson);
   });
+};
 
-  typer.forEach(type => {
+function makePages(createPage, data) {
+  const types = data.edges;
+  console.log(types);
+  types.forEach(record => {
+    const type = record.node;
+    console.log(type);
     createPage({
-      path: `/nin/${type.path}/`,
+      path: `/nin/${type.sti}/`,
       component: require.resolve("./src/templates/type.js"),
       context: { type }
     });
   });
-};
+}
