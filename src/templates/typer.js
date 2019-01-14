@@ -14,7 +14,7 @@ export default ({ pageContext: { typer } }) => (
             display: "inline-block"
           }}
         >
-          <Link to={`/nin/${type.navn}`}>
+          <Link to={`/nin/${type.path}`}>
             <img src={type.bilde} alt={type.navn} />
             <p>{type.navn}</p>
           </Link>
