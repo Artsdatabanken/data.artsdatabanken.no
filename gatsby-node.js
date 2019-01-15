@@ -18,9 +18,16 @@ exports.createPages = ({ graphql, actions }) => {
                 nb
               }
               ingress
+              infoUrl
               foto {
                 forside {
                   url
+                }
+              }
+              overordnet {
+                kode
+                tittel {
+                  nb
                 }
               }
               barn {
@@ -29,6 +36,25 @@ exports.createPages = ({ graphql, actions }) => {
                   nb
                 }
                 farge
+              }
+              graf {
+                relasjon
+                kode
+                tittel {
+                  nb
+                }
+                farge
+              }
+              kartformat {
+                type
+                zoom
+                format
+              }
+              stats {
+                areal
+                geometrier
+                arealPrefix
+                geometrierPrefix
               }
             }
           }
@@ -44,6 +70,7 @@ exports.createPages = ({ graphql, actions }) => {
 };
 
 function makePages(createPage, data) {
+  console.log(data);
   const types = data.edges;
   types.forEach(record => {
     const type = record.node;

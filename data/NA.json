@@ -12,28 +12,27 @@
       "arealPrefix": 2761126247,
       "geometrierPrefix": 14250
     },
-    "graf": {
-      "beskrevet av": {
-        "NA-BS": {
-          "tittel": { "nb": "Beskrivelsessystem" },
-          "farge": "hsl(240, 40%, 70%)"
-        }
+    "graf": [
+      {
+        "relasjon": "beskrevet av",
+        "kode": "NA-BS",
+        "tittel": { "nb": "Beskrivelsessystem" },
+        "farge": "hsl(240, 40%, 70%)"
       },
-      "lokal variasjon": {
-        "NA-LKM": {
-          "tittel": { "nb": "Lokale komplekse miljøvariabler" },
-          "farge": "hsl(32, 40%, 70%)"
-        }
+      {
+        "relasjon": "lokal variasjon",
+        "kode": "NA-LKM",
+        "tittel": { "nb": "Lokale komplekse miljøvariabler" },
+        "farge": "hsl(32, 40%, 70%)"
       },
-      "lokale egenskaper": {},
-      "publiseres av": {
-        "OR-MD": {
-          "erSubset": false,
-          "tittel": { "nb": "Miljødirektoratet" },
-          "farge": "hsl(177, 93%, 24%)"
-        }
+      {
+        "relasjon": "publiseres av",
+        "kode": "OR-MD",
+        "erSubset": false,
+        "tittel": { "nb": "Miljødirektoratet" },
+        "farge": "hsl(177, 93%, 24%)"
       }
-    },
+    ],
     "foto": {
       "forside": {
         "url": "https://maps.artsdatabanken.no/NA/forside_408.jpg",
@@ -42,7 +41,7 @@
         "utgiver": ""
       }
     },
-    "kartformat": { "vector": { "zoom": [0, 13], "format": "pbf" } },
+    "kartformat": [{ "type": "vector", "zoom": [0, 13], "format": "pbf" }],
     "bbox": [[57.13, 2.987], [78.453, 37.021]],
     "kode": "NA",
     "overordnet": [{ "kode": "~", "tittel": { "nb": "Katalog" } }],
