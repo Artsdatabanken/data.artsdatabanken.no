@@ -1,0 +1,87 @@
+[
+  {
+    "sti": "Natursystem",
+    "tittel": { "nb": "Natursystem" },
+    "infoUrl": "https://www.artsdatabanken.no/Pages/222921",
+    "sortering": 1,
+    "farge": "hsl(120, 40%, 70%)",
+    "ingress": "Natursystem defineres av «alle organismer innen et mer eller mindre enhetlig, avgrensbart område, det totale miljøet de lever i og er tilpasset til, og de prosesser som regulerer relasjoner organismene imellom og mellom organismer og miljø (herunder menneskelig aktivitet)»",
+    "stats": {
+      "areal": 2761126247,
+      "geometrier": 14250,
+      "arealPrefix": 2761126247,
+      "geometrierPrefix": 14250
+    },
+    "graf": {
+      "beskrevet av": {
+        "NA-BS": {
+          "tittel": { "nb": "Beskrivelsessystem" },
+          "farge": "hsl(240, 40%, 70%)"
+        }
+      },
+      "lokal variasjon": {
+        "NA-LKM": {
+          "tittel": { "nb": "Lokale komplekse miljøvariabler" },
+          "farge": "hsl(32, 40%, 70%)"
+        }
+      },
+      "lokale egenskaper": {},
+      "publiseres av": {
+        "OR-MD": {
+          "erSubset": false,
+          "tittel": { "nb": "Miljødirektoratet" },
+          "farge": "hsl(177, 93%, 24%)"
+        }
+      }
+    },
+    "foto": {
+      "forside": {
+        "url": "https://maps.artsdatabanken.no/NA/forside_408.jpg",
+        "lisens": "",
+        "opphav": "",
+        "utgiver": ""
+      }
+    },
+    "kartformat": { "vector": { "zoom": [0, 13], "format": "pbf" } },
+    "bbox": [[57.13, 2.987], [78.453, 37.021]],
+    "kode": "NA",
+    "overordnet": [{ "kode": "~", "tittel": { "nb": "Katalog" } }],
+    "barn": [
+      {
+        "kode": "NA-HT",
+        "tittel": { "nb": "Hovedtyper" },
+        "farge": "#afecaf"
+      },
+      {
+        "kode": "NA-F",
+        "tittel": { "nb": "Limniske vannmasser" },
+        "farge": "hsl(183, 76%, 74%)"
+      },
+      {
+        "kode": "NA-T",
+        "tittel": { "nb": "Fastmarkssystemer" },
+        "farge": "hsl(105, 26%, 72%)"
+      },
+      {
+        "kode": "NA-V",
+        "tittel": { "nb": "Våtmarkssystemer" },
+        "farge": "hsl(40, 52%, 82%)"
+      },
+      {
+        "kode": "NA-I",
+        "tittel": { "nb": "Snø- og issystemer" },
+        "farge": "hsl(180, 43%, 93%)"
+      },
+      {
+        "kode": "NA-L",
+        "tittel": { "nb": "Ferskvannsbunnsystemer" },
+        "farge": "hsl(192, 48%, 74%)"
+      },
+      {
+        "kode": "NA-M",
+        "tittel": { "nb": "Saltvannsbunnsystemer" },
+        "farge": "hsl(221, 39%, 71%)"
+      }
+    ]
+  }
+]

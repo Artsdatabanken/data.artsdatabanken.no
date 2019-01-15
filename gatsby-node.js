@@ -10,33 +10,43 @@ exports.createPages = ({ graphql, actions }) => {
   return graphql(
     `
       {
-        allNinJson {
+        allNaJson {
           edges {
             node {
-              kode
-              navn
-              bilde
               sti
+              tittel {
+                nb
+              }
+              ingress
+              foto {
+                forside {
+                  url
+                }
+              }
+              barn {
+                kode
+                tittel {
+                  nb
+                }
+                farge
+              }
             }
           }
         }
       }
     `
   ).then(result => {
-    console.log(result);
     if (result.errors) {
       throw result.errors;
     }
-    makePages(createPage, result.data.allNinJson);
+    makePages(createPage, result.data.allNaJson);
   });
 };
 
 function makePages(createPage, data) {
   const types = data.edges;
-  console.log(types);
   types.forEach(record => {
     const type = record.node;
-    console.log(type);
     createPage({
       path: `/nin/${type.sti}/`,
       component: require.resolve("./src/templates/type.js"),

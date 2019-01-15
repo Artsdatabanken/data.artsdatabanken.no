@@ -1,18 +1,18 @@
 [
   {
-    "kode": "NA_T",
+    "kode": "NA-T",
     "sti": "Natursystem/Fastmark",
     "navn": "Fastmark",
     "bilde": "https://artsdatabanken.no/Media/F1832?mode=320x320"
   },
   {
-    "kode": "NA_I",
+    "kode": "NA-I",
     "sti": "Natursystem/Snø- og issystemer",
     "navn": "Is",
     "bilde": "https://artsdatabanken.no/Media/F1832?mode=320x320"
   },
   {
-    "kode": "NA_V",
+    "kode": "NA-V",
     "sti": "Natursystem/Våtmark",
     "navn": "Våtmark",
     "bilde": "https://artsdatabanken.no/Media/F1832?mode=320x320"

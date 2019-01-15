@@ -14,10 +14,12 @@
   "dependencies": {
     "axios": "^0.18.0",
     "gatsby": "^2.0.76",
+    "gatsby-plugin-react-helmet": "^3.0.5",
     "gatsby-source-filesystem": "^2.0.16",
     "gatsby-transformer-json": "^2.1.7",
     "react": "^16.5.1",
-    "react-dom": "^16.5.1"
+    "react-dom": "^16.5.1",
+    "react-helmet": "^5.2.0"
   },
   "repository": {
     "type": "git",
