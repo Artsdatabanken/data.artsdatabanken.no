@@ -41,7 +41,16 @@
         "utgiver": ""
       }
     },
-    "kartformat": [{ "type": "vector", "zoom": [0, 13], "format": "pbf" }],
+    "kartformat": [
+      {
+        "url": "https://maps.artsdatabanken.no/NA/vector.3857.mbtiles/",
+        "tilejson": "https://maps.artsdatabanken.no/NA/vector.3857.mbtiles?tilejson",
+        "type": "vector",
+        "projeksjon": 3857,
+        "zoom": [0, 13],
+        "format": "pbf"
+      }
+    ],
     "bbox": [[57.13, 2.987], [78.453, 37.021]],
     "kode": "NA",
     "overordnet": [{ "kode": "~", "tittel": { "nb": "Katalog" } }],

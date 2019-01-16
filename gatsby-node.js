@@ -49,6 +49,7 @@ exports.createPages = ({ graphql, actions }) => {
                 type
                 zoom
                 format
+                projeksjon
               }
               stats {
                 areal
@@ -70,7 +71,6 @@ exports.createPages = ({ graphql, actions }) => {
 };
 
 function makePages(createPage, data) {
-  console.log(data);
   const types = data.edges;
   types.forEach(record => {
     const type = record.node;
