@@ -1,81 +1,19 @@
 //const slug = require(`slug`);
 
-//const axios = require("axios");
-//const get = endpoint => axios.get(`https://pokeapi.co/api/v2${endpoint}`);
-//const getData = names => get(`/pokemon/${name}`);
+const fs = require("fs");
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
-
-  return graphql(
-    `
-      {
-        allNaJson {
-          edges {
-            node {
-              sti
-              tittel {
-                nb
-              }
-              ingress
-              infoUrl
-              foto {
-                forside {
-                  url
-                }
-              }
-              overordnet {
-                kode
-                tittel {
-                  nb
-                }
-              }
-              barn {
-                kode
-                tittel {
-                  nb
-                }
-                farge
-              }
-              graf {
-                relasjon
-                kode
-                tittel {
-                  nb
-                }
-                farge
-              }
-              kartformat {
-                type
-                zoom
-                format
-                projeksjon
-              }
-              stats {
-                areal
-                geometrier
-                arealPrefix
-                geometrierPrefix
-              }
-            }
-          }
-        }
-      }
-    `
-  ).then(result => {
-    if (result.errors) {
-      throw result.errors;
-    }
-    makePages(createPage, result.data.allNaJson);
-  });
+  const data = fs.readFileSync("./data/NA.json");
+  const types = JSON.parse(data);
+  makePages(createPage, types);
 };
 
-function makePages(createPage, data) {
-  const types = data.edges;
-  types.forEach(record => {
-    const type = record.node;
+function makePages(createPage, types) {
+  types.forEach(type => {
+    console.log(type);
     createPage({
-      path: `/nin/${type.sti}/`,
+      path: `/${type.url}/`,
       component: require.resolve("./src/templates/type.js"),
       context: { type }
     });
