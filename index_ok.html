@@ -1,0 +1,42 @@
+<html>
+<head>
+    <style type="text/css">
+        .underx
+        {
+            position:absolute;
+            left:0px;
+            top:0px;
+	    filter: url('#spotlight');
+	    z-index:-1;
+        }
+        .over
+        {
+            position:absolute;
+            left:0px;
+            top:0px;
+	    xfilter: blur(5px);
+	    filter:url('#goo');
+            z-index:-1;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="https://maps.artsdatabanken.no/Natur_i_Norge/Landskap/Landskapsgradient/Arealbruksintensitet/grid_liten.pnxg" class="over" />
+<img class="over"/>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x=0 y=0 width=639 height=790 class="over">
+  <defs>
+    <filter id="goo">
+      <feImage xlink:href="https://maps.artsdatabanken.no/Bakgrunnskart/NaturalEarth/bak_liten.32633.png" x=0 y=0 width=639 height=790 result="backg" />
+      <feImage xlink:href="https://maps.artsdatabanken.no/Natur_i_Norge/Landskap/Landskapsgradient/Arealbruksintensitet/grid_liten.png" x=0 y=0 width=639 height=790 result="coverage" />
+      <feColorMatrix in="backg" mode="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="bg" />
+      <feGaussianBlur in="backg" stdDeviation="0.5" result="blurbg" />
+      <feGaussianBlur in="coverage" stdDeviation="1.5" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="0 1 0 0 1  0 1.5 0 0 0.5  0 0.1 0 0 0  400 0 0 0 -0.01" result="fg" />
+      <feBlend in="bg" in2="fg" mode="multiply"/>
+    </filter>
+  </defs>
+</svg>
+
+</body>
+</html>

@@ -2,16 +2,19 @@ import React from "react";
 import path from "path";
 import Seo from "../components/Seo";
 import Swatch from "./Nin/Swatch";
+import Kart from "./Nin/Kart";
 
 export default props => {
   const {
     pageContext: { type }
   } = props;
   //  const parent = path.dirname(props["*"]);
+  console.log(type);
   return (
     <div>
       <Seo pageMeta={type} />
-      <div style={{ width: 960, margin: "1rem auto" }}>
+      <div style={{ _width: 960, margin: "1rem auto" }}>
+        <Kart url={type.url} />
         <Bilde
           {...type.foto.forside}
           alt={"Foto av " + type.tittel.nb.toLowerCase()}
@@ -151,11 +154,11 @@ const Kartformater = ({ kartformater }) => {
         <div style={{}}>Projeksjon</div>
         <div style={{}}>Beskrivelse</div>
         {formater.map(e => (
-          <Kartformat {...e} />
+          <Kartformat key={e.filnavn} {...e} />
         ))}
-        {kartformater.map(e => (
-          <Kartformat {...e} />
-        ))}
+        {kartformater.map(e => {
+          return <Kartformat key={e.type} {...e} />;
+        })}
       </div>
     </div>
   );
@@ -249,7 +252,7 @@ const Relasjoner = ({ relasjoner }) => (
       }}
     >
       {relasjoner.map(e => (
-        <Relasjon {...e} />
+        <Relasjon key={e.kode} {...e} />
       ))}
     </div>
   </div>
@@ -258,7 +261,9 @@ const Relasjoner = ({ relasjoner }) => (
 const Relasjon = ({ relasjon, kode, tittel, farge }) => (
   <React.Fragment>
     <Swatch farge={farge} />
-    <div style={{}}>{tittel.nb}</div>
+    <a href={"./" + tittel.nb}>
+      <div style={{}}>{tittel.nb}</div>
+    </a>
     <div style={{}}>{`(${relasjon})`}</div>
     <Tag>{kode}</Tag>
   </React.Fragment>
@@ -276,7 +281,7 @@ const DelAv = ({ overordnede }) => (
       }}
     >
       {overordnede.map(e => (
-        <Overordnet {...e} />
+        <Overordnet key={e.kode} {...e} />
       ))}
     </div>
   </div>
@@ -317,7 +322,7 @@ const Barna = ({ barn }) => (
       }}
     >
       {barn.map(e => (
-        <Barn {...e} />
+        <Barn key={e.kode} {...e} />
       ))}
     </div>
   </div>
@@ -327,7 +332,7 @@ const Barn = ({ kode, tittel, farge }) => (
   <React.Fragment>
     <Swatch farge={farge} />
     <a href={"./" + tittel.nb}>
-      <div style={{}}>{tittel.nb}</div>
+      <div>{tittel.nb}</div>
     </a>
     <Tag>{kode}</Tag>
   </React.Fragment>

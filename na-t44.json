@@ -1,0 +1,100 @@
+{
+  "farge": "hsl(33, 24%, 73%)",
+  "tittel": {
+    "nb": "Åker"
+  },
+  "ingress": "Åker er fulldyrket mark som er pløyd og tilsådd, oftest også gjødslet og/eller sprøytet, der det dyrkes mat- eller fôrvekster, gjerne i monokultur. Åker omfatter jordbruksmark med intensiv hevd og hyppig markbearbeiding, og har en artssammensetning av «ville» arter som hovedsakelig består av ettårige eller kortlevete ugras.",
+  "stats": {
+    "areal": 6199846,
+    "geometrier": 207,
+    "arealPrefix": 2761126247,
+    "geometrierPrefix": 14250
+  },
+  "graf": [
+    {
+      "type": "definisjonsgrunnlag",
+      "noder": [
+        {
+          "erSubset": true,
+          "tittel": {
+            "nb": "Sterkt endret jordbruksmark"
+          },
+          "farge": "#afecaf",
+          "kode": "NA-HT-DG-NHJ",
+          "url": "Katalog/Natursystem/Hovedtyper/Definisjonsgrunnlag/Sterkt endret jordbruksmark"
+        }
+      ]
+    },
+    {
+      "type": "prosedyrekategori",
+      "noder": [
+        {
+          "erSubset": true,
+          "tittel": {
+            "nb": "Sterkt endret hevdpreget system - Oppdyrka mark"
+          },
+          "farge": "#afecaf",
+          "kode": "NA-HT-PK14b",
+          "url": "Katalog/Natursystem/Hovedtyper/Prosedyrekategori/Sterkt endret hevdpreget system - Oppdyrka mark"
+        }
+      ]
+    }
+  ],
+  "foto": {
+    "forside": {
+      "url": "https://maps.artsdatabanken.no/Natur_i_Norge/Natursystem/forside_408.jpg",
+      "lisens": "",
+      "opphav": "",
+      "utgiver": ""
+    }
+  },
+  "kartformat": {
+    "vector": {
+      "zoom": [0, 12],
+      "format": "pbf"
+    }
+  },
+  "bbox": [[58.017, 5.175], [70.442, 27.876]],
+  "kode": "NA-T44",
+  "overordnet": [
+    {
+      "kode": "NA-T",
+      "tittel": {
+        "nb": "Fastmarkssystemer"
+      }
+    },
+    {
+      "kode": "NA",
+      "tittel": {
+        "nb": "Natursystem"
+      }
+    },
+    {
+      "kode": "~",
+      "tittel": {
+        "nb": "Katalog"
+      }
+    }
+  ],
+  "barn": {
+    "NA-T44-E-1": {
+      "tittel": {
+        "nb": "Åker"
+      },
+      "farge": "#afecaf",
+      "kode": "NA-T44-E-1",
+      "url": "Katalog/Natursystem/Fastmarkssystemer/Åker/Åker"
+    }
+  },
+  "url": "Katalog/Natursystem/Fastmarkssystemer/Åker",
+  "items": [
+    {
+      "tittel": {
+        "nb": "Åker"
+      },
+      "farge": "#afecaf",
+      "kode": "NA-T44-E-1",
+      "url": "Katalog/Natursystem/Fastmarkssystemer/Åker/Åker"
+    }
+  ]
+}
