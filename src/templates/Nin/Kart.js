@@ -15,6 +15,7 @@ class Kart extends Component {
         {this.props.children}
         <div
           style={{
+            display: "inline-block",
             border: "1px solid rgba(0,0,0,0.33)",
             boxShadow: "hsla(0, 0%, 0%, 0.14) 0px 2px 14px 0px"
           }}

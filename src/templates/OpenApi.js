@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Projeksjon from "./Projeksjon";
 
 class OpenApi extends Component {
@@ -45,7 +44,7 @@ class OpenApi extends Component {
     return (
       <div style={{ display: "inline-block" }}>
         <h3>Åpne tjenester</h3>
-        <div
+        <table
           style={{
             display: "grid",
             gridTemplateColumns: "max-content max-content max-content",
@@ -53,13 +52,13 @@ class OpenApi extends Component {
             alignItems: "center"
           }}
         >
-          <div style={{}}>Tittel</div>
-          <div style={{}}>Projeksjon</div>
-          <div style={{}}>Beskrivelse</div>
+          <th style={{}}>Tittel</th>
+          <th style={{}}>Projeksjon</th>
+          <th style={{}}>Beskrivelse</th>
           {formater.map(e => (
             <Api key={e.tittel} {...e} />
           ))}
-        </div>
+        </table>
       </div>
     );
   }

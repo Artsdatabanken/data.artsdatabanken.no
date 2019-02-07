@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import Projeksjon from "./Projeksjon";
 
 const OpenData = ({ kartformater }) => {
@@ -49,7 +48,7 @@ const OpenData = ({ kartformater }) => {
   return (
     <div>
       <h3>Åpne data</h3>
-      <div
+      <table
         style={{
           display: "grid",
           gridTemplateColumns:
@@ -58,12 +57,12 @@ const OpenData = ({ kartformater }) => {
           alignItems: "center"
         }}
       >
-        <div style={{}}>Tittel</div>
-        <div style={{}}>Filending</div>
-        <div style={{}}>Størrelse</div>
-        <div style={{}}>Sist oppdatert</div>
-        <div style={{}}>Projeksjon</div>
-        <div style={{}}>Beskrivelse</div>
+        <th style={{}}>Tittel</th>
+        <th style={{}}>Filending</th>
+        <th style={{}}>Størrelse</th>
+        <th style={{}}>Sist oppdatert</th>
+        <th style={{}}>Projeksjon</th>
+        <th style={{}}>Beskrivelse</th>
         {false &&
           Object.keys(kartformater).map(e => {
             return <Kartformat key={e} type={e} {...kartformater[e]} />;
@@ -71,7 +70,7 @@ const OpenData = ({ kartformater }) => {
         {formater.map(e => (
           <Kartformat key={e.filnavn} {...e} />
         ))}
-      </div>
+      </table>
     </div>
   );
 };

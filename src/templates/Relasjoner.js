@@ -3,6 +3,7 @@ import Tag from "./Tag";
 import React from "react";
 
 const RelasjonerSeksjon = ({ relasjoner }) => {
+  if (!relasjoner) return null;
   return relasjoner.map(e => (
     <div key={e.type}>
       <h3>{capitalize(e.type)}</h3>

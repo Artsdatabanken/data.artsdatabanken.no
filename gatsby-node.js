@@ -4,7 +4,7 @@ const fs = require("fs");
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
-  const data = fs.readFileSync("./data/NA.json");
+  const data = fs.readFileSync("./data/NA-LKM-S3-E.json");
   const types = JSON.parse(data);
   makePages(createPage, types);
 };

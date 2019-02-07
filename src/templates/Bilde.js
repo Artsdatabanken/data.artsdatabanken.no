@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 
 const Bilde = ({ url, alt, lisens, opphav, utgiver }) => (
   <div
@@ -13,7 +12,13 @@ const Bilde = ({ url, alt, lisens, opphav, utgiver }) => (
       borderColor: "rgba(0,0,0,0.33)"
     }}
   >
-    <img src={url} alt={alt} />
+    <img
+      src={url}
+      alt={alt}
+      onError={e => {
+        e.target.style.display = "none";
+      }}
+    />
   </div>
 );
 

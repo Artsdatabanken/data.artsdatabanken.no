@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 
 const arealFastland = 385180000000;
 const Statistikk = ({
@@ -8,18 +7,21 @@ const Statistikk = ({
   geometrier,
   arealPrefix,
   geometrierPrefix
-}) => (
-  <div>
+}) => {
+  if (!areal) return null;
+  return (
     <div>
-      {tittel} areal:&nbsp;
-      {tilArealString(areal)} ({((areal / arealFastland) * 100).toFixed(1)}% av
-      datasettet)
-      <p />
-      Datasettet dekker med {tilArealString(arealPrefix)}{" "}
-      {((arealPrefix / arealFastland) * 100).toFixed(1)}% av Fastlands-Norge.
+      <div>
+        {tittel} areal:&nbsp;
+        {tilArealString(areal)} ({((areal / arealFastland) * 100).toFixed(1)}%
+        av datasettet)
+        <p />
+        Datasettet dekker med {tilArealString(arealPrefix)}{" "}
+        {((arealPrefix / arealFastland) * 100).toFixed(1)}% av Fastlands-Norge.
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 function tilArealString(areal) {
   if (areal < 50000) return areal.toFixed(0) + " m²";

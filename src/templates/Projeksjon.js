@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 
 const Projeksjon = ({ epsg }) => {
   if (projections[epsg]) return <a href={projections[epsg].url}>{epsg}</a>;
