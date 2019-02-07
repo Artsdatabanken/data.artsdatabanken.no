@@ -8,7 +8,7 @@
   Portal for åpne data fra Artsdatabanken
 </h1>
 
-[![Screenshot](doc/screenshot.png 'adb-data-portal screenshot')](https://maps.artsdatabanken.no)
+[![Screenshot](screenshot.png 'adb-data-portal screenshot')](https://maps.artsdatabanken.no)
 
 
 ## 🚀 Quick start
