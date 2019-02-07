@@ -28,7 +28,7 @@ export default props => {
         <div>
           {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
         </div>
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
           <DelAv overordnede={type.overordnet} />
           <Barna barn={type.barn} />
           <Relasjoner relasjoner={type.graf} />

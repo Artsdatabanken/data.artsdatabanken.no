@@ -6,24 +6,22 @@ import SchemaOrg from "./SchemaOrg";
 const seo = {
   title: "Natur i Norge",
   description:
-    "Natur i Norge (NiN) er et type- og beskrivelsessystem for all variasjon i naturen.",
+    "Natur i Norge. Informasjon om alle naturtyper, fra de store landskapene og ned til det minste livsmiljø.",
   organization: "Artsdatabanken",
-  author: "Bjorn Reppen",
-  image: "/logo.jpg",
+  author: "Bjørn Reppen",
+  image: "/Datakilde/Artsdatabanken/logo.png",
   social: { twitter: "https://twitter.com/Artsdatabanken" },
   canonicalUrl: "https://maps.artsdatabanken.no"
 };
 
-// chwbwtbenlobh
-
 const Seo = ({ pageMeta }) => {
-  const title = pageMeta.title || seo.title;
-  const description = pageMeta.description || seo.description;
-  const image = pageMeta.image || seo.image;
+  const title = "Åpne data: " + pageMeta.tittel.nb || seo.title;
+  const description = pageMeta.ingress || seo.description;
+  const image = pageMeta.foto.forside.url || seo.image;
   const url = pageMeta.slug
     ? `${seo.canonicalUrl}${path.sep}${pageMeta.slug}`
     : seo.canonicalUrl;
-  const datePublished = pageMeta.datePublished;
+  const datePublished = new Date();
 
   return (
     <React.Fragment>
@@ -47,6 +45,10 @@ const Seo = ({ pageMeta }) => {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
+        <meta
+          name="google-site-verification"
+          content="LQK4-BdNNG80eMK-Ks5AolSmAB_Q4uxDt6cwTEL3DVM"
+        />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"

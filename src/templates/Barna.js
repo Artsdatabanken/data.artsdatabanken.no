@@ -5,6 +5,7 @@ import { connectableObservableDescriptor } from "rxjs/internal/observable/Connec
 import Blokk from "./Blokk";
 
 const Barna = ({ barn }) => {
+  if (barn.length <= 0) return null;
   return (
     <Blokk>
       <h3>Inndelt i</h3>
