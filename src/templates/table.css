@@ -3,6 +3,10 @@ body {
   background-color: #eee;
 }
 
+svg {
+  background-color: blue;
+}
+
 /* -- Material Design Table style -------------- */
 table {
   width: 100%;

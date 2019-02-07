@@ -24,10 +24,10 @@ const Barna = ({ barn }) => {
   );
 };
 
-const Barn = ({ kode, tittel, farge, intervall }) => (
+const Barn = ({ kode, tittel, url, farge, intervall }) => (
   <React.Fragment>
     <Swatch farge={farge} />
-    <a href={"./" + tittel.nb}>
+    <a href={"./" + url + "/index.html"}>
       <div>{tittel.nb}</div>
     </a>
     <Tag>{kode}</Tag>
