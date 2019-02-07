@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 const Projeksjon = ({ epsg }) => {
-  if (projections[epsg]) return <a href={projections[epsg].url}>EPSG:{epsg}</a>;
+  if (projections[epsg]) return <a href={projections[epsg].url}>{epsg}</a>;
   return epsg;
 };
 

@@ -12,6 +12,7 @@ class Kart extends Component {
         }}
       >
         <h3>Dekningsområde</h3>
+        {this.props.children}
         <div
           style={{
             border: "1px solid rgba(0,0,0,0.33)",

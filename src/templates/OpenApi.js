@@ -4,6 +4,7 @@ import Projeksjon from "./Projeksjon";
 
 class OpenApi extends Component {
   render() {
+    const { tittel } = this.props;
     const formater = [
       {
         tittel: "OGC WMS",
@@ -37,13 +38,12 @@ class OpenApi extends Component {
         tittel: "Egenskaper",
         url: "metadata.json",
         projeksjon: "4326",
-        beskrivelse:
-          "Alle tilgjengelige egenskaper knyttet til typen, i maskinlesbar form"
+        beskrivelse: `Alle tilgjengelige egenskaper knyttet til ${tittel}, i maskinlesbar form`
       }
     ];
 
     return (
-      <div>
+      <div style={{ display: "inline-block" }}>
         <h3>Åpne tjenester</h3>
         <div
           style={{
