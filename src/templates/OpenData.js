@@ -57,19 +57,25 @@ const OpenData = ({ kartformater }) => {
           alignItems: "center"
         }}
       >
-        <th style={{}}>Tittel</th>
-        <th style={{}}>Filending</th>
-        <th style={{}}>Størrelse</th>
-        <th style={{}}>Sist oppdatert</th>
-        <th style={{}}>Projeksjon</th>
-        <th style={{}}>Beskrivelse</th>
-        {false &&
-          Object.keys(kartformater).map(e => {
-            return <Kartformat key={e} type={e} {...kartformater[e]} />;
-          })}
-        {formater.map(e => (
-          <Kartformat key={e.filnavn} {...e} />
-        ))}
+        <thead>
+          <tr>
+            <th style={{}}>Tittel</th>
+            <th style={{}}>Filending</th>
+            <th style={{}}>Størrelse</th>
+            <th style={{}}>Sist oppdatert</th>
+            <th style={{}}>Projeksjon</th>
+            <th style={{}}>Beskrivelse</th>
+          </tr>
+        </thead>
+        <tbody>
+          {false &&
+            Object.keys(kartformater).map(e => {
+              return <Kartformat key={e} type={e} {...kartformater[e]} />;
+            })}
+          {formater.map(e => (
+            <Kartformat key={e.filnavn} {...e} />
+          ))}
+        </tbody>
       </table>
     </div>
   );
@@ -105,10 +111,6 @@ function mkdate(date) {
   return date.toISOString().substring(0, 10);
 }
 
-function finnProjeksjon(filnavn) {
-  return 32633;
-}
-
 const Kartformat = ({
   tittel,
   filnavn,
@@ -120,21 +122,22 @@ const Kartformat = ({
   projeksjon,
   format
 }) => {
-  console.log(projeksjon);
   //  const projeksjon = finnProjeksjon(filnavn);
   return (
-    <React.Fragment>
-      <div style={{}}>
+    <tr>
+      <td style={{}}>
         <a href={filnavn}>{tittel}</a>
-      </div>
-      <div style={{}}>{filtype}</div>
-      <div style={{ textAlign: "right" }}>{mksize(størrelse)}</div>
-      <div style={{}}>{mkdate(oppdatertDato)}</div>
-      {false && <div style={{}}>{mktittel(type, format, projeksjon)}</div>}{" "}
-      {false && <div style={{}}>{type}</div>}
-      <Projeksjon epsg={projeksjon} />
-      <div style={{}}>{beskrivelse}</div>
-    </React.Fragment>
+      </td>
+      <td style={{}}>{filtype}</td>
+      <td style={{ textAlign: "right" }}>{mksize(størrelse)}</td>
+      <td style={{}}>{mkdate(oppdatertDato)}</td>
+      {false && <td style={{}}>{mktittel(type, format, projeksjon)}</td>}
+      {false && <td style={{}}>{type}</td>}
+      <td>
+        <Projeksjon epsg={projeksjon} />
+      </td>
+      <td style={{}}>{beskrivelse}</td>
+    </tr>
   );
 };
 

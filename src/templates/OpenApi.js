@@ -52,12 +52,18 @@ class OpenApi extends Component {
             alignItems: "center"
           }}
         >
-          <th style={{}}>Tittel</th>
-          <th style={{}}>Projeksjon</th>
-          <th style={{}}>Beskrivelse</th>
-          {formater.map(e => (
-            <Api key={e.tittel} {...e} />
-          ))}
+          <thead>
+            <tr>
+              <th style={{}}>Tittel</th>
+              <th style={{}}>Projeksjon</th>
+              <th style={{}}>Beskrivelse</th>
+            </tr>
+          </thead>
+          <tbody>
+            {formater.map(e => (
+              <Api key={e.tittel} {...e} />
+            ))}
+          </tbody>
         </table>
       </div>
     );
@@ -66,13 +72,15 @@ class OpenApi extends Component {
 
 const Api = ({ tittel, url, projeksjon, beskrivelse }) => {
   return (
-    <React.Fragment>
-      <div style={{}}>
+    <tr>
+      <td style={{}}>
         <a href={url}>{tittel}</a>
-      </div>
-      <Projeksjon epsg={projeksjon} />
-      <div style={{}}>{beskrivelse}</div>
-    </React.Fragment>
+      </td>
+      <td>
+        <Projeksjon epsg={projeksjon} />
+      </td>
+      <td style={{}}>{beskrivelse}</td>
+    </tr>
   );
 };
 export default OpenApi;

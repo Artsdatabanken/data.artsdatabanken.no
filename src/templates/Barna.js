@@ -4,7 +4,6 @@ import Swatch from "./Nin/Swatch";
 import { connectableObservableDescriptor } from "rxjs/internal/observable/ConnectableObservable";
 
 const Barna = ({ barn }) => {
-  console.log(barn);
   return (
     <div>
       <h3>Inndelt i</h3>
@@ -39,17 +38,14 @@ const Barn = ({ kode, tittel, farge, intervall }) => (
 );
 
 const Intervaller = ({ intervall }) => {
-  console.log(intervall);
   if (Array.isArray(intervall))
     return intervall.map(i => {
-      console.warn(i);
-      return <Intervall {...i} />;
+      return <Intervall {...i} key={i.min} />;
     });
   return <Intervall {...intervall} />;
 };
 
 const Intervall = ({ minTekst, maxTekst, måleenhet }) => {
-  console.log(minTekst, maxTekst, måleenhet);
   if (!minTekst && !maxTekst) return "";
   return (
     <div style={{ marginRight: 16 }}>
