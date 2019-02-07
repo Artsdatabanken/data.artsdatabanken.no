@@ -7,7 +7,6 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "npm run develop",
-    "prebuild": "wget -O data/metadata_med_undertyper.json https://maps.artsdatabanken.no/Natur_i_Norge/Landskap/metadata_med_undertyper.json",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""

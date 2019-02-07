@@ -14,7 +14,7 @@ const OpenData = ({ kartformater }) => {
       beskrivelse: ""
     },
     {
-      tittel: "Mapbox Vector tiles (MVT)",
+      tittel: "Mapbox Vector tile set (MVT)",
       størrelse: 42321233,
       filnavn: "polygon.3857.mbtiles",
       filtype: "mbtiles",
@@ -31,7 +31,7 @@ const OpenData = ({ kartformater }) => {
       oppdatertDato: new Date(),
       format: "asdfff",
       projeksjon: 4326,
-      beskrivelse: "Kart i vektorformat med attributter: navn, kode & areal"
+      beskrivelse: "Kart i vektorformat"
     },
     {
       tittel: "Egenskaper",
@@ -48,15 +48,7 @@ const OpenData = ({ kartformater }) => {
   return (
     <div>
       <h3>Åpne data</h3>
-      <table
-        style={{
-          xdisplay: "grid",
-          xgridTemplateColumns:
-            "max-content max-content max-content max-content max-content max-content",
-          gridGap: "0.3em",
-          alignItems: "center"
-        }}
-      >
+      <table>
         <thead>
           <tr>
             <th style={{}}>Tittel</th>

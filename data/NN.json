@@ -1,0 +1,56 @@
+{
+  "NN": {
+    "tittel": {
+      "nb": "Natur i Norge",
+      "la": "Naturae Norvegia"
+    },
+    "farge": "hsl(0, 0%, 0%)",
+    "overordnet": [
+      {
+        "kode": "~",
+        "tittel": {
+          "nb": "Katalog",
+          "la": "Katalog"
+        },
+        "url": "Katalog"
+      }
+    ],
+    "barn": [
+      {
+        "tittel": {
+          "nb": "Landskap"
+        },
+        "kode": "NN-LA",
+        "url": "Natur_i_Norge/Landskap",
+        "farge": "hsl(200, 55%, 54%)"
+      },
+      {
+        "tittel": {
+          "nb": "Natursystem"
+        },
+        "kode": "NN-NA",
+        "url": "Natur_i_Norge/Natursystem",
+        "sortering": 1,
+        "farge": "hsl(120, 40%, 70%)"
+      }
+    ],
+    "url": "Natur_i_Norge",
+    "kartformat": {
+      "polygon": {
+        "url": "https://maps.artsdatabanken.no/Natur_i_Norge/polygon.3857.mbtiles",
+        "zoom": [0, 7],
+        "format": "pbf"
+      }
+    },
+    "bbox": [[57.13, -9.672], [81.028, 37.021]],
+    "kode": "NN",
+    "foto": {
+      "forside": {
+        "url": "https://maps.artsdatabanken.no/Natur_i_Norge/forside_408.jpg",
+        "lisens": "",
+        "opphav": "",
+        "utgiver": ""
+      }
+    }
+  }
+}

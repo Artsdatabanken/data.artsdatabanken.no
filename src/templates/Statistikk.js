@@ -14,10 +14,7 @@ const Statistikk = ({
       <div>
         {tittel} areal:&nbsp;
         {tilArealString(areal)} ({((areal / arealFastland) * 100).toFixed(1)}%
-        av datasettet)
-        <p />
-        Datasettet dekker med {tilArealString(arealPrefix)}{" "}
-        {((arealPrefix / arealFastland) * 100).toFixed(1)}% av Fastlands-Norge.
+        av Fastlands-Norge)
       </div>
     </div>
   );

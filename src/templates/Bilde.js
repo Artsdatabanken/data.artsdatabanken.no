@@ -4,8 +4,6 @@ const Bilde = ({ url, alt, lisens, opphav, utgiver }) => (
   <div
     style={{
       display: "block",
-      xmargin: "1rem",
-      xdisplay: "float",
       float: "right",
       borderStyle: "solid",
       borderWidth: 1,

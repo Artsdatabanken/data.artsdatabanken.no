@@ -1,0 +1,58 @@
+{
+  "~": {
+    "tittel": {
+      "nb": "Katalog",
+      "la": "Katalog"
+    },
+    "url": "Katalog",
+    "farge": "hsl(349, 20%, 70%)",
+    "overordnet": [],
+    "barn": [
+      {
+        "tittel": {
+          "nb": "Natur i Norge",
+          "la": "Naturae Norvegia"
+        },
+        "kode": "NN",
+        "url": "Natur_i_Norge",
+        "farge": "hsl(0, 0%, 0%)"
+      },
+      {
+        "tittel": {
+          "nb": "Fylke"
+        },
+        "kode": "AO",
+        "url": "Fylke",
+        "sortering": 6,
+        "farge": "hsl(0, 0%, 70%)"
+      },
+      {
+        "tittel": {
+          "nb": "Naturvernområde"
+        },
+        "kode": "VV",
+        "url": "Naturvernområde",
+        "sortering": 4,
+        "farge": "hsl(300, 40%, 70%)"
+      },
+      {
+        "tittel": {
+          "nb": "Datakilde"
+        },
+        "kode": "OR",
+        "url": "Datakilde",
+        "sortering": 7,
+        "farge": "hsl(70, 0%, 70%)"
+      }
+    ],
+    "kode": "~",
+    "foto": {
+      "forside": {
+        "url": "https://maps.artsdatabanken.no/Katalog/forside_408.jpg",
+        "lisens": "",
+        "opphav": "",
+        "utgiver": ""
+      }
+    }
+  }
+}

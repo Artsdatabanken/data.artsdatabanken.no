@@ -22,20 +22,22 @@ export default props => {
           {...type.foto.forside}
           alt={"Foto av " + type.tittel.nb.toLowerCase()}
         />
-        <h2>{type.tittel.nb} - åpne data</h2>
+        <img src="https://maps.artsdatabanken.no/Datakilde/Artsdatabanken/logo.png" />
+        <h2>Åpne data: {type.tittel.nb}</h2>
+        <small>Oppdatert {new Date().toISOString()}</small>
         <div>
           {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
         </div>
-        <DelAv overordnede={type.overordnet} />
-        <Barna barn={type.barn} />
+        <div style={{ display: "flex" }}>
+          <DelAv overordnede={type.overordnet} />
+          <Barna barn={type.barn} />
+          <Relasjoner relasjoner={type.graf} />
+        </div>
         <OpenApi api={type.api} tittel={type.tittel.nb} />
         <OpenData kartformater={type.kartformat} tittel={type.tittel.nb} />
-        <Relasjoner relasjoner={type.graf} />
         <Kart url={type.url}>
           <Statistikk tittel={type.tittel.nb} {...type.stats} />
         </Kart>
-        <hr />
-        Oppdatert {new Date().toISOString()} - Artsdatabanken
       </div>
     </div>
   );

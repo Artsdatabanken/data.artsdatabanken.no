@@ -1,14 +1,15 @@
 import Swatch from "./Nin/Swatch";
 import Tag from "./Tag";
 import React from "react";
+import Blokk from "./Blokk";
 
 const RelasjonerSeksjon = ({ relasjoner }) => {
   if (!relasjoner) return null;
   return relasjoner.map(e => (
-    <div key={e.type}>
+    <Blokk key={e.type}>
       <h3>{capitalize(e.type)}</h3>
       <Relasjoner noder={e.noder} />
-    </div>
+    </Blokk>
   ));
 };
 

@@ -47,6 +47,10 @@ const Seo = ({ pageMeta }) => {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+        />
       </Helmet>
       <SchemaOrg
         url={url}

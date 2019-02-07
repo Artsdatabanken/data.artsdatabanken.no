@@ -1,24 +1,28 @@
 import React from "react";
 import Tag from "./Tag";
 import Swatch from "./Nin/Swatch";
+import Blokk from "./Blokk";
 
-const DelAv = ({ overordnede }) => (
-  <div>
-    <h3>Inngår i</h3>
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "max-content max-content max-content",
-        gridGap: "0.3em",
-        alignItems: "center"
-      }}
-    >
-      {overordnede.reverse().map(e => (
-        <Overordnet key={e.kode} {...e} />
-      ))}
-    </div>
-  </div>
-);
+const DelAv = ({ overordnede }) => {
+  if (overordnede.length <= 0) return null;
+  return (
+    <Blokk>
+      <h3>Inngår i</h3>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "max-content max-content max-content",
+          gridGap: "0.3em",
+          alignItems: "center"
+        }}
+      >
+        {overordnede.reverse().map(e => (
+          <Overordnet key={e.kode} {...e} />
+        ))}
+      </div>
+    </Blokk>
+  );
+};
 
 const Overordnet = ({ kode, tittel, url, farge }) => {
   return (

@@ -1,21 +1,51 @@
 body {
   font-family: "Roboto";
-  background-color: #eee;
+  background-color: hsl(344, 40%, 98%);
+  color: rgba(0, 0, 0, 0.87);
 }
 
-svg {
-  background-color: blue;
+.blokk {
+  background-color: hsl(344, 50%, 96%);
+  margin: 0.5em;
+  padding: 1em;
+  box-shadow: hsla(0, 0%, 0%, 0.14) 0px 2px 14px 0px;
+}
+
+hr  {
+  margin: 24px;
+}
+small {
+  color: rgba(0, 0, 0, 0.57);
+}
+h2 {
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: rgba(0, 0, 0, 0.67);
+}
+h3 {
+  color: hsla(0, 0%, 0%, 0.87);
+  xfont-family: "Roboto";
+  font-weight: 400;
+  font-size: 1.6rem;
+  xline-height: 1.04;
+  xletter-spacing: 0em;
+}
+a:link {
+  color: hsl(344, 80%, 38%);
+}
+a:visited {
+  color: hsl(344, 30%, 38%);
+}
+
+a {
+  color: hsl(344, 80%, 48%);
+}
+
+.photo {
+  box-shadow: hsla(0, 0%, 0%, 0.14) 0px 2px 14px 0px;
 }
 
 /* -- Material Design Table style -------------- */
-table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 2rem;
-  background-color: #fff;
-  box-shadow: hsla(0, 0%, 0%, 0.14) 0px 2px 14px 0px;
-  border-radius: 4px;
-}
 table > thead > tr,
 table > tbody > tr,
 table > tfoot > tr {
@@ -52,8 +82,13 @@ table > thead:first-child > tr:first-child > td {
 table > tbody + tbody {
   border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
-table table {
-  background-color: #fff;
+table {
+  background-color: hsl(344, 50%, 96%);
+  xwidth: 60%;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  box-shadow: hsla(0, 0%, 0%, 0.14) 0px 2px 14px 0px;
+  border-radius: 4px;
 }
 table {
   border: 0;
@@ -73,7 +108,8 @@ table > thead > tr > td {
 }
 table > tbody > tr:hover > td,
 table > tbody > tr:hover > th {
-  background-color: rgba(0, 0, 0, 0.12);
+  abackground-color: rgba(0, 0, 0, 0.12);
+  background-color: hsl(344, 20%, 88%);
 }
 
 table > table {
@@ -92,11 +128,6 @@ table > table > tbody > tr {
   border: 1px solid #e0e0e0;
   border-radius: 2px;
   margin-bottom: 1.6rem;
-}
-table > table > tbody > tr > td {
-  background-color: #f4f404;
-  display: block;
-  text-align: right;
 }
 table > table > tbody > tr > td[data-title]:before {
   content: attr(data-title);
@@ -118,5 +149,5 @@ table > tbody > tr > td:last-child {
 
 table > tbody > tr:hover > td,
 table > tbody > tr:hover > th {
-  background-color: #ddd;
+  color: hsl(344, 80%, 48%);
 }

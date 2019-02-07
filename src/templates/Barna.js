@@ -2,10 +2,11 @@ import React from "react";
 import Tag from "./Tag";
 import Swatch from "./Nin/Swatch";
 import { connectableObservableDescriptor } from "rxjs/internal/observable/ConnectableObservable";
+import Blokk from "./Blokk";
 
 const Barna = ({ barn }) => {
   return (
-    <div>
+    <Blokk>
       <h3>Inndelt i</h3>
       <div
         style={{
@@ -20,14 +21,14 @@ const Barna = ({ barn }) => {
           <Barn key={e.kode} {...e} />
         ))}
       </div>
-    </div>
+    </Blokk>
   );
 };
 
 const Barn = ({ kode, tittel, url, farge, intervall }) => (
   <React.Fragment>
     <Swatch farge={farge} />
-    <a href={"./" + url + "/index.html"}>
+    <a href={"/" + url + "/index.html"}>
       <div>{tittel.nb}</div>
     </a>
     <Tag>{kode}</Tag>

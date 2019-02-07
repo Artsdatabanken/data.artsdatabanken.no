@@ -58,13 +58,13 @@ class Kart extends Component {
                     />
                     <feGaussianBlur
                       in="coverage"
-                      stdDeviation="0.5"
+                      stdDeviation="1.0"
                       result="blur"
                     />
                     <feColorMatrix
                       in="blur"
                       mode="matrix"
-                      values="0 1 0 0 1  0 1.5 0 0 0.5  0 0.1 0 0 0  400 0 0 0 -0.01"
+                      values="0.682353 0.682353 0.682353 0 0.5  0.07451 0.07451 0.07451 0 0.07451  0 0 0 0 0.239216  1 1 1 0 0.01"
                       result="fg"
                     />
                     <feBlend in="bg" in2="fg" mode="multiply" />
@@ -76,7 +76,7 @@ class Kart extends Component {
         </div>
       </div>
     );
-  }
+  } /* 174 19 61   0.682353 0.07451 0.239216 */
 }
 
 export default Kart;
