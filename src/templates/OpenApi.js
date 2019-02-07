@@ -46,8 +46,8 @@ class OpenApi extends Component {
         <h3>Åpne tjenester</h3>
         <table
           style={{
-            display: "grid",
-            gridTemplateColumns: "max-content max-content max-content",
+            xdisplay: "grid",
+            xgridTemplateColumns: "max-content max-content max-content",
             gridGap: "0.3em",
             alignItems: "center"
           }}

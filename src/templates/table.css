@@ -1,0 +1,118 @@
+body {
+  font-family: "Roboto";
+  background-color: #eee;
+}
+
+/* -- Material Design Table style -------------- */
+table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+}
+table > thead > tr,
+table > tbody > tr,
+table > tfoot > tr {
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+  text-align: left;
+  padding: 1.6rem;
+  vertical-align: top;
+  border-top: 0;
+  transition: all 0.3s ease;
+}
+table > thead > tr > th {
+  font-weight: 400;
+  color: #757575;
+  vertical-align: bottom;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+table > caption + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > th,
+table > thead:first-child > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+table > tbody + tbody {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+table table {
+  background-color: #fff;
+}
+table {
+  border: 0;
+}
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+  border: 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+table > thead > tr > th,
+table > thead > tr > td {
+  border-bottom-width: 2px;
+}
+table > tbody > tr:hover > td,
+table > tbody > tr:hover > th {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+@media screen and (max-width: 768px) {
+  table > table {
+    margin-bottom: 0;
+    background-color: transparent;
+  }
+  table > table > thead,
+  table > table > tfoot {
+    display: none;
+  }
+  table > table > tbody {
+    display: block;
+  }
+  table > table > tbody > tr {
+    display: block;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    margin-bottom: 1.6rem;
+  }
+  table > table > tbody > tr > td {
+    background-color: #f4f404;
+    display: block;
+    text-align: right;
+  }
+  table > table > tbody > tr > td[data-title]:before {
+    content: attr(data-title);
+    float: left;
+    font-size: inherit;
+    font-weight: 400;
+    color: #757575;
+  }
+  table > table > tbody > tr {
+    border: none;
+  }
+  table > tbody > tr > td {
+    border: 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  table > tbody > tr > td:last-child {
+    border-bottom: 0;
+  }
+}
+table > tbody > tr:hover > td,
+table > tbody > tr:hover > th {
+  background-color: #ddd;
+}

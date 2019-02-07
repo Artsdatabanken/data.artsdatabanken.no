@@ -8,6 +8,7 @@ import Bilde from "./Bilde";
 import DelAv from "./DelAv";
 import Relasjoner from "./Relasjoner";
 import Statistikk from "./Statistikk";
+import "./table.css";
 
 export default props => {
   const {

@@ -27,11 +27,11 @@ const Relasjoner = ({ noder }) => (
   </div>
 );
 
-const RelasjonNode = ({ relasjon, kode, tittel, farge }) => {
+const RelasjonNode = ({ relasjon, kode, tittel, farge, url }) => {
   return (
     <React.Fragment>
       <Swatch farge={farge} />
-      <a href={"./" + tittel.nb}>
+      <a href={"/" + url}>
         <div style={{}}>{tittel.nb}</div>
       </a>
       <div style={{}}>{relasjon ? "(" + relasjon + ")" : ""}</div>

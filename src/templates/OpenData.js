@@ -50,8 +50,8 @@ const OpenData = ({ kartformater }) => {
       <h3>Åpne data</h3>
       <table
         style={{
-          display: "grid",
-          gridTemplateColumns:
+          xdisplay: "grid",
+          xgridTemplateColumns:
             "max-content max-content max-content max-content max-content max-content",
           gridGap: "0.3em",
           alignItems: "center"
@@ -86,8 +86,9 @@ function ext(type, format) {
   switch (fs) {
     case "polygon.pbf":
       return "mbtiles";
+    default:
+      return "xx";
   }
-  return "XXXXXX";
 }
 
 function mktittel(type, format, projeksjon) {
