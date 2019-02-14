@@ -15,7 +15,8 @@ const seo = {
 };
 
 const Seo = ({ pageMeta }) => {
-  const title = "Åpne data: " + pageMeta.tittel.nb || seo.title;
+  const title =
+    (pageMeta.tittel.nb || seo.title) + ": Åpne data fra Artsdatabanken";
   const description = pageMeta.ingress || seo.description;
   const image = pageMeta.foto.forside.url || seo.image;
   const url = pageMeta.slug
