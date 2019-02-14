@@ -6,17 +6,14 @@ class Kart extends Component {
       this.props.url
     }/grid_liten.png`;
     return (
-      <div
-        style={{
-          xfloat: "right"
-        }}
-      >
+      <div class="table">
         <h4>Dekningsområde</h4>
         {this.props.children}
         <div
           style={{
+            margin: "1em",
+            marginLeft: "1em",
             display: "inline-block",
-            border: "1px solid rgba(0,0,0,0.33)",
             boxShadow: "hsla(0, 0%, 0%, 0.14) 0px 2px 14px 0px"
           }}
         >

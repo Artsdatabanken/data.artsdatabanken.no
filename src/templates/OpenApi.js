@@ -52,7 +52,7 @@ class OpenApi extends Component {
     ];
 
     return (
-      <div style={{}}>
+      <div class="table">
         <h4>Åpne tjenester</h4>
         <table
           style={{

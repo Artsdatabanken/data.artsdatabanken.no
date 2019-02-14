@@ -27,7 +27,7 @@ export default props => {
           src="https://maps.artsdatabanken.no/Datakilde/Artsdatabanken/logo.png"
         />
         <small>Oppdatert {new Date().toISOString()}</small>
-        <h2>Åpne data: {type.tittel.nb}</h2>
+        <h2>{type.tittel.nb} - Åpne data fra Artsdatabanken</h2>
         <div>
           {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
         </div>

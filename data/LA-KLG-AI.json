@@ -9,16 +9,25 @@
         },
         "url": "https://maps.artsdatabanken.no/Natur_i_Norge/Landskap/Landskapsgradient/Arealbruksintensitet/raster.gradient.3857.mbtiles",
         "zoom": [3, 9],
+        "filnavn": "raster.gradient.3857.mbtiles",
+        "størrelse": 14409728,
+        "oppdatert": "2019-02-04T12:35:31.752Z",
         "format": "png"
       },
       "polygon": {
         "url": "https://maps.artsdatabanken.no/Natur_i_Norge/Landskap/Landskapsgradient/Arealbruksintensitet/polygon.3857.mbtiles",
         "zoom": [0, 8],
+        "filnavn": "polygon.3857.mbtiles",
+        "størrelse": 1930240,
+        "oppdatert": "2019-01-16T09:29:43.959Z",
         "format": "pbf"
       },
       "raster.indexed": {
         "url": "https://maps.artsdatabanken.no/Natur_i_Norge/Landskap/Landskapsgradient/Arealbruksintensitet/raster.indexed.3857.mbtiles",
         "zoom": [3, 12],
+        "filnavn": "raster.indexed.3857.mbtiles",
+        "størrelse": 119336960,
+        "oppdatert": "2019-01-16T09:29:43.955Z",
         "format": "png"
       }
     },
