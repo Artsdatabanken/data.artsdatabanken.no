@@ -6,8 +6,7 @@ import Blokk from "./Blokk";
 const DelAv = ({ overordnede }) => {
   if (overordnede.length <= 0) return null;
   return (
-    <Blokk>
-      <h3>Inngår i</h3>
+    <Blokk tittel="Inngår i">
       <div
         style={{
           display: "grid",

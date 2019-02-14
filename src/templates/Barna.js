@@ -7,8 +7,7 @@ import Blokk from "./Blokk";
 const Barna = ({ barn }) => {
   if (barn.length <= 0) return null;
   return (
-    <Blokk>
-      <h3>Inndelt i</h3>
+    <Blokk tittel="Inndelt i">
       <div
         style={{
           display: "grid",
@@ -51,7 +50,7 @@ const Intervall = ({ minTekst, maxTekst, måleenhet }) => {
   if (!minTekst && !maxTekst) return "";
   return (
     <div style={{ marginRight: 16 }}>
-      {minTekst} - {maxTekst} {måleenhet}
+      {minTekst || "0"} - {maxTekst} {måleenhet}
     </div>
   );
 };

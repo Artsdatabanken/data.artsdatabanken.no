@@ -47,7 +47,7 @@ const OpenData = ({ kartformater }) => {
 
   return (
     <div>
-      <h3>Åpne data</h3>
+      <h4>Åpne data</h4>
       <table>
         <thead>
           <tr>

@@ -7,29 +7,35 @@ body {
 .blokk {
   background-color: hsl(344, 50%, 96%);
   margin: 0.5em;
+  margin-top: 2em;
+  margin-bottom: 2em;
   padding: 1em;
   box-shadow: hsla(0, 0%, 0%, 0.14) 0px 2px 14px 0px;
 }
 
-hr  {
-  margin: 24px;
-}
 small {
   color: rgba(0, 0, 0, 0.57);
 }
 h2 {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.6rem;
-  color: rgba(0, 0, 0, 0.67);
+  color: rgba(0, 0, 0, 0.77);
+  margin-block-end: 0.3em;
 }
 h3 {
   color: hsla(0, 0%, 0%, 0.87);
-  xfont-family: "Roboto";
   font-weight: 400;
   font-size: 1.6rem;
-  xline-height: 1.04;
-  xletter-spacing: 0em;
+  margin-block-end: 0.5em;
 }
+h4 {
+  color: hsla(0, 0%, 0%, 0.67);
+  font-weight: 500;
+  font-size: 1rem;
+  margin-block-start: 0em;
+  margin-block-end: 0.5em;
+}
+
 a:link {
   color: hsl(344, 80%, 38%);
 }
@@ -84,13 +90,12 @@ table > tbody + tbody {
 }
 table {
   background-color: hsl(344, 50%, 96%);
-  xwidth: 60%;
+  xbackground-color: hsl(344, 50%, 96%);
+  width: 100%;
   max-width: 100%;
   margin-bottom: 2rem;
   box-shadow: hsla(0, 0%, 0%, 0.14) 0px 2px 14px 0px;
   border-radius: 4px;
-}
-table {
   border: 0;
 }
 table > thead > tr > th,
@@ -108,14 +113,9 @@ table > thead > tr > td {
 }
 table > tbody > tr:hover > td,
 table > tbody > tr:hover > th {
-  abackground-color: rgba(0, 0, 0, 0.12);
   background-color: hsl(344, 20%, 88%);
 }
 
-table > table {
-  margin-bottom: 0;
-  background-color: transparent;
-}
 table > table > thead,
 table > table > tfoot {
   display: none;

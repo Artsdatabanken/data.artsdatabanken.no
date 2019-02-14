@@ -1,7 +1,12 @@
 import React from "react";
 
-const Blokk = ({ children }) => {
-  return <div class="blokk">{children}</div>;
+const Blokk = ({ tittel, children }) => {
+  return (
+    <div class="blokk">
+      <h4>{tittel}</h4>
+      {children}
+    </div>
+  );
 };
 
 export default Blokk;

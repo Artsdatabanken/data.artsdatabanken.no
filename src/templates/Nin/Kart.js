@@ -11,7 +11,7 @@ class Kart extends Component {
           xfloat: "right"
         }}
       >
-        <h3>Dekningsområde</h3>
+        <h4>Dekningsområde</h4>
         {this.props.children}
         <div
           style={{

@@ -6,8 +6,7 @@ import Blokk from "./Blokk";
 const RelasjonerSeksjon = ({ relasjoner }) => {
   if (!relasjoner) return null;
   return relasjoner.map(e => (
-    <Blokk key={e.type}>
-      <h3>{capitalize(e.type)}</h3>
+    <Blokk tittel={capitalize(e.type)} key={e.type}>
       <Relasjoner noder={e.noder} />
     </Blokk>
   ));

@@ -52,12 +52,10 @@ class OpenApi extends Component {
     ];
 
     return (
-      <div style={{ xdisplay: "inline-block" }}>
-        <h3>Åpne tjenester</h3>
+      <div style={{}}>
+        <h4>Åpne tjenester</h4>
         <table
           style={{
-            xdisplay: "grid",
-            xgridTemplateColumns: "max-content max-content max-content",
             gridGap: "0.3em",
             alignItems: "center"
           }}
