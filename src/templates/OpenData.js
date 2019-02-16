@@ -2,6 +2,7 @@ import React from "react";
 import Kartformat from "./Kartformat";
 
 const OpenData = ({ kartformater }) => {
+  if (!kartformater || Object.entries(kartformater).length <= 0) return null;
   return (
     <div class="table">
       <h4>Åpne data</h4>

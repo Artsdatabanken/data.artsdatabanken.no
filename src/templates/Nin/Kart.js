@@ -6,9 +6,8 @@ class Kart extends Component {
       this.props.url
     }/grid_liten.png`;
     return (
-      <div class="table">
+      <div class="table" style={{}}>
         <h4>Dekningsområde</h4>
-        {this.props.children}
         <div
           style={{
             margin: "1em",
@@ -17,6 +16,7 @@ class Kart extends Component {
             boxShadow: "hsla(0, 0%, 0%, 0.14) 0px 2px 14px 0px"
           }}
         >
+          <div style={{ display: "block" }}>{this.props.children}</div>
           <a href={"http://nin.artsdatabanken.no/" + this.props.url}>
             <div
               style={{

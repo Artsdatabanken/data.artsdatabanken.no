@@ -89,6 +89,7 @@ table > tbody + tbody {
   border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 .table {
+  box-sizing: border-box;
   background-color: hsl(344, 50%, 96%);
   width: 100%;
   max-width: 100%;

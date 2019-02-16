@@ -6,6 +6,7 @@ const path = require("path");
 class Kartformat extends Component {
   render() {
     const { url, størrelse, oppdatert, type, format } = this.props;
+    if (!url) return null;
     var parsed = urllib.parse(url);
     const filnavn = path.basename(parsed.pathname);
     const filtype = path.extname(parsed.pathname);
@@ -99,7 +100,6 @@ const metersperPixelAtZoom = [
 
 function finnProjeksjon(filnavn) {
   const r = filnavn.match(/\.(\d*?)\./);
-  console.log(filnavn, r);
   return r ? r[1] : "";
 }
 
