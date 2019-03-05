@@ -1,7 +1,6 @@
 import React from "react";
 import Tag from "./Tag";
 import Swatch from "./Nin/Swatch";
-import { connectableObservableDescriptor } from "rxjs/internal/observable/ConnectableObservable";
 import Blokk from "./Blokk";
 
 const Barna = ({ barn }) => {
