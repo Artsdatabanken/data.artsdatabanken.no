@@ -2,10 +2,10 @@ const fs = require("fs");
 
 exports.createPages = ({ actions }) => {
   const { createPage } = actions;
-  //read("rot", createPage);
-  read("NN", createPage);
-  read("NA-LKM-S3-E", createPage);
-  read("LA-KLG-AI", createPage);
+  read("rot", createPage);
+  //read("NN", createPage);
+  //read("NA-LKM-S3-E", createPage);
+  //read("LA-KLG-AI", createPage);
   read("types", createPage);
 };
 
@@ -13,6 +13,7 @@ function read(fn, createPage) {
   const data = fs.readFileSync("./data/" + fn + ".json");
   let types = JSON.parse(data);
   if (types.data) types = types.data;
+  if (types.tittel) types = { "~": types };
   makePages(createPage, types);
 }
 
