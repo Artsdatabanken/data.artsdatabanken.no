@@ -14,9 +14,8 @@ const seo = {
   canonicalUrl: "https://maps.artsdatabanken.no"
 };
 
-const Seo = ({ pageMeta }) => {
-  const title =
-    (pageMeta.tittel.nb || seo.title) + ": Åpne data fra Artsdatabanken";
+const Seo = ({ pageMeta, tittel }) => {
+  const title = (tittel || seo.title) + ": Åpne data fra Artsdatabanken";
   const description = pageMeta.ingress || seo.description;
   const image = pageMeta.foto.forside.url || seo.image;
   const url = pageMeta.slug

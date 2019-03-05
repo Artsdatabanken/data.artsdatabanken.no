@@ -27,7 +27,7 @@ class Kart extends Component {
                 <defs>
                   <filter id="kart">
                     <feImage
-                      xlinkHref="https://maps.artsdatabanken.no/Bakgrunnskart/NaturalEarth/bak_liten.32633.png"
+                      xlinkHref="https://maps.artsdatabanken.no/Basiskart/NaturalEarth/bak_liten.32633.png"
                       x={0}
                       y={0}
                       width={639}

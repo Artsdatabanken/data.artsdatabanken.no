@@ -24,11 +24,12 @@ const DelAv = ({ overordnede }) => {
 };
 
 const Overordnet = ({ kode, tittel, url, farge }) => {
+  const tittel1 = Object.values(tittel)[0];
   return (
     <React.Fragment>
       <Swatch farge={farge} />
       <a href={"/" + url + "/index.html"}>
-        <div style={{}}>{tittel.nb}</div>
+        <div style={{}}>{tittel1}</div>
       </a>
       {kode.length > 1 ? <Tag>{kode.split("-").pop()}</Tag> : <div />}
     </React.Fragment>

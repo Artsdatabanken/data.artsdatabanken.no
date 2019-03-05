@@ -25,18 +25,21 @@ const Barna = ({ barn }) => {
   );
 };
 
-const Barn = ({ kode, tittel, url, farge, intervall }) => (
-  <React.Fragment>
-    <Swatch farge={farge} />
-    <a href={"/" + url + "/index.html"}>
-      <div>{tittel.nb}</div>
-    </a>
-    <Tag>{kode}</Tag>
-    <div style={{ display: "flex" }}>
-      <Intervaller intervall={intervall} />
-    </div>
-  </React.Fragment>
-);
+const Barn = ({ kode, tittel, url, farge, intervall }) => {
+  const tittel1 = Object.values(tittel)[0];
+  return (
+    <React.Fragment>
+      <Swatch farge={farge} />
+      <a href={"/" + url + "/index.html"}>
+        <div>{tittel1}</div>
+      </a>
+      <Tag>{kode}</Tag>
+      <div style={{ display: "flex" }}>
+        <Intervaller intervall={intervall} />
+      </div>
+    </React.Fragment>
+  );
+};
 
 const Intervaller = ({ intervall }) => {
   if (Array.isArray(intervall))

@@ -20,7 +20,7 @@ function makePages(createPage, types) {
   Object.keys(types).forEach(kode => {
     const type = types[kode];
     //if (kode.startsWith("NN-LA-KLG"))
-    if (type.url.length > 200) {
+    if (type.url.length > 190) {
       console.log("2LONG", type.url);
       return;
     }

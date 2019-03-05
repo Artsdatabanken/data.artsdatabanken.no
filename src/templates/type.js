@@ -14,20 +14,18 @@ export default props => {
   const {
     pageContext: { type }
   } = props;
+  const tittel = Object.values(type.tittel)[0];
   return (
     <div>
-      <Seo pageMeta={type} />
+      <Seo pageMeta={type} tittel={tittel} />
       <div style={{ margin: "1rem" }}>
-        <Bilde
-          {...type.foto.forside}
-          alt={"Foto av " + type.tittel.nb.toLowerCase()}
-        />
+        <Bilde {...type.foto.forside} alt={"Foto av " + tittel.toLowerCase()} />
         <img
           style={{ display: "block" }}
           src="https://maps.artsdatabanken.no/Datakilde/Artsdatabanken/logo.png"
         />
         <small>Oppdatert {new Date().toISOString()}</small>
-        <h2>{type.tittel.nb} - Åpne data fra Artsdatabanken</h2>
+        <h2>{tittel} - Åpne data fra Artsdatabanken</h2>
         <div>
           {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
         </div>
@@ -36,10 +34,10 @@ export default props => {
           <Barna barn={type.barn} />
           <Relasjoner relasjoner={type.graf} />
         </div>
-        <OpenApi api={type.api} tittel={type.tittel.nb} />
-        <OpenData kartformater={type.kartformat} tittel={type.tittel.nb} />
+        <OpenApi api={type.api} tittel={tittel} />
+        <OpenData kartformater={type.kartformat} />
         <Kart url={type.url}>
-          <Statistikk tittel={type.tittel.nb} {...type.stats} />
+          <Statistikk tittel={tittel} {...type.stats} />
         </Kart>
       </div>
     </div>
