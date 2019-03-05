@@ -19,7 +19,6 @@ export default props => {
     <div>
       <Seo pageMeta={type} tittel={tittel} />
       <div style={{ margin: "1rem" }}>
-        <Bilde {...type.foto.forside} alt={"Foto av " + tittel.toLowerCase()} />
         <img
           style={{ display: "block", float: "right", width: 204 }}
           src="https://data.artsdatabanken.no/Datakilde/Artsdatabanken/logo_med_navn_408.png"
@@ -28,6 +27,7 @@ export default props => {
         <div style={{ paddingBottom: 12 }}>
           {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
         </div>
+        <Bilde {...type.foto.forside} alt={"Foto av " + tittel.toLowerCase()} />
         <Statistikk tittel={tittel} {...type.stats} />
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           <DelAv overordnede={type.overordnet} />

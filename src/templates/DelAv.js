@@ -28,7 +28,7 @@ const Overordnet = ({ kode, tittel, url, farge }) => {
   return (
     <React.Fragment>
       <Swatch farge={farge} />
-      <a href={"/" + url + "/index.html"}>
+      <a href={"/" + url.replace("Katalog", "") + "/index.html"}>
         <div style={{}}>{tittel1}</div>
       </a>
       {kode.length > 1 ? <Tag>{kode.split("-").pop()}</Tag> : <div />}
