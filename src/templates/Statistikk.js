@@ -10,15 +10,21 @@ const Statistikk = ({
 }) => {
   if (!areal) return null;
   return (
-    <div>
-      <div>
-        {tittel} areal:&nbsp;
-        {tilArealString(areal)} ({((areal / arealFastland) * 100).toFixed(1)}%
-        av Fastlands-Norge)
-      </div>
+    <div
+      style={{
+        paddingBottom: 12,
+        fontWeight: 500,
+        color: "hsla(0, 0%, 0%, 0.5)"
+      }}
+    >
+      <div>Areal:&nbsp;{tilArealString(areal)}</div>
     </div>
   );
 };
+
+/*         ({((areal / arealFastland) * 100).toFixed(1)}%
+        av Fastlands-Norge)
+*/
 
 function tilArealString(areal) {
   if (areal < 50000) return areal.toFixed(0) + " m²";
