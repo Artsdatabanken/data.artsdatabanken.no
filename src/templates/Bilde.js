@@ -3,9 +3,10 @@ import React from "react";
 const Bilde = ({ url, alt, lisens, opphav, utgiver }) => (
   <div
     style={{
-      marginTop: 16,
+      margin: 12,
       display: "block",
-      float: "right"
+      boxShadow: "hsla(0, 0%, 0%, 0.14) 0px 2px 14px 0px",
+      _float: "right"
     }}
   >
     <img

@@ -1,11 +1,11 @@
 body {
   font-family: "Roboto";
-  background-color: hsl(344, 40%, 98%);
+  background-color: hsl(344, 0%, 98%);
   color: rgba(0, 0, 0, 0.87);
 }
 
 .blokk {
-  background-color: hsl(344, 50%, 96%);
+  background-color: hsl(344, 10%, 96%);
   margin: 0.5em;
   margin-bottom: 2em;
   padding: 1em;
@@ -40,13 +40,13 @@ h4 {
   padding-bottom: 0em;
 }
 a:link {
-  color: hsl(344, 80%, 38%);
+  color: hsl(344, 60%, 38%);
 }
 a:visited {
-  color: hsl(344, 30%, 38%);
+  color: hsl(344, 20%, 38%);
 }
 a {
-  color: hsl(344, 80%, 48%);
+  color: hsl(344, 60%, 48%);
 }
 .photo {
   box-shadow: hsla(0, 0%, 0%, 0.14) 0px 2px 14px 0px;
@@ -90,7 +90,7 @@ table > tbody + tbody {
 }
 .table {
   box-sizing: border-box;
-  background-color: hsl(344, 50%, 96%);
+  background-color: hsl(344, 10%, 96%);
   width: 100%;
   max-width: 100%;
   margin: 0.5em;
@@ -134,5 +134,5 @@ table > tbody > tr > td {
 }
 table > tbody > tr:hover > td,
 table > tbody > tr:hover > th {
-  color: hsl(344, 80%, 48%);
+  color: hsl(344, 70%, 48%);
 }
