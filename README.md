@@ -1,4 +1,4 @@
-[![Screenshot](screenshot.png 'adb-data-portal screenshot')](https://maps.artsdatabanken.no/Natur_i_Norge/Landskap/Landskapsgradient/Arealbruksintensitet/index.html)
+[![Screenshot](screenshot.png 'adb-data-portal screenshot')](https://data.artsdatabanken.no/Natur_i_Norge/Landskap/Landskapsgradient/Arealbruksintensitet/index.html)
 
 
 ## 🚀 Quick start

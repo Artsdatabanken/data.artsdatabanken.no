@@ -11,7 +11,7 @@ const seo = {
   author: "Bjørn Reppen",
   image: "/Datakilde/Artsdatabanken/logo.png",
   social: { twitter: "https://twitter.com/Artsdatabanken" },
-  canonicalUrl: "https://maps.artsdatabanken.no"
+  canonicalUrl: "https://data.artsdatabanken.no"
 };
 
 const Seo = ({ pageMeta, tittel }) => {

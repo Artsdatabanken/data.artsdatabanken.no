@@ -21,14 +21,14 @@ export default props => {
       <div style={{ margin: "1rem" }}>
         <Bilde {...type.foto.forside} alt={"Foto av " + tittel.toLowerCase()} />
         <img
-          style={{ display: "block" }}
-          src="https://maps.artsdatabanken.no/Datakilde/Artsdatabanken/logo.png"
+          style={{ display: "block", float: "right", width: 204 }}
+          src="https://data.artsdatabanken.no/Datakilde/Artsdatabanken/logo_med_navn_408.png"
         />
-        <small>Oppdatert {new Date().toISOString()}</small>
-        <h2>{tittel} - Åpne data fra Artsdatabanken</h2>
-        <div>
+        <h2>{tittel} - Åpne data</h2>
+        <div style={{ paddingBottom: 12 }}>
           {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
         </div>
+        <Statistikk tittel={tittel} {...type.stats} />
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           <DelAv overordnede={type.overordnet} />
           <Barna barn={type.barn} />
@@ -36,9 +36,13 @@ export default props => {
         </div>
         <OpenApi api={type.api} tittel={tittel} />
         <OpenData kartformater={type.kartformat} />
-        <Kart url={type.url}>
-          <Statistikk tittel={tittel} {...type.stats} />
-        </Kart>
+        <Kart url={type.url} />
+        <small>
+          Oppdatert {new Date().toISOString()} -{" "}
+          <a href="https://github.com/Artsdatabanken/adb-data-portal/">
+            Github
+          </a>
+        </small>
       </div>
     </div>
   );

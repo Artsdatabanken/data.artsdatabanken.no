@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Kart extends Component {
   render() {
-    const url = `https://maps.artsdatabanken.no/${
+    const url = `https://data.artsdatabanken.no/${
       this.props.url
     }/grid_liten.png`;
     return (
@@ -27,7 +27,7 @@ class Kart extends Component {
                 <defs>
                   <filter id="kart">
                     <feImage
-                      xlinkHref="https://maps.artsdatabanken.no/Basiskart/NaturalEarth/bak_liten.32633.png"
+                      xlinkHref="https://data.artsdatabanken.no/Basiskart/NaturalEarth/bak_liten.32633.png"
                       x={0}
                       y={0}
                       width={639}
