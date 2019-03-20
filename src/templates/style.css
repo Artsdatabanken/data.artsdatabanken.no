@@ -1,5 +1,37 @@
+/* 
+Graphic profile Artsdatabanken
+Just for keeping it nice and availiable
+*/
+
+.graphic_profile{
+  background: #ffffff;
+  background:rgb(255,255,255);
+  background: #4c4a48;
+  background:rgb(76,74,72);
+  background: #7f726b;
+  background:rgb(128,115,105);
+  background: #de8608;
+  background:rgb(222,135,9);
+  background: #eb6109;
+  background:rgb(235,98,9);
+}
+
 body{
   box-sizing: border-box;
+  font-family: "Roboto";
+  background-color: hsl(344, 0%, 98%);
+  color: #4c4a48;
+}
+
+
+a:link {
+  color:#7f726b;
+}
+a:visited {
+  color: #7f726b;
+}
+a:hover {
+  color:#eb6109;
 }
 
 /*Placement of items on the page */
@@ -97,3 +129,83 @@ img{
   max-width: 100%;
 }
 
+/* content boxes */
+
+.contentContainer{
+  position: relative;
+  width:100%;
+}
+
+.sideContent{
+  display:inline-block;
+  width:100%;
+  max-width:300px;
+  position:absolute;
+  right:0px;
+  vertical-align: top;
+}
+
+.mainContent{
+  display:inline-block;
+  width:calc(100% - 300px);
+  position:relative;
+  left:0px;
+  padding-right:50px;
+  vertical-align: top;
+  background: hsl(344, 0%, 98%);;
+}
+
+@media only screen and (max-width: 900px) {
+  .sideContent{
+    width:100%;
+    max-width:200px;
+  }
+  .mainContent{
+    width:calc(100% - 200px);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .sideContent{
+    width:100%;
+    max-width:100%;
+    position:relative;
+  }
+
+  .mainContent{
+    width:100%;
+  }
+}
+
+/**** Anchoring images within a div ****/
+
+/* The container for the images */
+.imagecontainer{
+  position: relative;
+}
+
+/* The images inside the container are all set to absolute, 
+which means they all start at the same coordinate and are set to 
+scale similarily*/
+.imagecontainer img{
+  position:absolute;
+  top:0;
+  left:0;
+  height:auto;
+}
+
+/* As absolute images don't push the page downwards (which we want 
+so we know how big a space it needs etc., we set the first instance 
+of an image inside the container to be relative. Which means 
+it is a regular part of the page */
+.imagecontainer img:first-child{
+  position:relative;
+  filter:saturate(0%) ;
+}
+
+/* Turning the top image into a filter by opacity */
+.imageFilter{
+  opacity:0.6;
+  filter:sepia(100%) saturate(8000%) invert(100%) hue-rotate(170deg);
+  mix-blend-mode: multiply;  
+}

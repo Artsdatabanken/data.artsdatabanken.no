@@ -31,26 +31,31 @@ export default props => {
           src="https://data.artsdatabanken.no/Datakilde/Artsdatabanken/logo_med_navn_408.png"
         />*/}
         <h1>{tittel}</h1>
-        <div >
-          {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
+        <div className="contentContainer">
+          <div className="sideContent">
+            <Bilde {...type.foto.forside} alt={"Foto av " + tittel.toLowerCase()} />
+            <Statistikk tittel={tittel} {...type.stats} />
+            <div>
+              <DelAv overordnede={type.overordnet} />
+              <Barna barn={type.barn} />
+              <Relasjoner relasjoner={type.graf} />
+            </div>
+          </div>
+          <div className="mainContent">
+            <div>
+              {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
+            </div>
+            <OpenApi api={type.api} tittel={tittel} />
+            <OpenData kartformater={type.kartformat} />
+            <Kart url={type.url} />
+            <small>
+              Oppdatert {new Date().toISOString()} -{" "}
+              <a href="https://github.com/Artsdatabanken/adb-data-portal/">
+                Github
+              </a>
+            </small>
+          </div>
         </div>
-        
-        <Bilde {...type.foto.forside} alt={"Foto av " + tittel.toLowerCase()} />
-        <Statistikk tittel={tittel} {...type.stats} />
-        <div>
-          <DelAv overordnede={type.overordnet} />
-          <Barna barn={type.barn} />
-          <Relasjoner relasjoner={type.graf} />
-        </div>
-        <OpenApi api={type.api} tittel={tittel} />
-        <OpenData kartformater={type.kartformat} />
-        <Kart url={type.url} />
-        <small>
-          Oppdatert {new Date().toISOString()} -{" "}
-          <a href="https://github.com/Artsdatabanken/adb-data-portal/">
-            Github
-          </a>
-        </small>
       </div>
     </div>
   );
