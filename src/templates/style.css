@@ -150,20 +150,25 @@ img{
   width:calc(100% - 300px);
   position:relative;
   left:0px;
+  margin:0px;
   padding-right:50px;
   vertical-align: top;
-  background: hsl(344, 0%, 98%);;
+  background: hsl(344, 0%, 98%,50%);
+  box-sizing: border-box;
 }
 
 @media only screen and (max-width: 900px) {
   .sideContent{
     width:100%;
     max-width:200px;
+    text-align: right;
   }
   .mainContent{
     width:calc(100% - 200px);
   }
+
 }
+
 
 @media only screen and (max-width: 600px) {
   .sideContent{
