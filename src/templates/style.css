@@ -1,0 +1,99 @@
+body{
+  box-sizing: border-box;
+}
+
+/*Placement of items on the page */
+.header_padding,
+.page_padding{
+  max-width:90%;
+  box-sizing:border-box;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+@media only screen and (min-width: 1000px) {
+  .header_padding,
+  .page_padding{
+    width:90%;
+    max-width:calc(1000px);
+  } 
+}
+
+.page_padding{
+  padding:10px;
+  margin-top: calc(20px * 2);
+}
+
+/* The top bar*/
+.header_background{
+  background:#4c4a48;
+  position: absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  box-sizing:border-box;
+  z-index: 5;
+}
+
+.header_background h1{
+  color:#ffffff;
+  margin:0px;
+  padding-bottom:10px;
+  padding-top:10px;
+  margin-left:calc(100px + 20px);
+  font-size:20px;
+  font-weight: 200;
+}
+
+.top_image{
+  top:0px;
+  position: absolute;
+  width:100px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);;
+  transition:all 0.3s cubic-bezier(.25,.8,.25,1);;
+}
+
+.species_header{
+  font-family: "Adobe Garmond", "serif";
+  font-style: italic;
+  color: #7f726b;
+}
+
+/*Contains everything, sets background etc. */
+.page_container{
+  max-width:100%;
+  font-size:12pt;
+  font-family:  "Roboto", "sans-serif";
+}
+
+@media only screen and (max-width: 600px) {
+  .form_category,
+  .upper_description,
+  .page_wrapper h2,
+  .page_wrapper h1{
+    padding-left:5%;
+    padding-right:5%;
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+}
+
+/* General styling based on our homepage */
+
+h1, h2, h3 {
+  color: #777368;
+  font-family: "Roboto Condensed";
+  font-weight: 700;
+}
+
+h1{
+  margin-top: 50px;
+  line-height: 1.5;
+  font-size: 40px;
+}
+
+div,
+img{
+  max-width: 100%;
+}
+
