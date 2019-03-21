@@ -138,10 +138,11 @@ img{
 .sideContent{
   display:inline-block;
   width:100%;
-  max-width:300px;
+  max-width:250px;
   position:relative;
   left:0px;
   vertical-align: top;
+  box-sizing: border-box; 
 }
 
 .mainContent{
@@ -159,17 +160,18 @@ img{
 @media only screen and (max-width: 900px) {
   .sideContent{
     width:100%;
-    max-width:200px;
-    text-align: right;
+    max-width:100%;
+    position:relative;
   }
+
   .mainContent{
-    width:calc(100% - 200px);
+    width:100%;
   }
 
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .sideContent{
     width:100%;
     max-width:100%;
@@ -179,6 +181,18 @@ img{
   .mainContent{
     width:100%;
   }
+}
+
+.main_content_image_container{
+  position:relative;
+  max-height:300px;
+  overflow:hidden;
+  margin:auto;
+}
+
+.main_content_image{
+  width:100%;
+  vertical-align: middle;
 }
 
 /**** Anchoring images within a div ****/
@@ -215,7 +229,7 @@ it is a regular part of the page */
 }
 
 .sibebar_link_menu{
-  border-right:1px solid #4c4a48;
+  border-right:1px solid #4c4a4830;
 }
 
 .sidebar_link,
@@ -234,8 +248,13 @@ it is a regular part of the page */
   padding-left:40px;
 }
 
-.sidebar_active_child{
+.sidebar_sister_child
+.sidebar_active_child,{
   padding-left:20px;
+}
+
+
+.sidebar_active_child,{
   text-decoration:  underline;
   font-weight: 800;
 }

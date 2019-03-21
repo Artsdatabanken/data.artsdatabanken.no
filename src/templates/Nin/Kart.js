@@ -8,7 +8,7 @@ class Kart extends Component {
     return (
       <div class="table" style={{}}>
 
-        <h4>Dekningsområde</h4>
+        <h4>Dekningsområde for kartdata</h4>
 
         <div className="imagecontainer">
           <a href={"http://nin.artsdatabanken.no/" + this.props.url}>

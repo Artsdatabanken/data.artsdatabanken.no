@@ -33,8 +33,7 @@ export default props => {
         <h1>{tittel}</h1>
         <div className="contentContainer">
           <div className="sideContent">
-            <Bilde {...type.foto.forside} alt={"Foto av " + tittel.toLowerCase()} />
-            <Statistikk tittel={tittel} {...type.stats} />
+           
             <div>
               <ul className="sibebar_link_menu">
                 <DelAv overordnede={type.overordnet} />
@@ -47,6 +46,8 @@ export default props => {
           </div>
           <div className="mainContent">
             <div>
+            <Bilde {...type.foto.forside} alt={"Foto av " + tittel.toLowerCase()} />
+            <Statistikk tittel={tittel} {...type.stats} />
               {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
             </div>
             <OpenApi api={type.api} tittel={tittel} />

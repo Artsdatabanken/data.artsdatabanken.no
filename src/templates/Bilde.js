@@ -1,8 +1,9 @@
 import React from "react";
 
 const Bilde = ({ url, alt, lisens, opphav, utgiver }) => (
-  <div>
+  <div className="main_content_image_container">
     <img
+      className="main_content_image"
       src={url}
       alt={alt}
       onError={e => {

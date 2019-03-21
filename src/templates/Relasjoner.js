@@ -6,6 +6,7 @@ import Blokk from "./Blokk";
 const RelasjonerSeksjon = ({ relasjoner }) => {
   if (!relasjoner) return null;
   return relasjoner.map(e => (
+
     <Blokk tittel={capitalize(e.type)} key={e.type}>
       <Relasjoner noder={e.noder} />
     </Blokk>
@@ -13,18 +14,11 @@ const RelasjonerSeksjon = ({ relasjoner }) => {
 };
 
 const Relasjoner = ({ noder }) => (
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "max-content max-content max-content max-content",
-      gridGap: "0.3em",
-      alignItems: "center"
-    }}
-  >
+  <React.Fragment>
     {noder.map(e => {
       return <RelasjonNode key={e.kode} {...e} />;
     })}
-  </div>
+  </React.Fragment>
 );
 
 const RelasjonNode = ({ relasjon, kode, tittel, farge, url }) => {
