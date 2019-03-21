@@ -36,9 +36,13 @@ export default props => {
             <Bilde {...type.foto.forside} alt={"Foto av " + tittel.toLowerCase()} />
             <Statistikk tittel={tittel} {...type.stats} />
             <div>
-              <DelAv overordnede={type.overordnet} />
-              <Barna barn={type.barn} />
-              <Relasjoner relasjoner={type.graf} />
+              <ul className="sibebar_link_menu">
+                <DelAv overordnede={type.overordnet} />
+                <li className="sidebar_link sidebar_active_child">{tittel}</li>
+                <Barna barn={type.barn}/>
+                <Relasjoner relasjoner={type.graf} />
+              </ul>
+              
             </div>
           </div>
           <div className="mainContent">

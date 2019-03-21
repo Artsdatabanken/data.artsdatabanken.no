@@ -6,21 +6,11 @@ import Blokk from "./Blokk";
 const Barna = ({ barn }) => {
   if (barn.length <= 0) return null;
   return (
-    <Blokk tittel="Inndelt i">
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns:
-            "max-content max-content max-content max-content",
-          gridGap: "0.3em",
-          alignItems: "center"
-        }}
-      >
-        {barn.map(e => (
-          <Barn key={e.kode} {...e} />
-        ))}
-      </div>
-    </Blokk>
+    <React.Fragment>
+      {barn.map(e => (
+        <Barn key={e.kode} {...e} />
+      ))}
+    </React.Fragment>
   );
 };
 
@@ -28,11 +18,9 @@ const Barn = ({ kode, tittel, url, farge, intervall }) => {
   const tittel1 = Object.values(tittel)[0];
   return (
     <React.Fragment>
-      <Swatch farge={farge} />
       <a href={"/" + url + "/index.html"}>
-        <div>{tittel1}</div>
+      <li  className="sidebar_link sidebar_children">{tittel1}</li>
       </a>
-      <Tag>{kode}</Tag>
       <div style={{ display: "flex" }}>
         <Intervaller intervall={intervall} />
       </div>

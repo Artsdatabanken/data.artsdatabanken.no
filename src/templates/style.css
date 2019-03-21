@@ -132,7 +132,6 @@ img{
 /* content boxes */
 
 .contentContainer{
-  position: relative;
   width:100%;
 }
 
@@ -140,8 +139,8 @@ img{
   display:inline-block;
   width:100%;
   max-width:300px;
-  position:absolute;
-  right:0px;
+  position:relative;
+  left:0px;
   vertical-align: top;
 }
 
@@ -151,7 +150,7 @@ img{
   position:relative;
   left:0px;
   margin:0px;
-  padding-right:50px;
+  padding-left:30px;
   vertical-align: top;
   background: hsl(344, 0%, 98%,50%);
   box-sizing: border-box;
@@ -210,7 +209,41 @@ it is a regular part of the page */
 
 /* Turning the top image into a filter by opacity */
 .imageFilter{
-  opacity:0.6;
-  filter:sepia(100%) saturate(8000%) invert(100%) hue-rotate(170deg);
-  mix-blend-mode: multiply;  
+  opacity:0.2;
+  /*filter:sepia(100%) saturate(8000%) invert(100%) hue-rotate(170deg);*/
+  /*mix-blend-mode: multiply;  */
+}
+
+.sibebar_link_menu{
+  border-right:1px solid #4c4a48;
+}
+
+.sidebar_link,
+.sibebar_link_menu a{
+  text-decoration: none;
+}
+
+.sidebar_link{
+  color: #4c4a48;
+  display: block;
+  font-family: "Roboto Condensed";
+  margin-top:10px;
+}
+
+.sidebar_children{
+  padding-left:40px;
+}
+
+.sidebar_active_child{
+  padding-left:20px;
+  text-decoration:  underline;
+  font-weight: 800;
+}
+
+ul{
+  padding:0px;
+}
+
+.sidebar_link:hover{
+  color:#eb6109;
 }
