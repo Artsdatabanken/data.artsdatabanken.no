@@ -20,7 +20,7 @@ function makePages(createPage, types) {
       console.log("2LONG", type.url);
       return;
     }
-    var url = type.url; //.replace("Natur_i_Norge/Landskap", "LA");
+    var url = type.url.replace("Katalog", "");
     //url = url.replace("Natur_i_Norge/Natursystem", "NA");
     createPage({
       path: `/${url}/`,
