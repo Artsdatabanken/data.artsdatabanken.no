@@ -3,9 +3,11 @@ import Seo from "../components/Seo";
 import Kart from "./Nin/Kart";
 import OpenData from "./OpenData";
 import OpenApi from "./OpenApi";
+import OpenEgenskap from "./OpenEgenskap";
 import Barna from "./Barna";
 import Bilde from "./Bilde";
 import DelAv from "./DelAv";
+import DataBlokk from "./DataBlokk";
 import Relasjoner from "./Relasjoner";
 import Statistikk from "./Statistikk";
 import "./table.css";
@@ -45,12 +47,20 @@ export default props => {
             </div>
           </div>
           <div className="mainContent">
+           
             <div>
-            <Bilde {...type.foto.forside} alt={"Foto av " + tittel.toLowerCase()} />
-            <Statistikk tittel={tittel} {...type.stats} />
-              {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
+              <Bilde {...type.foto.forside} alt={"Foto av " + tittel.toLowerCase()} />
+              <Statistikk tittel={tittel} {...type.stats} />
+                {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
             </div>
+            
             <OpenApi api={type.api} tittel={tittel} />
+            <DataBlokk api={type.api} tittel={tittel} kartformater={type.kartformat} />
+
+            <OpenEgenskap api={type.api} tittel={tittel} />
+            <DataBlokk api={type.api} tittel={tittel} kartformater={type.kartformat} />
+
+
             <OpenData kartformater={type.kartformat} />
             <Kart url={type.url} />
             <small>

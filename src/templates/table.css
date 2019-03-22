@@ -1,56 +1,85 @@
+table{
+  font-size:11pt;
+  border-collapse: collapse;
+}
+  
+td{ 
+  padding:5px;
+  padding-top:10px;
+  padding-bottom:10px;
+  vertical-align: top;
+}
+
+tr{
+  background:#c3c3c34d;
+}
+
+tr:nth-child(2n){
+  background:transparent;
+}
 
 thead th{ 
-    text-align: left;
-    padding-right:10px;
-    padding-bottom:10px;
+  text-align: left;
+  padding:5px;
+  text-align:center;
+  background:#FFF;
+  border-bottom: 1px solid #ccc; 
+}
+
+td{ 
+  text-align:center;
+}
+
+th:last-child,
+td:last-child{
+  text-align:left;
+}
+
+/* Table for smaller screens */
+@media only screen and (max-width: 768px) {
+
+  table, thead, tbody, th, td, tr { 
+    display: block; 
   }
-  
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr { 
+    position: absolute;
+    visibility:hidden;
+  }
+
   tr { 
-    border-bottom: 1px solid #ccc; 
+    padding:5px;
+    padding-left:0px;    
+    margin-bottom:15px;
+  }
+
+  td { 
+    /* Behave  like a "row" */
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    padding-top:5px;
+    padding-bottom:5px;
+    text-align: left;
+  }
+
+  td:before { 
+    /* Now like a table header */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 45%; 
+    padding:5px;
+    padding-right: 10px; 
+    padding-left:10px;
+    white-space: nowrap;
   }
   
-  @media only screen and (max-width: 768px) {
-    /* Reformatting table for smaller sizes*/
-  
-    table, thead, tbody, th, td, tr { 
-          display: block; 
-    }
-  
-    /* Hide table headers (but not display: none;, for accessibility) */
-      thead tr { 
-          position: absolute;
-          visibility:hidden;
-      }
-  
-    tr { 
-      padding:5px;
-      padding-left:0px;
-      border-bottom: 1px solid #ccc; 
-    }
-  
-    td { 
-        /* Behave  like a "row" */
-        border: none;
-        position: relative;
-        padding-left: 50%; 
-        margin-bottom:15px;
-    }
-    td:before { 
-          /* Now like a table header */
-          position: absolute;
-          top: 0px;
-          left: 0px;
-          width: 45%; 
-          padding-right: 10px; 
-          white-space: nowrap;
-    }
-    
-      /*
-      Label the data
-      */
-    td:nth-of-type(1):before { content: "Tittel"; }
-    td:nth-of-type(2):before { content: "Projeksjon"; }
-    td:nth-of-type(3):before { content: "Protokoll"; }
-    td:nth-of-type(4):before { content: "Attributter"; }
-    td:nth-of-type(5):before { content: "Beskrivelse"; } 
-  }
+  /* Label the data */
+  td:nth-of-type(1):before { content: "Tittel"; }
+  td:nth-of-type(2):before { content: "Projeksjon"; }
+  td:nth-of-type(3):before { content: "Protokoll"; }
+  td:nth-of-type(4):before { content: "Attributter"; }
+  td:nth-of-type(5):before { content: "Beskrivelse"; } 
+}

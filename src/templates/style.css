@@ -23,6 +23,10 @@ body{
   color: #4c4a48;
 }
 
+div{
+  box-sizing: border-box;
+  max-width:100%;
+}
 
 a:link {
   color:#7f726b;
@@ -166,10 +170,9 @@ img{
 
   .mainContent{
     width:100%;
+    padding-left:0px;
   }
-
 }
-
 
 @media only screen and (max-width: 768px) {
   .sideContent{
@@ -266,3 +269,84 @@ ul{
 .sidebar_link:hover{
   color:#eb6109;
 }
+
+.colour_squares{
+  display:inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: rgb(83, 238, 83);
+  border-style: solid;
+  border-width: 1px;
+  margin-right: 4px;
+  box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 5px 0px;
+  border-color: rgba(0, 0, 0, 0.33);
+}
+
+.tag{
+  display: inline-block;
+  position: absolute;
+  right:0px;
+  top:0px;
+  border-radius: 16px;
+  margin: 0px;
+  height: 26px;
+  color: rgba(0,0,0,0.7);
+  align-items: center;
+  white-space: nowrap;
+  justify-content: center;
+  margin-right: 8px;
+  background-color: rgba(0,0,0,0.1);
+}
+
+.blokk a{
+  position: relative;
+  width:100%;
+  display:inline-block;
+}
+
+
+/* The containers for data elements */
+
+.services_container{
+  width:100%;
+  margin-bottom:30px;
+}
+
+.sources_container{
+  background:lightgrey;
+  width:100%;
+  text-align: center;
+  padding-bottom:10px;
+}
+
+.sources_text,
+.licences_container,
+.source_container{
+  display:inline-block;
+}
+
+.source_item{
+  display:inline-block;
+  font-size: 10pt;
+  padding:5px;
+}
+
+.licences_container{
+  display:block;
+  text-align: center;
+}
+
+.sources_text{
+  width:calc(100% - 40px);
+}
+
+.licences_container img{
+  height: 25px;
+  margin: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: .5;
+  filter: alpha(opacity=50);
+}
+
+.tabledata{width:100%;height:200px;background:grey;}

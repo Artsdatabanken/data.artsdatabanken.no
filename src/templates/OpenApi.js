@@ -10,7 +10,6 @@ class OpenApi extends Component {
         url:
           "https://nintest.artsdatabanken.no/?map=/maps/%KODE%.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
         projeksjon: 32633,
-        attributter: "ingen",
         protokoll: "WMS",
         beskrivelse: "Web Map Service"
       },
@@ -19,7 +18,6 @@ class OpenApi extends Component {
         url:
           "https://nintest.artsdatabanken.no/?map=/maps/%KODE%.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
         projeksjon: 32633,
-        attributter: "navn, kode & areal i m²",
         protokoll: "WFS",
         beskrivelse: "Web Feature Service"
       },
@@ -27,7 +25,6 @@ class OpenApi extends Component {
         tittel: "Vector tiles",
         url: "./polygon.3857/",
         projeksjon: 3857,
-        attributter: "navn, kode & areal i m²",
         protokoll: "XYZ",
         beskrivelse:
           "Kartfliser i vektorformat for bruk i web-løsninger. Attributter: navn, kode & areal"
@@ -36,37 +33,29 @@ class OpenApi extends Component {
         tittel: "Raster tiles",
         url: "./gradient.3857/",
         projeksjon: 3857,
-        attributter: "ingen",
         protokoll: "XYZ",
         beskrivelse:
           "Kartfliser i rasterformat for bruk i web-løsninger. Attributter: navn, kode & areal"
       },
-      {
-        tittel: "Egenskaper",
-        url: "metadata.json",
-        protokoll: "JSON",
-        attributter: "alle",
-        projeksjon: "4326",
-        beskrivelse: `Alle tilgjengelige egenskaper relatert til ${tittel}, i maskinlesbar form`
-      }
+
     ];
 
     return (
       <div class="table">
-        <h4>Åpne tjenester</h4>
-        <table
-          style={{
-            gridGap: "0.3em",
-            alignItems: "center"
-          }}
-        >
+        <h2> {tittel} data </h2>
+        <h3>Tilgjengelige formater</h3>
+        <div>
+          Datagrunnlaget er bearbeidet av artsdatabanken, og kan benyttes etter lisensene (lisens).
+       </div>
+       <h4>API</h4>
+        <table>
           <thead>
             <tr>
-              <th style={{}}>Tittel</th>
-              <th style={{}}>Projeksjon</th>
-              <th style={{}}>Protokoll</th>
-              <th style={{}}>Attributter</th>
-              <th style={{}}>Beskrivelse</th>
+            <th>Format</th>
+              <th>Tittel</th>
+              <th>Projeksjon</th>
+              
+              <th>Beskrivelse</th>
             </tr>
           </thead>
           <tbody>
@@ -81,24 +70,24 @@ class OpenApi extends Component {
 }
 
 const Api = ({
+  protokoll,
   tittel,
   url,
   projeksjon,
-  protokoll,
-  attributter,
+  
   beskrivelse
 }) => {
   return (
     <tr>
-      <td style={{}}>
+      <td >{protokoll}</td>
+      <td >
         <a href={url}>{tittel}</a>
       </td>
       <td>
         <Projeksjon epsg={projeksjon} />
       </td>
-      <td style={{}}>{protokoll}</td>
-      <td style={{}}>{attributter}</td>
-      <td style={{}}>{beskrivelse}</td>
+      
+      <td >{beskrivelse}</td>
     </tr>
   );
 };

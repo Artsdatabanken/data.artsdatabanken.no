@@ -25,14 +25,13 @@ const RelasjonNode = ({ relasjon, kode, tittel, farge, url }) => {
   const tittel1 = Object.values(tittel)[0];
   return (
     <React.Fragment>
-      <Swatch farge={farge} />
       <a href={"/" + url + "/index.html"}>
-        <div style={{}}>{tittel1}</div>
-      </a>
-      <div style={{}}>{relasjon ? "(" + relasjon + ")" : ""}</div>
-      <div style={{ float: "right" }}>
-        <Tag>{kode}</Tag>
-      </div>
+        <li className="sidebar_link">
+          <Swatch farge={farge} /> {tittel1}
+          <div>{relasjon ? "(" + relasjon + ")" : ""}</div>
+          <Tag>{kode}</Tag>
+        </li>
+      </a>      
     </React.Fragment>
   );
 };
