@@ -1,5 +1,6 @@
 import React from "react";
 import Seo from "../components/Seo";
+import Header from "../components/Header";
 import Kart from "./Nin/Kart";
 import OpenData from "./OpenData";
 import OpenApi from "./OpenApi";
@@ -20,18 +21,9 @@ export default props => {
   const tittel = Object.values(type.tittel)[0];
   return (
     <div className="page_padding">
-      <div className="header_background">
-        <div className="header_padding">
-          <img src="https://artsdatabanken.no/Files/7809" className="top_image"/>
-          <h1 className="header_title">Artsdatabankens åpne data </h1>
-      </div>
-    </div>
+      <Header/>
       <Seo pageMeta={type} tittel={tittel} />
       <div>
-        {/*<img
-          style={{ display: "block", float: "right", width: 204 }}
-          src="https://data.artsdatabanken.no/Datakilde/Artsdatabanken/logo_med_navn_408.png"
-        />*/}
         <h1>{tittel}</h1>
         <div className="contentContainer">
           <div className="sideContent">
@@ -42,6 +34,26 @@ export default props => {
                 <li className="sidebar_link sidebar_active_child">{tittel}</li>
                 <Barna barn={type.barn}/>
                 <Relasjoner relasjoner={type.graf} />
+                <a href="https://artsdatabanken.no/Pages/233748?Key=1435226523">
+                  <li className="sidebar_link">Data fra artskart</li>
+                </a>
+
+                <a href="https://www.artsdatabanken.no/navn/sokhentnavn">
+                  <li className="sidebar_link">Data fra artsnavn</li>
+                </a>
+
+                <a href="https://www.artsdatabanken.no/hentdata/rodlistetearter">
+                  <li className="sidebar_link">Data om rødlistete arter</li>
+                </a>
+
+                <a href="https://www.artsdatabanken.no/Article/Article/133529">
+                  <li className="sidebar_link">Data om rødlistete naturtyper</li>
+                </a>
+
+                <a href="https://www.artsdatabanken.no/hentdata/fremmedearter">
+                  <li className="sidebar_link">Data om fremmede arter</li>
+                </a>
+                
               </ul>
               
             </div>
@@ -53,7 +65,7 @@ export default props => {
               <Statistikk tittel={tittel} {...type.stats} />
                 {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
             </div>
-            
+
             <OpenApi api={type.api} tittel={tittel} />
             <DataBlokk api={type.api} tittel={tittel} kartformater={type.kartformat} />
 

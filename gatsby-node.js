@@ -11,6 +11,12 @@ function read(fn, createPage) {
   if (types.data) types = types.data;
   if (types.tittel) types = { "~": types };
   makePages(createPage, types);
+  const rotdata = types["~"];
+  createPage({
+    path: `/`,
+    component: require.resolve("./src/templates/index.js"),
+    context:{rotdata},
+  });
 }
 
 function makePages(createPage, types) {
@@ -27,5 +33,6 @@ function makePages(createPage, types) {
       component: require.resolve("./src/templates/type.js"),
       context: { type }
     });
+    
   });
 }
