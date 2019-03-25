@@ -11,6 +11,7 @@ import DelAv from "./DelAv";
 import DataBlokk from "./DataBlokk";
 import Relasjoner from "./Relasjoner";
 import Statistikk from "./Statistikk";
+import Sidebar from "../components/Sidebar";
 import "./table.css";
 import "./style.css";
 
@@ -34,27 +35,8 @@ export default props => {
                 <li className="sidebar_link sidebar_active_child">{tittel}</li>
                 <Barna barn={type.barn}/>
                 <Relasjoner relasjoner={type.graf} />
-                <a href="https://artsdatabanken.no/Pages/233748?Key=1435226523">
-                  <li className="sidebar_link">Data fra artskart</li>
-                </a>
-
-                <a href="https://www.artsdatabanken.no/navn/sokhentnavn">
-                  <li className="sidebar_link">Data fra artsnavn</li>
-                </a>
-
-                <a href="https://www.artsdatabanken.no/hentdata/rodlistetearter">
-                  <li className="sidebar_link">Data om rødlistete arter</li>
-                </a>
-
-                <a href="https://www.artsdatabanken.no/Article/Article/133529">
-                  <li className="sidebar_link">Data om rødlistete naturtyper</li>
-                </a>
-
-                <a href="https://www.artsdatabanken.no/hentdata/fremmedearter">
-                  <li className="sidebar_link">Data om fremmede arter</li>
-                </a>
-                
               </ul>
+              <Sidebar/>
               
             </div>
           </div>

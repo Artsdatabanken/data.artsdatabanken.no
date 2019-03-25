@@ -1,29 +1,12 @@
 const fs = require("fs");
-const fetch = require("node-fetch");
-
-const dataUrl = "https://data.artsdatabanken.no/";
-const metadataFilename = "metadata_med_undertyper.json";
 
 exports.createPages = ({ actions }) => {
   const { createPage } = actions;
-  lesDatafil("Natur_i_Norge/Natursystem", createPage);
+  read("metadata_med_undertyper", createPage);
 };
 
-function lesDatafil(relUrl, createPage) {
-  const dataFilePath = "./data/" + relUrl.replace("/", "_") + ".json";
-  const url = dataUrl + relUrl + "/" + metadataFilename;
-  if (fs.existsSync(dataFilePath)) return read(dataFilePath, createPage);
-  fetch(url).then(response => {
-    if (response.status !== 200) throw new Error(response);
-    response.text().then(data => {
-      fs.writeFileSync(dataFilePath, data);
-      read(dataFilePath, createPage);
-    });
-  });
-}
-
-function read(dataFilePath, createPage) {
-  const data = fs.readFileSync(dataFilePath);
+function read(fn, createPage) {
+  const data = fs.readFileSync("./data/" + fn + ".json");
   let types = JSON.parse(data);
   if (types.data) types = types.data;
   if (types.tittel) types = { "~": types };
@@ -33,15 +16,15 @@ function read(dataFilePath, createPage) {
 function makePages(createPage, types) {
   Object.keys(types).forEach(kode => {
     const type = types[kode];
+    if (type.url.length > 190) {
+      console.log("2LONG", type.url);
+      return;
+    }
+    var url = type.url;
     createPage({
-      path: `/${type.url}/`,
-      component: finnTemplate(type),
+      path: `/${url}/`,
+      component: require.resolve("./src/templates/type.js"),
       context: { type }
-    });
+    });   
   });
-}
-
-function finnTemplate(type) {
-  if (type.kode === "~") return require.resolve("./src/templates/index.js");
-  return require.resolve("./src/templates/type.js");
 }

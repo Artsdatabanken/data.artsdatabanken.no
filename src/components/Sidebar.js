@@ -6,13 +6,30 @@ class Sidebar extends Component {
   render() {
     return (
         <ul className="sibebar_link_menu">
-            {/*<DelAv overordnede={type.overordnet} />*/}
-            <li className="sidebar_link sidebar_active_child">Åpne Data</li>
-            <Barna barn={this.props.type.barn}/>
-            {/*<Relasjoner relasjoner={type.graf} />*/}
-            <a href="https://artsdatabanken.no/Pages/233748?Key=1435226523">
+            
+            <a href="/Katalog">
+                <li className="sidebar_link sidebar_active_child">Åpne Data</li>
+            </a>
+            
+           
+            {/*<DelAv overordnede={type.overordnet} />
+                 <Barna barn={this.props.type.barn}/>
+                <Relasjoner relasjoner={type.graf} />
+            */}
+            <a href="/artskart">
                 <li className="sidebar_link">Data fra artskart</li>
             </a>
+            <ul className="sidebar_children">
+            <a href="/artskart/retningslinjer">
+                    <li className="sidebar_link">Retningslinjer</li>
+                </a>
+                <a href="/artskart/bidragsytere">
+                    <li className="sidebar_link">Bidragsytere</li>
+                </a>
+                <a href="/artskart/bildebruk">
+                    <li className="sidebar_link">Bildebruk</li>
+                </a>
+            </ul>
 
             <a href="https://www.artsdatabanken.no/navn/sokhentnavn">
                 <li className="sidebar_link">Data fra artsnavn</li>
