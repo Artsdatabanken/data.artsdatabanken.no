@@ -5,12 +5,11 @@ import Kart from "./Nin/Kart";
 import OpenData from "./OpenData";
 import OpenApi from "./OpenApi";
 import OpenEgenskap from "./OpenEgenskap";
-import Barna from "./Barna";
+
 import Bilde from "./Bilde";
-import DelAv from "./DelAv";
-import DataBlokk from "./DataBlokk";
-import Relasjoner from "./Relasjoner";
+
 import Statistikk from "./Statistikk";
+import DataBlokk from "./DataBlokk";
 import Sidebar from "../components/Sidebar";
 import "./table.css";
 import "./style.css";
@@ -30,13 +29,8 @@ export default props => {
           <div className="sideContent">
            
             <div>
-              <ul className="sibebar_link_menu">
-                <DelAv overordnede={type.overordnet} />
-                <li className="sidebar_link sidebar_active_child">{tittel}</li>
-                <Barna barn={type.barn}/>
-                <Relasjoner relasjoner={type.graf} />
-              </ul>
-              <Sidebar/>
+              
+              <Sidebar type={type} tittel={tittel}/>
               
             </div>
           </div>

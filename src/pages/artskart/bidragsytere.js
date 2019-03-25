@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Sidebar from "../../components/Sidebar";
+import SidebarForStaticPage from "../../components/SidebarForStaticPage";
 import Header from "../../components/Header";
 
 class FrontPage extends Component {
@@ -12,7 +12,7 @@ class FrontPage extends Component {
           <h1>Artskart</h1>
           <div className="contentContainer">
             <div className="sideContent">
-              <Sidebar/>
+              <SidebarForStaticPage/>
             </div>
             <div className="mainContent">
             <h2>Bidragsytere</h2>

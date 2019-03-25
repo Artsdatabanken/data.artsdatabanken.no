@@ -9,7 +9,7 @@ class SidebarStaticelements extends Component {
                 <li className="sidebar_link">Data fra artskart</li>
             </a>
             <ul className="sidebar_children">
-            <a href="/artskart/retningslinjer">
+                <a href="/artskart/retningslinjer">
                     <li className="sidebar_link">Retningslinjer</li>
                 </a>
                 <a href="/artskart/bidragsytere">
@@ -18,21 +18,48 @@ class SidebarStaticelements extends Component {
                 <a href="/artskart/bildebruk">
                     <li className="sidebar_link">Bildebruk</li>
                 </a>
+                <a href="/artskart/kvalitetssikring">
+                    <li className="sidebar_link">Kvalitetssikring</li>
+                </a>
+                <a href="/artskart/dataformat_og_nedlasting">
+                    <li className="sidebar_link">Dataformat og nedlasting</li>
+                </a>
             </ul>
 
-            <a href="https://www.artsdatabanken.no/navn/sokhentnavn">
+            <a href="/artsnavn">
                 <li className="sidebar_link">Data fra artsnavn</li>
             </a>
+            <ul className="sidebar_children">
+                <a href="http://www2.artsdatabanken.no/artsnavn/Contentpages/Sok.aspx">
+                    <li className="sidebar_link">Søk etter navn på arter og artsgrupper</li>
+                </a>
+                <a href="http://www.artsportalen.artsdatabanken.no/#artstre">
+                    <li className="sidebar_link">Let i slektskapstreet</li>
+                </a>
+                <a href="http://www2.artsdatabanken.no/artsnavn/Contentpages/Eksport.aspx">
+                    <li className="sidebar_link">Eksporter lister med navn</li>
+                </a>
+                <a href="https://www.artsdatabanken.no/Pages/225532">
+                    <li className="sidebar_link">Listesøk og Navnevask</li>
+                </a>
+                <a href="http://webtjenester.artsdatabanken.no/Artsnavnebase.asmx">
+                    <li className="sidebar_link">Nett-tjenester på navn</li>
+                </a>
+                <a href="http://eksport.artsdatabanken.no/Artsnavnebase/">
+                    <li className="sidebar_link">Nedlasting av hele Artsnavnebasen eller ett av rikene (CSV-format)</li>
+                </a>
 
-            <a href="https://www.artsdatabanken.no/hentdata/rodlistetearter">
+            </ul>
+
+            <a href="/rodlistearter">
                 <li className="sidebar_link">Data om rødlistete arter</li>
             </a>
 
-            <a href="https://www.artsdatabanken.no/Article/Article/133529">
-                <li className="sidebar_link">Data om rødlistete naturtyper</li>
+            <a href="/rodliste_naturtyper">
+                <li className="sidebar_link">Data om rødlistede naturtyper</li>
             </a>
 
-            <a href="https://www.artsdatabanken.no/hentdata/fremmedearter">
+            <a href="/fremmedarter">
                 <li className="sidebar_link">Data om fremmede arter</li>
             </a>
                 

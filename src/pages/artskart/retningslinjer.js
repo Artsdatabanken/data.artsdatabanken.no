@@ -9,12 +9,13 @@ class FrontPage extends Component {
         <div className="page_padding">
         <Header/>
         <div>
-          <h1>Retningslinjer for bruk og sitering</h1>
+          <h1>Artskart</h1>
           <div className="contentContainer">
             <div className="sideContent">
               <SidebarForStaticPage/>
             </div>
             <div className="mainContent">
+            <h2>Retningslinjer for bruk og sitering</h2>
             <p>
                 <b>
                All data i Artskart, med unntak av noen bilder, har åpen lisens og kan dermed brukes fritt så lange du aksepterer lisensvilkårene om sitering (og eventuelle tilleggskrav som kan være knyttet til bildebruk). Artsdatabanken oppfordrer alle til å benytte en standardisert praksis for sitering, som beskrevet nedenfor. Slik anerkjenner man originalkilden til informasjonen og hjelper andre å finne kilden til dataene.
