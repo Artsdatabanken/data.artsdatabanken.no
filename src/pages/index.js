@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Sidebar from "../components/Sidebar";
+import SidebarForStaticPage from "../components/SidebarForStaticPage";
 import Header from "../components/Header";
 //import "./table.css";
 //import "./style.css";
@@ -14,7 +14,7 @@ class FrontPage extends Component {
           <h1>Åpne data</h1>
           <div className="contentContainer">
             <div className="sideContent">
-              <Sidebar/>
+              <SidebarForStaticPage/>
             </div>
             <div className="mainContent">
             <h2>Hent data fra Artsdatabanken</h2>
