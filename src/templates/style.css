@@ -251,13 +251,13 @@ it is a regular part of the page */
   padding-left:40px;
 }
 
-.sidebar_sister_child
-.sidebar_active_child,{
+.sidebar_sister_child,
+.sidebar_active_child{
   padding-left:20px;
 }
 
-
-.sidebar_active_child,{
+.sidebar_active_parent,
+.sidebar_active_child{
   text-decoration:  underline;
   font-weight: 800;
 }

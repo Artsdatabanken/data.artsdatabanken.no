@@ -12,7 +12,7 @@ class FrontPage extends Component {
           <h1>Artsnavn</h1>
           <div className="contentContainer">
             <div className="sideContent">
-              <SidebarForStaticPage/>
+              <SidebarForStaticPage tittel="artsnavn"/>
             </div>
             <div className="mainContent">
             <h2>Om Artsnavn</h2>

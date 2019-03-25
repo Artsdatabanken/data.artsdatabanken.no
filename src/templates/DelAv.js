@@ -15,7 +15,10 @@ const DelAv = ({ overordnede }) => {
 };
 
 const Overordnet = ({ kode, tittel, url, farge }) => {
-  const tittel1 = Object.values(tittel)[0];
+  var tittel1 = Object.values(tittel)[0];
+  if(tittel1 ==="Katalog"){
+    tittel1 = "Hovedsiden";
+  }
   return (
     <React.Fragment>
       <a href={url === "Katalog" ? "/" : `/${url}/index.html`}>
@@ -23,7 +26,6 @@ const Overordnet = ({ kode, tittel, url, farge }) => {
             {tittel1} 
         </li>
       </a>
-      {/*{kode.length > 1 ? <Tag>{kode.split("-").pop()}</Tag> : <div />}*/}
     </React.Fragment>
   );
 };
