@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class DataBlokk extends Component {
+class Kilder extends Component {
   render() {
     const { tittel } = this.props;
 
@@ -36,4 +36,4 @@ class DataBlokk extends Component {
   }
 }
 
-export default DataBlokk;
+export default Kilder;

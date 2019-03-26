@@ -2,17 +2,18 @@ import React from "react";
 import Seo from "../components/Seo";
 import Header from "../components/Header";
 import Kart from "./Nin/Kart";
-import OpenData from "./OpenData";
-import OpenApi from "./OpenApi";
-import OpenEgenskap from "./OpenEgenskap";
-
+import OpenData from "../components/DataTables/OpenData";
+import OpenApi from "../components/DataTables/OpenApi";
+import OpenEgenskap from "../components/DataTables/OpenEgenskap";
 import Bilde from "./Bilde";
-
 import Statistikk from "./Statistikk";
-import DataBlokk from "./DataBlokk";
+import Kilder from "../components/DataTables/Kilder";
 import Sidebar from "../components/Sidebar/Sidebar";
-import "./table.css";
-import "./style.css";
+import "../style/table.css";
+import "../style/graphic-profile.css";
+import "../style/map.css";
+import "../style/sidebar.css";
+import "../style/style.css";
 
 export default props => {
   const {
@@ -35,21 +36,28 @@ export default props => {
             </div>
           </div>
           <div className="mainContent">
+          
            
             <div>
               <Bilde {...type.foto.forside} alt={"Foto av " + tittel.toLowerCase()} />
               <Statistikk tittel={tittel} {...type.stats} />
                 {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
             </div>
-
+            <h2> {tittel} dataleverandører </h2>
+            
+            {/* Currently working on this: 
+            <Kilder api={type.api} tittel={tittel} kartformater={type.kartformat} />*/}
+            
+            <h2>Tilgjengelige formater</h2>
             <OpenApi api={type.api} tittel={tittel} />
-            <DataBlokk api={type.api} tittel={tittel} kartformater={type.kartformat} />
-
+            <OpenData kartformater={type.kart.format} />
             <OpenEgenskap api={type.api} tittel={tittel} />
-            <DataBlokk api={type.api} tittel={tittel} kartformater={type.kartformat} />
 
+            
+            
+            
 
-            <OpenData kartformater={type.kartformat} />
+            <br/>
             <Kart url={type.url} />
             <small>
               Oppdatert {new Date().toISOString()} -{" "}

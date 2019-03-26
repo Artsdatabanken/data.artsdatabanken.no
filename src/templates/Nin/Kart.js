@@ -4,7 +4,7 @@ class Kart extends Component {
   render() {
     const url = `https://data.artsdatabanken.no/${
       this.props.url
-    }/grid_liten.png`;
+    }/thumbnail.32633.blur.png`;
     return (
       <div class="table" style={{}}>
 

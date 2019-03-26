@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Projeksjon from "./Projeksjon";
+import Projeksjon from "../../templates/Projeksjon";
 
 class OpenApi extends Component {
   render() {
@@ -41,14 +41,10 @@ class OpenApi extends Component {
     ];
 
     return (
-      <div class="table">
-        <h2> {tittel} data </h2>
-        <h3>Tilgjengelige formater</h3>
-        <div>
-          Datagrunnlaget er bearbeidet av artsdatabanken, og kan benyttes etter lisensene (lisens).
-       </div>
-       <h4>API</h4>
-        <table>
+      <React.Fragment>   
+        
+       <h3>API</h3>
+        <table className="open_api">
           <thead>
             <tr>
             <th>Format</th>
@@ -64,7 +60,7 @@ class OpenApi extends Component {
             ))}
           </tbody>
         </table>
-      </div>
+      </React.Fragment>   
     );
   }
 }

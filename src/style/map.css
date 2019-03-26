@@ -1,0 +1,34 @@
+
+/**** Anchoring images within a div ****/
+
+/* The container for the images */
+.imagecontainer{
+    position: relative;
+  }
+  
+  /* The images inside the container are all set to absolute, 
+  which means they all start at the same coordinate and are set to 
+  scale similarily*/
+  .imagecontainer img{
+    position:absolute;
+    top:0;
+    left:0;
+    height:auto;
+  }
+  
+  /* As absolute images don't push the page downwards (which we want 
+  so we know how big a space it needs etc., we set the first instance 
+  of an image inside the container to be relative. Which means 
+  it is a regular part of the page */
+  .imagecontainer img:first-child{
+    position:relative;
+    filter:saturate(0%) ;
+  }
+  
+  /* Turning the top image into a filter by opacity */
+  .imageFilter{
+    opacity:0.2;
+    /*filter:sepia(100%) saturate(8000%) invert(100%) hue-rotate(170deg);*/
+    /*mix-blend-mode: multiply;  */
+  }
+  

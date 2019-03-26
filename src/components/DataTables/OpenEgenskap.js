@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Projeksjon from "./Projeksjon";
+import Projeksjon from "../../templates/Projeksjon";
 
 class OpenEgenskap extends Component {
   render() {
@@ -17,12 +17,9 @@ class OpenEgenskap extends Component {
 
     return (
       <div class="table">
-        <h2> Egenskaper API </h2>
-        <div>
-          Datagrunnlaget for APIet er bearbeidet av artsdatabanken, og kan benyttes etter lisensene (lisens).
-          <br/><br/>
-        </div>
-        <table>
+      <h2> Egenskaper</h2>
+        <h3> API </h3>
+        <table className="open_egenskap">
           <thead>
             <tr>
               <th>Format</th>

@@ -5,18 +5,6 @@ Just for keeping it nice and availiable
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
-.graphic_profile{
-  background: #ffffff;
-  background:rgb(255,255,255);
-  background: #4c4a48;
-  background:rgb(76,74,72);
-  background: #7f726b;
-  background:rgb(128,115,105);
-  background: #de8608;
-  background:rgb(222,135,9);
-  background: #eb6109;
-  background:rgb(235,98,9);
-}
 
 body{
   box-sizing: border-box;
@@ -30,15 +18,6 @@ div{
   max-width:100%;
 }
 
-a:link {
-  color:#7f726b;
-}
-a:visited {
-  color: #7f726b;
-}
-a:hover {
-  color:#eb6109;
-}
 
 /*Placement of items on the page */
 .header_padding,
@@ -53,7 +32,7 @@ a:hover {
   .header_padding,
   .page_padding{
     width:90%;
-    max-width:calc(1000px);
+    max-width:calc(1300px);
   } 
 }
 
@@ -89,12 +68,6 @@ a:hover {
   width:100px;
   box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);;
   transition:all 0.3s cubic-bezier(.25,.8,.25,1);;
-}
-
-.species_header{
-  font-family: "Adobe Garmond", "serif";
-  font-style: italic;
-  color: #7f726b;
 }
 
 /*Contains everything, sets background etc. */
@@ -195,115 +168,10 @@ img{
   margin:auto;
 }
 
+
 .main_content_image{
   width:100%;
   vertical-align: middle;
-}
-
-/**** Anchoring images within a div ****/
-
-/* The container for the images */
-.imagecontainer{
-  position: relative;
-}
-
-/* The images inside the container are all set to absolute, 
-which means they all start at the same coordinate and are set to 
-scale similarily*/
-.imagecontainer img{
-  position:absolute;
-  top:0;
-  left:0;
-  height:auto;
-}
-
-/* As absolute images don't push the page downwards (which we want 
-so we know how big a space it needs etc., we set the first instance 
-of an image inside the container to be relative. Which means 
-it is a regular part of the page */
-.imagecontainer img:first-child{
-  position:relative;
-  filter:saturate(0%) ;
-}
-
-/* Turning the top image into a filter by opacity */
-.imageFilter{
-  opacity:0.2;
-  /*filter:sepia(100%) saturate(8000%) invert(100%) hue-rotate(170deg);*/
-  /*mix-blend-mode: multiply;  */
-}
-
-.sibebar_link_menu{
-  border-right:1px solid #4c4a4830;
-}
-
-.sidebar_link,
-.sibebar_link_menu a{
-  text-decoration: none;
-}
-
-.sidebar_link{
-  color: #4c4a48;
-  display: block;
-  font-family: "Roboto Condensed";
-  margin-top:10px;
-}
-
-.sidebar_children{
-  padding-left:40px;
-}
-
-.sidebar_sister_child,
-.sidebar_active_child{
-  padding-left:20px;
-}
-
-.sidebar_active_parent,
-.sidebar_active_child{
-  text-decoration:  underline;
-  font-weight: 800;
-}
-
-ul{
-  padding:0px;
-}
-
-.sidebar_link:hover{
-  color:#eb6109;
-}
-
-.colour_squares{
-  display:inline-block;
-  width: 12px;
-  height: 12px;
-  background-color: rgb(83, 238, 83);
-  border-style: solid;
-  border-width: 1px;
-  margin-right: 4px;
-  box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 5px 0px;
-  border-color: rgba(0, 0, 0, 0.33);
-}
-
-.tag{
-  display: inline-block;
-  position: absolute;
-  right:0px;
-  top:0px;
-  border-radius: 16px;
-  margin: 0px;
-  height: 26px;
-  color: rgba(0,0,0,0.7);
-  align-items: center;
-  white-space: nowrap;
-  justify-content: center;
-  margin-right: 8px;
-  background-color: rgba(0,0,0,0.1);
-}
-
-.blokk a{
-  position: relative;
-  width:100%;
-  display:inline-block;
 }
 
 
@@ -315,7 +183,8 @@ ul{
 }
 
 .sources_container{
-  background:lightgrey;
+  background:#FFF;
+  border-radius: 5px;
   width:100%;
   text-align: center;
   padding-bottom:10px;
@@ -351,4 +220,3 @@ ul{
   filter: alpha(opacity=50);
 }
 
-.tabledata{width:100%;height:200px;background:grey;}
