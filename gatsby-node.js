@@ -20,12 +20,11 @@ function makePages(createPage, types) {
       console.log("2LONG", type.url);
       return;
     }
-    var url = type.url; //.replace("Natur_i_Norge/Landskap", "LA");
-    //url = url.replace("Natur_i_Norge/Natursystem", "NA");
+    var url = type.url;
     createPage({
       path: `/${url}/`,
       component: require.resolve("./src/templates/type.js"),
       context: { type }
-    });
+    });   
   });
 }

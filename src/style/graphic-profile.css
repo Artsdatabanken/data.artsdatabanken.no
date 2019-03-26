@@ -1,0 +1,23 @@
+.graphic_profile{
+    background: #ffffff;
+    background:rgb(255,255,255);
+    background: #4c4a48;
+    background:rgb(76,74,72);
+    background: #7f726b;
+    background:rgb(128,115,105);
+    background: #de8608;
+    background:rgb(222,135,9);
+    background: #eb6109;
+    background:rgb(235,98,9);
+  }
+
+  a:link {
+    color:#7f726b;
+  }
+  a:visited {
+    color: #7f726b;
+  }
+  a:hover {
+    color:#eb6109;
+  }
+  

@@ -4,11 +4,11 @@ class Kart extends Component {
   render() {
     const url = `https://data.artsdatabanken.no/${
       this.props.url
-    }/grid_liten.png`;
+    }/thumbnail.32633.blur.png`;
     return (
       <div class="table" style={{}}>
 
-        <h4>Dekningsområde</h4>
+        <h4>Dekningsområde for kartdata</h4>
 
         <div className="imagecontainer">
           <a href={"http://nin.artsdatabanken.no/" + this.props.url}>
