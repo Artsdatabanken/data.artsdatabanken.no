@@ -10,7 +10,7 @@ import Bilde from "./Bilde";
 
 import Statistikk from "./Statistikk";
 import DataBlokk from "./DataBlokk";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/Sidebar/Sidebar";
 import "./table.css";
 import "./style.css";
 

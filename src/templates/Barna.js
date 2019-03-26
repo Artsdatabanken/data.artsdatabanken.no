@@ -1,7 +1,4 @@
 import React from "react";
-import Tag from "./Tag";
-import Swatch from "./Nin/Swatch";
-import Blokk from "./Blokk";
 
 const Barna = ({ barn }) => {
   if (barn.length <= 0) return null;

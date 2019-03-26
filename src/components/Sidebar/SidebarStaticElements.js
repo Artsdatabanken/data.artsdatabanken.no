@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class SidebarStaticelements extends Component {
   render() {
-    const { tittel,type } = this.props;
+    const { tittel } = this.props;
 
 
     return (

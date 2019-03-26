@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SidebarForStaticPage from "../components/SidebarForStaticPage";
+import SidebarForStaticPage from "../components/Sidebar/SidebarForStaticPage";
 import Header from "../components/Header";
 
 class FrontPage extends Component {

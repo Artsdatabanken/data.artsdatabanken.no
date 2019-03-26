@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Barna from "../templates/Barna";
-import type from "../templates/type";
 import SidebarStaticElements from "./SidebarStaticElements";
 
 class SidebarForStaticPage extends Component {

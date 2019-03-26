@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import Barna from "../templates/Barna";
-import Søsken from "../templates/Søsken";
-import type from "../templates/type";
-import DelAv from "../templates/DelAv";
-import Relasjoner from "../templates//Relasjoner";
+import Søsken from "./Søsken";
+import DelAv from "./DelAv";
+import Relasjoner from "../../templates/Relasjoner";
 import SidebarStaticElements from "./SidebarStaticElements";
 
 class Sidebar extends Component {
@@ -16,9 +14,7 @@ class Sidebar extends Component {
             <DelAv overordnede={type.overordnet} />           
             <Søsken søsken={type.søsken} nåværende={tittel} barn={type.barn}/>
             <Relasjoner relasjoner={type.graf} />
-            <SidebarStaticElements tittel={ tittel} type={type}/>
-            
-                
+            <SidebarStaticElements tittel={ tittel} type={type}/> 
         </ul>
     );
   } 

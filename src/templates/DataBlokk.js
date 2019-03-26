@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Projeksjon from "./Projeksjon";
 
 class DataBlokk extends Component {
   render() {

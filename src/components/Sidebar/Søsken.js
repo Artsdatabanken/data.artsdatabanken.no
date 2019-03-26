@@ -1,5 +1,5 @@
 import React from "react";
-import Barna from "../templates/Barna";
+import Barna from "../../templates/Barna";
 
 const Søsken = ({ søsken,nåværende,barn }) => {
   if (søsken.length <= 0) return null;

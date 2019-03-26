@@ -1,7 +1,4 @@
 import React from "react";
-import Tag from "./Tag";
-import Swatch from "./Nin/Swatch";
-import Blokk from "./Blokk";
 
 const DelAv = ({ overordnede }) => {
   if (overordnede.length <= 0) return null;
@@ -16,12 +13,12 @@ const DelAv = ({ overordnede }) => {
 
 const Overordnet = ({ kode, tittel, url, farge }) => {
   var tittel1 = Object.values(tittel)[0];
-  if(tittel1 ==="Katalog"){
+  if(tittel1 ==="Åpne data"){
     tittel1 = "Hovedsiden";
   }
   return (
     <React.Fragment>
-      <a href={url === "Katalog" ? "/" : `/${url}/index.html`}>
+      <a href={url === "Åpne_data" ? "/" : `/${url}/index.html`}>
         <li className="sidebar_link">
             {tittel1} 
         </li>
