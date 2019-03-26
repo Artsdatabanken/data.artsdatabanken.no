@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Barna from "../templates/Barna";
+import Søsken from "../templates/Søsken";
 import type from "../templates/type";
 import DelAv from "../templates/DelAv";
 import Relasjoner from "../templates//Relasjoner";
@@ -12,11 +13,9 @@ class Sidebar extends Component {
 
     return (
         <ul className="sibebar_link_menu">
-            <DelAv overordnede={type.overordnet} />
-            <li className="sidebar_link sidebar_active_child">{tittel}</li>
-            <Barna barn={type.barn}/>
+            <DelAv overordnede={type.overordnet} />           
+            <Søsken søsken={type.søsken} nåværende={tittel} barn={type.barn}/>
             <Relasjoner relasjoner={type.graf} />
-  
             <SidebarStaticElements tittel={ tittel} type={type}/>
             
                 
