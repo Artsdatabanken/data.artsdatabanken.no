@@ -13,7 +13,8 @@ class Sidebar extends Component {
         <ul className="sibebar_link_menu">
             <DelAv overordnede={type.overordnet} />           
             <Søsken søsken={type.søsken} nåværende={tittel} barn={type.barn}/>
-            <Relasjoner relasjoner={type.graf} />
+           {/* skjules inntil vider plan eksisterer
+           <Relasjoner relasjoner={type.graf} />*/}
             <SidebarStaticElements tittel={ tittel} type={type}/> 
         </ul>
     );

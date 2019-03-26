@@ -4,6 +4,7 @@
 /* The container for the images */
 .imagecontainer{
     position: relative;
+    max-width:639px;
   }
   
   /* The images inside the container are all set to absolute, 
@@ -14,6 +15,7 @@
     top:0;
     left:0;
     height:auto;
+    max-width:639px;
   }
   
   /* As absolute images don't push the page downwards (which we want 
@@ -23,12 +25,15 @@
   .imagecontainer img:first-child{
     position:relative;
     filter:saturate(0%) ;
+    opacity:0.6;
   }
   
   /* Turning the top image into a filter by opacity */
   .imageFilter{
-    opacity:0.2;
-    /*filter:sepia(100%) saturate(8000%) invert(100%) hue-rotate(170deg);*/
-    /*mix-blend-mode: multiply;  */
+    opacity:0.8;
+    max-width:1000px;
+    /*
+    filter:saturate(300%) hue-rotate(170deg);
+    mix-blend-mode: multiply;  */
   }
   

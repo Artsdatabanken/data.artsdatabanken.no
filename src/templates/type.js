@@ -50,7 +50,9 @@ export default props => {
             
             <h2>Tilgjengelige formater</h2>
             <OpenApi api={type.api} tittel={tittel} />
+            {type.kart&&
             <OpenData kartformater={type.kart.format} />
+            }
             <OpenEgenskap api={type.api} tittel={tittel} />
 
             
