@@ -4,7 +4,7 @@ node_js:
 directories:
   - node_modules
 before_install:
-  - sudo apt-get install -y ssh-pass
+  - sudo apt-get install -y sshpass
 script:
   - yarn build
 deploy:
