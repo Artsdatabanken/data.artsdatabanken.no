@@ -3,6 +3,8 @@ node_js:
   - "10"
 directories:
   - node_modules
+before_install:
+  - sudo apt-get install -y ssh-pass
 script:
   - yarn build
 deploy:
