@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "10"
+directories:
+  - node_modules
+script:
+  - yarn build
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master
+notifications:
+  slack:
+    on_success: change
+    on_failure: change
