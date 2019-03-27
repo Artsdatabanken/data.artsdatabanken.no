@@ -2,6 +2,7 @@ const fs = require("fs");
 const fetch = require("node-fetch");
 
 const dataUrl = "https://data.artsdatabanken.no/";
+const dataPath = "./data/";
 const metadataFilename = "metadata_med_undertyper.json";
 
 exports.createPages = ({ actions }) => {
@@ -10,7 +11,8 @@ exports.createPages = ({ actions }) => {
 };
 
 function lesDatafil(relUrl, createPage) {
-  const dataFilePath = "./data/" + relUrl.replace("/", "_") + ".json";
+  if (!fs.existsSync(dataPath)) fs.mkdirSync(dataPath);
+  const dataFilePath = dataPath + relUrl.replace("/", "_") + ".json";
   const url = dataUrl + relUrl + "/" + metadataFilename;
   if (fs.existsSync(dataFilePath)) return read(dataFilePath, createPage);
   fetch(url).then(response => {
