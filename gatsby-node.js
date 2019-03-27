@@ -44,6 +44,5 @@ function makePages(createPage, types) {
 }
 
 function finnTemplate(type) {
-  if (type.kode === "~") return require.resolve("./src/templates/index.js");
   return require.resolve("./src/templates/type.js");
 }
