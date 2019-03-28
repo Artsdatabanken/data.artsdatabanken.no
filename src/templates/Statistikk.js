@@ -1,6 +1,6 @@
 import React from "react";
 
-const arealFastland = 385180000000;
+//const arealFastland = 385180000000;
 const Statistikk = ({
   tittel,
   areal,
