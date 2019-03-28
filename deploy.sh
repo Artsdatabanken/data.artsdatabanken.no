@@ -1,6 +1,6 @@
 #!/bin/bash
 echo Making archive...
-tar -czf data-portal.tar.gz public/*.html
+tar -czf data-portal.tar.gz public/*.html deploy-www.js
 ls -la data-portal.tar.gz
 echo Deploying...
 sshpass -p '$scp_pass' scp data-portal.tar.gz $scp_user@nin.artsdatabanken.no:~/
