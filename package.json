@@ -22,9 +22,20 @@
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0"
   },
+  "devDependencies": {
+    "husky": "^1.2.0",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4",
+    "pretty-quick": "^1.10.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Artsdatabanken/adb-data-portal"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "bugs": {
     "url": "https://github.com/Artsdatabanken/adb-data-portal/issues"
