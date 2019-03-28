@@ -3,7 +3,6 @@ import Projeksjon from "../../templates/Projeksjon";
 
 class OpenApi extends Component {
   render() {
-    const { tittel } = this.props;
     const formater = [
       {
         tittel: "OGC WMS",
@@ -36,21 +35,19 @@ class OpenApi extends Component {
         protokoll: "XYZ",
         beskrivelse:
           "Kartfliser i rasterformat for bruk i web-løsninger. Attributter: navn, kode & areal"
-      },
-
+      }
     ];
 
     return (
-      <React.Fragment>   
-        
-       <h3>API</h3>
+      <React.Fragment>
+        <h3>API</h3>
         <table className="open_api">
           <thead>
             <tr>
-            <th>Format</th>
+              <th>Format</th>
               <th>Tittel</th>
               <th>Projeksjon</th>
-              
+
               <th>Beskrivelse</th>
             </tr>
           </thead>
@@ -60,7 +57,7 @@ class OpenApi extends Component {
             ))}
           </tbody>
         </table>
-      </React.Fragment>   
+      </React.Fragment>
     );
   }
 }
@@ -70,20 +67,20 @@ const Api = ({
   tittel,
   url,
   projeksjon,
-  
+
   beskrivelse
 }) => {
   return (
     <tr>
-      <td >{protokoll}</td>
-      <td >
+      <td>{protokoll}</td>
+      <td>
         <a href={url}>{tittel}</a>
       </td>
       <td>
         <Projeksjon epsg={projeksjon} />
       </td>
-      
-      <td >{beskrivelse}</td>
+
+      <td>{beskrivelse}</td>
     </tr>
   );
 };
