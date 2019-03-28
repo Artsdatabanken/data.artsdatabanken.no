@@ -4,10 +4,15 @@ const fetch = require("node-fetch");
 const dataUrl = "https://data.artsdatabanken.no/";
 const dataPath = "./data/";
 const metadataFilename = "metadata_med_undertyper.json";
+const isDeveloping = process.env.NODE_ENV === "development";
 
 exports.createPages = ({ actions }) => {
   const { createPage } = actions;
   lesDatafil("Natur_i_Norge/Natursystem", createPage);
+  lesDatafil("Natur_i_Norge/Landskap", createPage);
+  lesDatafil("Biota", createPage);
+  lesDatafil("Fylke", createPage);
+  lesDatafil("Naturvernområde", createPage);
 };
 
 function lesDatafil(relUrl, createPage) {
@@ -15,8 +20,9 @@ function lesDatafil(relUrl, createPage) {
   const dataFilePath = dataPath + relUrl.replace("/", "_") + ".json";
   const url = dataUrl + relUrl + "/" + metadataFilename;
   if (fs.existsSync(dataFilePath)) return read(dataFilePath, createPage);
+  console.log("Downloading " + url);
   fetch(url).then(response => {
-    if (response.status !== 200) throw new Error(response);
+    if (response.status !== 200) throw new Error(response.status + " " + url);
     response.text().then(data => {
       fs.writeFileSync(dataFilePath, data);
       read(dataFilePath, createPage);
@@ -35,10 +41,11 @@ function read(dataFilePath, createPage) {
 function makePages(createPage, types) {
   Object.keys(types).forEach(kode => {
     const type = types[kode];
+    if (isDeveloping && type.url.length > 92) return; // Filenames are too long
     createPage({
-      path: `/${type.url}/`,
+      path: isDeveloping ? `/${type.url}/` : `/${type.kode}.html`,
       component: finnTemplate(type),
-      context: { type }
+      context: type
     });
   });
 }
