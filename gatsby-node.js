@@ -50,6 +50,12 @@ function read(dataFilePath, createPage) {
       oo[topindex].url = hack(oo[topindex].url);
       oo[topindex].tittel.nb = hackNavn(oo[topindex].tittel.nb);
     }
+    if (type.kode === "~") {
+      type.barn = type.barn.filter(x => x.url === "Natur_i_Norge");
+      console.log(type.barn);
+    }
+    if (type.kode === "NN")
+      type.søsken = type.søsken.filter(x => x.url === "Natur_i_Norge");
   });
   makePages(createPage, types);
 }
