@@ -20,6 +20,8 @@ async function loadAll(createPage) {
   await lesDatafil("Biota", createPage);
   await lesDatafil("Fylke", createPage);
   await lesDatafil("Naturvernområde", createPage);
+  await lesDatafil("Datakilde", createPage);
+  await lesDatafil("Truet_art_natur", createPage);
 }
 
 async function lesDatafil(relUrl, createPage) {
@@ -53,11 +55,11 @@ function read(dataFilePath, createPage) {
 }
 
 function hack(url) {
-  return url === "Katalog" ? "" : url;
+  return url; // === "Katalog" ? "" : url;
 }
 
 function hackNavn(navn) {
-  return navn === "Katalog" ? "Åpne data" : navn;
+  return navn; //=== "Katalog" ? "Åpne data" : navn;
 }
 
 function makePages(createPage, types) {
@@ -65,7 +67,7 @@ function makePages(createPage, types) {
     const type = types[kode];
     if (isDeveloping && type.url.length > 92) return; // Filenames are too long
     createPage({
-      path: isDeveloping ? `/${type.url}/` : `/${type.kode}.html`,
+      path: isDeveloping ? `/${type.url}/` : `${type.kode}.html`,
       component: finnTemplate(type),
       context: type
     });
