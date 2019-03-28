@@ -1,7 +1,7 @@
 import React from "react";
 import Seo from "../components/Seo";
 import Header from "../components/Header";
-import Kart from "./Nin/Kart";
+import Kart from "./Kart";
 import OpenData from "../components/DataTables/OpenData";
 import OpenApi from "../components/DataTables/OpenApi";
 import OpenEgenskap from "../components/DataTables/OpenEgenskap";
@@ -17,6 +17,7 @@ import "../style/style.css";
 export default props => {
   const { pageContext: type } = props;
   const tittel = Object.values(type.tittel)[0];
+  console.log(props );
   return (
     <div className="page_padding">
       <Header />
