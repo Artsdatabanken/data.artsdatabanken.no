@@ -1,39 +1,38 @@
-
 /**** Anchoring images within a div ****/
 
 /* The container for the images */
-.imagecontainer{
-    position: relative;
-    max-width:639px;
-  }
-  
-  /* The images inside the container are all set to absolute, 
-  which means they all start at the same coordinate and are set to 
+.imagecontainer {
+  position: relative;
+  max-width: 639px;
+  mix-blend-mode: multiply;
+}
+
+/* The images inside the container are all set to absolute,
+  which means they all start at the same coordinate and are set to
   scale similarily*/
-  .imagecontainer img{
-    position:absolute;
-    top:0;
-    left:0;
-    height:auto;
-    max-width:639px;
-  }
-  
-  /* As absolute images don't push the page downwards (which we want 
-  so we know how big a space it needs etc., we set the first instance 
-  of an image inside the container to be relative. Which means 
+.imagecontainer img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  max-width: 639px;
+}
+
+/* As absolute images don't push the page downwards (which we want
+  so we know how big a space it needs etc., we set the first instance
+  of an image inside the container to be relative. Which means
   it is a regular part of the page */
-  .imagecontainer img:first-child{
-    position:relative;
-    filter:saturate(0%) ;
-    opacity:0.6;
-  }
-  
-  /* Turning the top image into a filter by opacity */
-  .imageFilter{
-    opacity:0.8;
-    max-width:1000px;
-    /*
+.imagecontainer img:first-child {
+  position: relative;
+  _opacity: 0.6;
+}
+
+/* Turning the top image into a filter by opacity */
+.imageFilter {
+  max-width: 1000px;
+  mix-blend-mode: multiply;
+  _opacity: 0.6;
+  /*
     filter:saturate(300%) hue-rotate(170deg);
     mix-blend-mode: multiply;  */
-  }
-  
+}

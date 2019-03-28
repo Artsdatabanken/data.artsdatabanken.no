@@ -1,24 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Kart extends Component {
-  render() {
-    const url = `https://data.artsdatabanken.no/${
-      this.props.url
-    }/thumbnail.32633.blur.png`;
-    return (
-      <div class="table" style={{}}>
+const Kart = ({ url, children }) => {
+  const previewUrl = `https://data.artsdatabanken.no/${url}/thumbnail.32633.blur.png`;
+  return (
+    <div class="table" style={{}}>
+      <h4>Dekningsområde for kartdata</h4>
 
-        <h4>Dekningsområde for kartdata</h4>
-
-        <div className="imagecontainer">
-          <a href={"http://nin.artsdatabanken.no/" + this.props.url}>
-          <img src="https://data.artsdatabanken.no/Basiskart/NaturalEarth/bak_liten.32633.png" />
-          <img src={url} className="imageFilter"/>
-          </a>
-        </div>
+      {children}
+      <div className="imagecontainer">
+        <a href={"http://nin.artsdatabanken.no/" + url}>
+          <img
+            src="https://data.artsdatabanken.no/Basiskart/NaturalEarth/bak_liten_grå.32633.png"
+            alt="bakgrunnskart"
+          />
+          <img src={previewUrl} className="imageFilter" alt="dekningskart" />
+        </a>
       </div>
-    );
-  } /* 174 19 61   0.682353 0.07451 0.239216 */
-}
+    </div>
+  );
+};
 
 export default Kart;
