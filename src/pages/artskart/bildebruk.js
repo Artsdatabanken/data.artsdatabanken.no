@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import SidebarForStaticPage from "../../components/Sidebar/SidebarForStaticPage";
 import Header from "../../components/Header";
+import "../../style/table.css";
+import "../../style/graphic-profile.css";
+import "../../style/map.css";
+import "../../style/sidebar.css";
+import "../../style/style.css";
 
 class FrontPage extends Component {
   render() {
@@ -22,7 +27,7 @@ class FrontPage extends Component {
                 Alle bilder som har en åpen lisens kan fritt brukes under forutsetning av at fotograf navngis og lisens oppgis. I tillegg <em>må</em> dine endringer av originalen dokumenteres, og det <em>bør</em> være synlig hvor bildet er hentet fra (ved hjelp av lenke), og hva originaltittelen var. Enkleste er bare å vise til originalen.
               </b>
             </p>
- 
+
             <p><p>De ulike typene åpne lisenser kan kort beskrives slik:</p>
             <ul><li>Creative Commons (CC) BY: Du kan gjøre hva du vil, men du må oppgi eier, lisens og hva du har endret. <a href="https://creativecommons.org/licenses/by/4.0/deed.no">Les mer om CC BY 4.0</a>.<br />
               </li>
@@ -50,7 +55,7 @@ class FrontPage extends Component {
 
 
             </div>
-  
+
           </div>
         </div>
       </div>

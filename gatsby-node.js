@@ -13,7 +13,18 @@ exports.createPages = ({ actions }) => {
     resolve();
   });
 };
-
+/*
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
+  //if (!node.context.kode) node.path = node.path.replace(/\/$/, "");
+  if (false && !node.context.kode)
+    createNodeField({
+      node,
+      name: `slug`,
+      value: node.path.replace(/\/$/, ".html")
+    });
+};
+*/
 async function loadAll(createPage) {
   await lesDatafil("Natur_i_Norge/Natursystem", createPage);
   await lesDatafil("Natur_i_Norge/Landskap", createPage);
@@ -69,17 +80,15 @@ function hackNavn(navn) {
 }
 
 function makePages(createPage, types) {
+  const component = require.resolve("./src/templates/type.js");
+
   Object.keys(types).forEach(kode => {
     const type = types[kode];
     if (isDeveloping && type.url.length > 92) return; // Filenames are too long
     createPage({
       path: isDeveloping ? `/${type.url}/` : `${type.kode}.html`,
-      component: finnTemplate(type),
+      component: component,
       context: type
     });
   });
-}
-
-function finnTemplate(type) {
-  return require.resolve("./src/templates/type.js");
 }

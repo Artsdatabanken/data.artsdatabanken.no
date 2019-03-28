@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import SidebarForStaticPage from "../components/Sidebar/SidebarForStaticPage";
 import Header from "../components/Header";
+import "../style/table.css";
+import "../style/graphic-profile.css";
+import "../style/map.css";
+import "../style/sidebar.css";
+import "../style/style.css";
 
 class FrontPage extends Component {
   render() {
@@ -18,7 +23,7 @@ class FrontPage extends Component {
             <h2>Om Artsnavn</h2>
             <p>
               <b>
-              Artsdatabankens navneregister er en kilde til kvalitetssikret kunnskap om norske arters navn og deres systematiske tilhørighet.              
+              Artsdatabankens navneregister er en kilde til kvalitetssikret kunnskap om norske arters navn og deres systematiske tilhørighet.
               </b>
             </p>
 
@@ -53,10 +58,10 @@ class FrontPage extends Component {
 
 
 <h2 id="166012">Nett-tjenester på navn</h2><p>Det er etablert flere nett-tjenester på navn, dvs. tjenester som nett-baserte applikasjoner kan levere til hverandre.</p>
-           
+
 
             </div>
-  
+
           </div>
         </div>
       </div>

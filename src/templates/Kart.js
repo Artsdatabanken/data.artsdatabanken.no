@@ -1,6 +1,7 @@
 import React from "react";
 
 const Kart = ({ url, children }) => {
+  if (!url) return null;
   const previewUrl = `https://data.artsdatabanken.no/${url}/thumbnail.32633.blur.png`;
   return (
     <div class="table" style={{}}>

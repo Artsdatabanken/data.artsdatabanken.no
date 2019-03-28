@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import SidebarForStaticPage from "../components/Sidebar/SidebarForStaticPage";
 import Header from "../components/Header";
+import "../style/table.css";
+import "../style/graphic-profile.css";
+import "../style/map.css";
+import "../style/sidebar.css";
+import "../style/style.css";
 
 class FrontPage extends Component {
   render() {

@@ -17,7 +17,6 @@ import "../style/style.css";
 export default props => {
   const { pageContext: type } = props;
   const tittel = Object.values(type.tittel)[0];
-  console.log(props );
   return (
     <div className="page_padding">
       <Header />
