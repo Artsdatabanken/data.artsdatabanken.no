@@ -17,6 +17,7 @@ import "../style/style.css";
 export default props => {
   const { pageContext: type } = props;
   const tittel = Object.values(type.tittel)[0];
+  console.log(type.foto);
   return (
     <div className="page_padding">
       <Header />
@@ -32,17 +33,16 @@ export default props => {
           <div className="mainContent">
             <div>
               <Bilde
-                {...type.foto.forside}
+                {...type.foto.banner}
                 alt={"Foto av " + tittel.toLowerCase()}
               />
               {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
             </div>
-            <h2> {tittel} dataleverandører </h2>
 
             {/* Currently working on this:
             <Kilder api={type.api} tittel={tittel} kartformater={type.kartformat} />*/}
 
-            <h2>Tilgjengelige formater</h2>
+            <h2>Tilgjengelige dataformater</h2>
             <OpenApi api={type.api} tittel={tittel} />
             {type.kart && <OpenData kartformater={type.kart.format} />}
             <OpenEgenskap api={type.api} tittel={tittel} />
@@ -51,6 +51,8 @@ export default props => {
             <Kart url={type.url}>
               <Statistikk tittel={tittel} {...type.stats} />
             </Kart>
+
+            <h2> {tittel} dataleverandører </h2>
             <small>
               Oppdatert {new Date().toISOString()} -{" "}
               <a href="https://github.com/Artsdatabanken/adb-data-portal/">

@@ -1,89 +1,87 @@
-/* 
+/*
 Graphic profile Artsdatabanken
 Just for keeping it nice and availiable
 */
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
 
-
-body{
+body {
   box-sizing: border-box;
   font-family: "Roboto";
   background-color: hsl(344, 0%, 98%);
   color: #4c4a48;
 }
 
-div{
+div {
   box-sizing: border-box;
-  max-width:100%;
+  max-width: 100%;
 }
-
 
 /*Placement of items on the page */
 .header_padding,
-.page_padding{
-  max-width:90%;
-  box-sizing:border-box;
-  margin-left:auto;
-  margin-right:auto;
+.page_padding {
+  max-width: 90%;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media only screen and (min-width: 1000px) {
   .header_padding,
-  .page_padding{
-    width:90%;
-    max-width:calc(1300px);
-  } 
+  .page_padding {
+    width: 90%;
+    max-width: calc(1300px);
+  }
 }
 
-.page_padding{
-  padding:10px;
+.page_padding {
+  padding: 10px;
   margin-top: calc(20px * 2);
 }
 
 /* The top bar*/
-.header_background{
-  background:#4c4a48;
+.header_background {
+  background: #4c4a48;
   position: absolute;
-  top:0px;
-  left:0px;
-  width:100%;
-  box-sizing:border-box;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  box-sizing: border-box;
   z-index: 5;
 }
 
-.header_background h1{
-  color:#ffffff;
-  margin:0px;
-  padding-bottom:10px;
-  padding-top:10px;
-  margin-left:calc(100px + 20px);
-  font-size:20px;
+.header_background h1 {
+  color: #ffffff;
+  margin: 0px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-left: calc(100px + 20px);
+  font-size: 20px;
   font-weight: 200;
 }
 
-.top_image{
-  top:0px;
+.top_image {
+  top: 0px;
   position: absolute;
-  width:100px;
-  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);;
-  transition:all 0.3s cubic-bezier(.25,.8,.25,1);;
+  width: 100px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /*Contains everything, sets background etc. */
-.page_container{
-  max-width:100%;
-  font-size:12pt;
-  font-family:  "Roboto", "sans-serif";
+.page_container {
+  max-width: 100%;
+  font-size: 12pt;
+  font-family: "Roboto", "sans-serif";
 }
 
 @media only screen and (max-width: 600px) {
   .form_category,
   .upper_description,
   .page_wrapper h2,
-  .page_wrapper h1{
-    padding-left:5%;
-    padding-right:5%;
+  .page_wrapper h1 {
+    padding-left: 5%;
+    padding-right: 5%;
     max-width: 100%;
     overflow-wrap: break-word;
   }
@@ -91,132 +89,132 @@ div{
 
 /* General styling based on our homepage */
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: #777368;
   font-family: "Roboto Condensed";
   font-weight: 700;
 }
 
-h1{
+h1 {
   margin-top: 50px;
   line-height: 1.5;
   font-size: 40px;
 }
 
 div,
-img{
+img {
   max-width: 100%;
 }
 
 /* content boxes */
 
-.contentContainer{
-  width:100%;
+.contentContainer {
+  width: 100%;
 }
 
-.sideContent{
-  display:inline-block;
-  width:100%;
-  max-width:250px;
-  position:relative;
-  left:0px;
+.sideContent {
+  display: inline-block;
+  width: 100%;
+  max-width: 250px;
+  position: relative;
+  left: 0px;
   vertical-align: top;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
-.mainContent{
-  display:inline-block;
-  width:calc(100% - 300px);
-  position:relative;
-  left:0px;
-  margin:0px;
-  padding-left:30px;
+.mainContent {
+  display: inline-block;
+  width: calc(100% - 300px);
+  position: relative;
+  left: 0px;
+  margin: 0px;
+  padding-left: 30px;
   vertical-align: top;
-  background: hsl(344, 0%, 98%,50%);
+  background: hsl(344, 0%, 98%, 50%);
   box-sizing: border-box;
 }
 
 @media only screen and (max-width: 900px) {
-  .sideContent{
-    width:100%;
-    max-width:100%;
-    position:relative;
+  .sideContent {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
   }
 
-  .mainContent{
-    width:100%;
-    padding-left:0px;
+  .mainContent {
+    width: 100%;
+    padding-left: 0px;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .sideContent{
-    width:100%;
-    max-width:100%;
-    position:relative;
+  .sideContent {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
   }
 
-  .mainContent{
-    width:100%;
+  .mainContent {
+    width: 100%;
   }
 }
 
-.main_content_image_container{
-  position:relative;
-  max-height:300px;
-  overflow:hidden;
-  margin:auto;
+.main_content_image_container {
+  position: relative;
+  max-height: 300px;
+  overflow: hidden;
+  margin: auto;
+  margin-bottom: 10px;
 }
 
-
-.main_content_image{
-  width:100%;
+.main_content_image {
+  width: 100%;
   vertical-align: middle;
 }
 
-
 /* The containers for data elements */
 
-.services_container{
-  width:100%;
-  margin-bottom:30px;
+.services_container {
+  width: 100%;
+  margin-bottom: 30px;
 }
 
-.sources_container{
-  background:#FFF;
+.sources_container {
+  background: #fff;
   border-radius: 5px;
-  width:100%;
+  width: 100%;
   text-align: center;
-  padding-bottom:10px;
+  padding-bottom: 10px;
 }
 
 .sources_text,
 .licences_container,
-.source_container{
-  display:inline-block;
+.source_container {
+  display: inline-block;
 }
 
-.source_item{
-  display:inline-block;
+.source_item {
+  display: inline-block;
   font-size: 10pt;
-  padding:5px;
+  padding: 5px;
 }
 
-.licences_container{
-  display:block;
+.licences_container {
+  display: block;
   text-align: center;
 }
 
-.sources_text{
-  width:calc(100% - 40px);
+.sources_text {
+  width: calc(100% - 40px);
 }
 
-.licences_container img{
+.licences_container img {
   height: 25px;
   margin: 5px;
   display: inline-block;
   vertical-align: middle;
-  opacity: .5;
+  opacity: 0.5;
   filter: alpha(opacity=50);
 }
-
