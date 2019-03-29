@@ -63,7 +63,6 @@ function read(dataFilePath, createPage) {
     }
     if (type.kode === "~") {
       type.barn = type.barn.filter(x => x.url === "Natur_i_Norge");
-      console.log(type.barn);
     }
     if (type.kode === "NN")
       type.søsken = type.søsken.filter(x => x.url === "Natur_i_Norge");
