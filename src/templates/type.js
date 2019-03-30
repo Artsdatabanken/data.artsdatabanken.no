@@ -8,10 +8,16 @@ import OpenEgenskap from "../components/DataTables/OpenEgenskap";
 import Bilde from "./Bilde";
 import Statistikk from "./Statistikk";
 import Sidebar from "../components/Sidebar/Sidebar";
+import "../style/table.css";
+import "../style/graphic-profile.css";
+import "../style/map.css";
+import "../style/sidebar.css";
+import "../style/style.css";
 
 export default props => {
   const { pageContext: type } = props;
   const tittel = Object.values(type.tittel)[0];
+  const foto = type.foto.banner || type.foto.forside;
   return (
     <div className="page_padding">
       <Header />
@@ -26,10 +32,7 @@ export default props => {
           </div>
           <div className="mainContent">
             <div>
-              <Bilde
-                {...type.foto.banner}
-                alt={"Foto av " + tittel.toLowerCase()}
-              />
+              <Bilde {...foto} alt={"Foto av " + tittel.toLowerCase()} />
               {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
             </div>
 
