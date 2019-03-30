@@ -7,7 +7,7 @@ import HeaderView from "./HeaderView";
 
 const Header = () => {
   const [hits, setHits] = useState([]);
-  const [query, setQuery] = useState("asdf");
+  const [query, setQuery] = useState();
   useEffect(() => {
     if (!query) return setHits([]);
 
