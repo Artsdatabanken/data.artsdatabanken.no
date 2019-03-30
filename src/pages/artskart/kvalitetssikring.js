@@ -7,7 +7,6 @@ import "../../style/map.css";
 import "../../style/sidebar.css";
 import "../../style/style.css";
 
-
 class FrontPage extends Component {
   render() {
     return (

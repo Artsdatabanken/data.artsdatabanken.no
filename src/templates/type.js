@@ -8,11 +8,6 @@ import OpenEgenskap from "../components/DataTables/OpenEgenskap";
 import Bilde from "./Bilde";
 import Statistikk from "./Statistikk";
 import Sidebar from "../components/Sidebar/Sidebar";
-import "../style/table.css";
-import "../style/graphic-profile.css";
-import "../style/map.css";
-import "../style/sidebar.css";
-import "../style/style.css";
 
 export default props => {
   const { pageContext: type } = props;
