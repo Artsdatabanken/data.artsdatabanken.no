@@ -87,6 +87,7 @@ function makePages(createPage, types) {
     createPage({
       path: isDeveloping ? `/${type.url}/` : `${type.kode}.html`,
       component: component,
+      matchPath: `/${type.url}/*`,
       context: type
     });
   });
