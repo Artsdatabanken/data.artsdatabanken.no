@@ -7,7 +7,7 @@ class OpenApi extends Component {
       {
         tittel: "OGC WMS",
         url:
-          "https://nintest.artsdatabanken.no/?map=/maps/%KODE%.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+          "https://wms.artsdatabanken.no/?map=/maps/%KODE%.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
         projeksjon: 32633,
         protokoll: "WMS",
         beskrivelse: "Web Map Service"
