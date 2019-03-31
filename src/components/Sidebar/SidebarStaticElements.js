@@ -2,10 +2,11 @@ import React, { Component } from "react";
 
 class SidebarStaticelements extends Component {
   render() {
-    const { tittel } = this.props;
-
+    const { tittel = "" } = this.props;
+    if (tittel.indexOf("Art") < 0) return null;
+    // TODO: Flytt disse inn sammen med APIer for arter
     return (
-      <React.Fragment>
+      <div style={{ marginTop: 32 }}>
         <a href="/artskart">
           <li
             className={
@@ -77,7 +78,7 @@ class SidebarStaticelements extends Component {
         <a href="/fremmedarter">
           <li className="sidebar_link">Data om fremmede arter</li>
         </a>
-      </React.Fragment>
+      </div>
     );
   }
 }
