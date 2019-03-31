@@ -30,8 +30,7 @@ class FrontPage extends Component {
               </p>
               <p>
                 Dersom du ønsker å hente data fra Artsdatabanken finner du det
-                du leter etter ved å søke i eller laste ned datasett. Våre data
-                ligger per i dag i seks ulike databaser.
+                du leter etter ved å søke i eller laste ned datasett.
               </p>
             </div>
           </div>
