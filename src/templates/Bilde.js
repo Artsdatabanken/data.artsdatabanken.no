@@ -8,9 +8,7 @@ const Bilde = ({ url, alt, lisens, opphav, utgiver }) => {
         className="main_content_image"
         src={url}
         alt={alt}
-        onError={e => {
-          e.target.style.display = "none";
-        }}
+        onError={e => (e.target.style.display = "none")}
       />
     </div>
   );

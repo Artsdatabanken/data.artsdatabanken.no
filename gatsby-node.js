@@ -87,7 +87,9 @@ function makePages(createPage, types) {
     createPage({
       path: isDeveloping ? `/${type.url}/` : `${type.kode}.html`,
       component: component,
-      matchPath: `/${type.url}/*`,
+      jsonName: type.kode + ".json",
+      jsonPath: type.kode + ".json",
+      matchPath: type.url === "~" ? "/*" : `/${type.url}/*`,
       context: type
     });
   });
