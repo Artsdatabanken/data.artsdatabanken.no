@@ -13,18 +13,7 @@ exports.createPages = ({ actions }) => {
     resolve();
   });
 };
-/*
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
-  //if (!node.context.kode) node.path = node.path.replace(/\/$/, "");
-  if (false && !node.context.kode)
-    createNodeField({
-      node,
-      name: `slug`,
-      value: node.path.replace(/\/$/, ".html")
-    });
-};
-*/
+
 async function loadAll(createPage) {
   await lesUrl("index.json");
   await lesDatafil("Natur_i_Norge/Natursystem", createPage);
@@ -38,13 +27,14 @@ async function loadAll(createPage) {
 
 async function lesDatafil(relUrl, createPage) {
   const url = relUrl + "/" + metadataFilename;
-  const dataFilePath = lesUrl(url);
+  const dataFilePath = await lesUrl(url);
+  console.log("df", dataFilePath);
   read(dataFilePath, createPage);
 }
 
 async function lesUrl(relUrl) {
   if (!fs.existsSync(dataPath)) fs.mkdirSync(dataPath);
-  const dataFilePath = dataPath + relUrl.replace("/", "_") + ".json";
+  const dataFilePath = dataPath + relUrl.replace(/\//g, "_");
   const url = dataUrl + relUrl;
   if (fs.existsSync(dataFilePath)) return dataFilePath;
   console.log("Downloading " + url);
@@ -52,6 +42,7 @@ async function lesUrl(relUrl) {
   if (response.status !== 200) throw new Error(response.status + " " + url);
   const data = await response.text();
   fs.writeFileSync(dataFilePath, data);
+  console.log("Wrote", dataFilePath);
   return dataFilePath;
 }
 
