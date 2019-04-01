@@ -1,10 +1,10 @@
+import WebLinks from "../components/DataTables/WebLinks";
 import React from "react";
 import Seo from "../components/Seo";
 import Header from "../components/Header";
 import Kart from "./Kart";
 import OpenData from "../components/DataTables/OpenData";
 import OpenApi from "../components/DataTables/OpenApi";
-import OpenEgenskap from "../components/DataTables/OpenEgenskap";
 import Bilde from "./Bilde";
 import Statistikk from "./Statistikk";
 import Sidebar from "../components/Sidebar/Sidebar";
@@ -39,23 +39,37 @@ export default props => {
             {/* Currently working on this:
             <Kilder api={type.api} tittel={tittel} kartformater={type.kartformat} />*/}
 
-            <h2>Tilgjengelige dataformater</h2>
-            <OpenApi api={type.api} tittel={tittel} />
-            {type.kart && <OpenData kartformater={type.kart.format} />}
-            <OpenEgenskap api={type.api} tittel={tittel} />
+            <h2>Tilgjengelige data</h2>
+            <OpenApi
+              api={type.api}
+              tittel={tittel}
+              kode={type.kode}
+              url={type.url}
+            />
+            <h2>Aktuelle websider</h2>
+            <WebLinks
+              api={type.api}
+              tittel={tittel}
+              kode={type.kode}
+              url={type.url}
+            />
+            {false && <OpenData kartformater={type.kart.format} />}
 
             <br />
             <Kart url={type.url}>
               <Statistikk tittel={tittel} {...type.stats} />
             </Kart>
 
-            <h2> {tittel} dataleverandører </h2>
-            <small>
-              Oppdatert {new Date().toISOString()} -{" "}
-              <a href="https://github.com/Artsdatabanken/adb-data-portal/">
-                Github
-              </a>
-            </small>
+            <h2>Dataleverandører</h2>
+            {JSON.stringify(type.datakilde)}
+            <p>
+              <small>
+                Oppdatert {new Date().toISOString()} -{" "}
+                <a href="https://github.com/Artsdatabanken/adb-data-portal/">
+                  Kildekode
+                </a>
+              </small>
+            </p>
           </div>
         </div>
       </div>
