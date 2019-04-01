@@ -49,6 +49,7 @@ class Kilde extends Component {
 }
 
 const lisenser = {
+  "CC BY SA 3.0": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
   "CC BY 4.0": "https://creativecommons.org/licenses/by/4.0/",
   NLOD: "https://data.norge.no/nlod/no/2.0"
 };
