@@ -26,6 +26,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 };
 */
 async function loadAll(createPage) {
+  await lesUrl("index.json");
   await lesDatafil("Natur_i_Norge/Natursystem", createPage);
   await lesDatafil("Natur_i_Norge/Landskap", createPage);
   await lesDatafil("Biota", createPage);
@@ -36,16 +37,22 @@ async function loadAll(createPage) {
 }
 
 async function lesDatafil(relUrl, createPage) {
+  const url = relUrl + "/" + metadataFilename;
+  const dataFilePath = lesUrl(url);
+  read(dataFilePath, createPage);
+}
+
+async function lesUrl(relUrl) {
   if (!fs.existsSync(dataPath)) fs.mkdirSync(dataPath);
   const dataFilePath = dataPath + relUrl.replace("/", "_") + ".json";
-  const url = dataUrl + relUrl + "/" + metadataFilename;
-  if (fs.existsSync(dataFilePath)) return read(dataFilePath, createPage);
+  const url = dataUrl + relUrl;
+  if (fs.existsSync(dataFilePath)) return dataFilePath;
   console.log("Downloading " + url);
   const response = await fetch(url);
   if (response.status !== 200) throw new Error(response.status + " " + url);
   const data = await response.text();
   fs.writeFileSync(dataFilePath, data);
-  read(dataFilePath, createPage);
+  return dataFilePath;
 }
 
 function read(dataFilePath, createPage) {
