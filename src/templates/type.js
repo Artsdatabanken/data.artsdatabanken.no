@@ -8,6 +8,7 @@ import OpenApi from "../components/DataTables/OpenApi";
 import Bilde from "./Bilde";
 import Statistikk from "./Statistikk";
 import Sidebar from "../components/Sidebar/Sidebar";
+import Kilder from "../components/DataTables/Kilder";
 import "../style/table.css";
 import "../style/graphic-profile.css";
 import "../style/map.css";
@@ -60,16 +61,20 @@ export default props => {
               <Statistikk tittel={tittel} {...type.stats} />
             </Kart>
 
-            <h2>Dataleverandører</h2>
-            {JSON.stringify(type.datakilde)}
-            <p>
-              <small>
-                Oppdatert {new Date().toISOString()} -{" "}
-                <a href="https://github.com/Artsdatabanken/adb-data-portal/">
-                  Kildekode
-                </a>
-              </small>
-            </p>
+            {type.datakilde && type.datakilde.length > 0 && (
+              <>
+                <h2>Dataleverandør</h2>
+                <Kilder kilder={type.datakilde} />
+                <p>
+                  <small>
+                    Oppdatert {new Date().toISOString()} -{" "}
+                    <a href="https://github.com/Artsdatabanken/adb-data-portal/">
+                      Kildekode
+                    </a>
+                  </small>
+                </p>
+              </>
+            )}
           </div>
         </div>
       </div>

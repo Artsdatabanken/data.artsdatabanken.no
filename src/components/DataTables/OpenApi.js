@@ -78,21 +78,30 @@ class OpenApi extends Component {
     const { kode, url, tittel } = this.props;
     const art = url.startsWith("Biota");
     return (
-      <React.Fragment>
-        <table className="open_api">
-          <thead>
-            <tr>
-              <th>Tittel</th>
-              <th>Projeksjon</th>
+      <table className="open_api">
+        <thead>
+          <tr>
+            <th>Tittel</th>
+            <th>Projeksjon</th>
 
-              <th>Beskrivelse</th>
-              <th>Format</th>
-              <th />
-              <th />
-            </tr>
-          </thead>
-          <tbody>
-            {opendata.map(e => (
+            <th>Beskrivelse</th>
+            <th>Format</th>
+            <th />
+            <th />
+          </tr>
+        </thead>
+        <tbody>
+          {opendata.map(e => (
+            <Api
+              key={e.tittel}
+              {...e}
+              kode={kode}
+              sidetittel={tittel}
+              relUrl={url}
+            />
+          ))}
+          {art &&
+            arter.map(e => (
               <Api
                 key={e.tittel}
                 {...e}
@@ -101,19 +110,8 @@ class OpenApi extends Component {
                 relUrl={url}
               />
             ))}
-            {art &&
-              arter.map(e => (
-                <Api
-                  key={e.tittel}
-                  {...e}
-                  kode={kode}
-                  sidetittel={tittel}
-                  relUrl={url}
-                />
-              ))}
-          </tbody>
-        </table>
-      </React.Fragment>
+        </tbody>
+      </table>
     );
   }
 }
