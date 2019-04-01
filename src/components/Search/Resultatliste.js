@@ -39,7 +39,7 @@ class ResultatListe extends Component {
   }
 
   render() {
-    const { onClick, query, searchResults, classes } = this.props;
+    const { query, searchResults, classes } = this.props;
     if (!searchResults) return null;
     if (!searchResults.length > 0) return null;
     return (

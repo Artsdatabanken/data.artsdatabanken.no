@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import SearchField from "./SearchField";
 
 const LookupControl = ({ query, classes, onBlur, onQueryChange }) => {
