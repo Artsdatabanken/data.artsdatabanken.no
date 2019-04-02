@@ -5,8 +5,7 @@ const Kart = ({ url, children }) => {
   const previewUrl = `https://data.artsdatabanken.no/${url}/thumbnail.32633.blur.png`;
   return (
     <div class="table" style={{}}>
-      <h4>Dekningsområde for kartdata</h4>
-
+      <h4>Utbredelse</h4>
       {children}
       <div className="imagecontainer">
         <a href={"http://nin.artsdatabanken.no/" + url}>
