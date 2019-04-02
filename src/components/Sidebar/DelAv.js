@@ -4,9 +4,7 @@ const DelAv = ({ overordnede }) => {
   if (overordnede.length <= 0) return null;
   return (
     <React.Fragment>
-      {overordnede.map(e => (
-        <Overordnet key={e.kode} {...e} />
-      ))}
+      {overordnede.map(e => <Overordnet key={e.kode} {...e} />).reverse()}
     </React.Fragment>
   );
 };
