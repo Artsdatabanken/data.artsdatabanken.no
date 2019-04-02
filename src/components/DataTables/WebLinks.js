@@ -22,6 +22,15 @@ const arter = [
   }
 ];
 
+const vern = [
+  {
+    tittel: "Verneområde: Faktaark",
+    url: "https://faktaark.naturbase.no/?id=%VV%",
+    protokoll: "REST XML",
+    host: "Miljødirektoratet"
+  }
+];
+
 const links = [
   {
     tittel: "Artsdatabanken",
@@ -34,6 +43,7 @@ class WebLinks extends Component {
   render() {
     const { kode, url, tittel } = this.props;
     const art = url.startsWith("Biota");
+    const vv = url.startsWith("Naturvernområde");
     return (
       <table className="open_api">
         <thead>
@@ -53,6 +63,16 @@ class WebLinks extends Component {
               relUrl={url}
             />
           ))}
+          {vv &&
+            vern.map(e => (
+              <WebLink
+                key={e.tittel}
+                {...e}
+                kode={kode}
+                sidetittel={tittel}
+                relUrl={url}
+              />
+            ))}
           {art &&
             arter.map(e => (
               <WebLink
@@ -91,9 +111,20 @@ const WebLink = ({
 };
 export default WebLinks;
 
-const fixUrl = (url, kode, relUrl, tittel) =>
-  (url || "")
+const padLeft = (s, i) => {
+  while (s.length < i) s = "0" + s;
+  return s;
+};
+
+const fixUrl = (url, kode, relUrl, tittel) => {
+  const a = (url || "").replace(
+    "%VV%",
+    "VV" + padLeft(kode.substring(3), 8) // 00002885
+  );
+  console.log("--", padLeft(a, 8), padLeft(kode.substring(2), 8));
+  return a
     .replace("%KODE%", kode)
     .replace("%ID%", kode.split("-")[1])
     .replace("%URL%", relUrl)
     .replace("%TITTEL%", tittel);
+};
