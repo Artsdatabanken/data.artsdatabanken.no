@@ -1,16 +1,17 @@
-import Swatch from "./Nin/Swatch";
 import Tag from "./Tag";
 import React from "react";
 import Blokk from "./Blokk";
 
 const RelasjonerSeksjon = ({ relasjoner }) => {
   if (!relasjoner) return null;
-  return relasjoner.map(e => (
-
-    <Blokk tittel={capitalize(e.type)} key={e.type}>
-      <Relasjoner noder={e.noder} />
-    </Blokk>
-  ));
+  return relasjoner.map(e => {
+    if (e.noder.length <= 0) return null;
+    return (
+      <Blokk tittel={capitalize(e.type)} key={e.type}>
+        <Relasjoner noder={e.noder} />
+      </Blokk>
+    );
+  });
 };
 
 const Relasjoner = ({ noder }) => (
@@ -27,11 +28,10 @@ const RelasjonNode = ({ relasjon, kode, tittel, farge, url }) => {
     <React.Fragment>
       <a href={"/" + url + "/index.html"}>
         <li className="sidebar_link">
-          <Swatch farge={farge} /> {tittel1}
+          {tittel1}
           <div>{relasjon ? "(" + relasjon + ")" : ""}</div>
-          <Tag>{kode}</Tag>
         </li>
-      </a>      
+      </a>
     </React.Fragment>
   );
 };
