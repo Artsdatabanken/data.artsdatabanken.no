@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class SidebarStaticelements extends Component {
   render() {
     const { tittel = "" } = this.props;
-    if (tittel.indexOf("Art") < 0) return null;
+    if (tittel !== "Art") return null;
     // TODO: Flytt disse inn sammen med APIer for arter
     return (
       <div style={{ marginTop: 32 }}>
