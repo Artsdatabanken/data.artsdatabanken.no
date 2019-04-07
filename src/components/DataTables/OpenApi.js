@@ -131,9 +131,7 @@ const Api = ({
   let fullDownloadUrl = fixUrl(downloadUrl, kode, relUrl, sidetittel);
   return (
     <tr>
-      <td>
-        <a href={fullUrl}>{tittel}</a>
-      </td>
+      <td>{tittel}</td>
       <td>{projeksjon && <Projeksjon epsg={projeksjon} />}</td>
       <td>{beskrivelse} </td>
       <td> {protokoll}</td>
