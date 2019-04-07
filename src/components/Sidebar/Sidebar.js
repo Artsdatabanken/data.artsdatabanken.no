@@ -11,7 +11,7 @@ class Sidebar extends Component {
       <ul className="sibebar_link_menu">
         <DelAv overordnede={type.overordnet} />
         <Søsken søsken={type.søsken} nåværende={tittel} barn={type.barn} />
-        {type.graf.length > 0 && (
+        {type.graf && type.graf.length > 0 && (
           <>
             <h3>Koblinger</h3>
             <Relasjoner relasjoner={type.graf} />
