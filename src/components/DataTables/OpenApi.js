@@ -133,8 +133,8 @@ const Api = ({
     <tr>
       <td>{tittel}</td>
       <td>{projeksjon && <Projeksjon epsg={projeksjon} />}</td>
-      <td>{beskrivelse} </td>
-      <td> {protokoll}</td>
+      <td>{beskrivelse}</td>
+      <td>{protokoll}</td>
       <td>{fullUrl && <a href={fullUrl}>API</a>} </td>
       <td>{fullDownloadUrl && <a href={fullDownloadUrl}>Last ned</a>}</td>
     </tr>
