@@ -39,6 +39,11 @@
       "pre-commit": "pretty-quick --staged"
     }
   },
+  "eslintConfig": {
+    "rules": {
+      "react/jsx-pascal-case": 0
+    }
+  },
   "bugs": {
     "url": "https://github.com/Artsdatabanken/adb-data-portal/issues"
   }
