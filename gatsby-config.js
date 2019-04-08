@@ -1,6 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Natur i Norge`
+    title: "Artsdatabanken åpne data"
   },
-  plugins: ["gatsby-transformer-json", "gatsby-plugin-react-helmet"]
+  plugins: [
+    "@wardpeet/gatsby-plugin-static-site",
+    "gatsby-transformer-json",
+    "gatsby-plugin-react-helmet"
+  ]
 };

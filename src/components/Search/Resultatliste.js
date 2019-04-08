@@ -2,7 +2,6 @@ import {
   Divider,
   List,
   ListItem,
-  ListItemSecondaryAction,
   ListItemText,
   Paper
 } from "@material-ui/core";
@@ -11,16 +10,25 @@ import React, { Component } from "react";
 import Bildeavatar from "./Bildeavatar";
 
 const styles = {
+  listitemtext: {
+    fontSize: 13,
+    display: "flex",
+    justifyContent: "space-between"
+  },
   text: {
     whiteSpace: "nowrap",
     textOverflow: "ellipsis",
-    overflow: "hidden",
-    fontSize: 13,
-    width: 235
+    overflow: "hidden"
   },
   inset: { marginLeft: 48 },
   listitem: { height: 38, cursor: "pointer" },
-  itemtext: { fontSize: 13, fontWeight: 100 },
+  kode: {
+    color: "#999",
+    fontSize: 13,
+    fontWeight: 400,
+    hyphens: "unset",
+    whiteSpace: "nowrap"
+  },
   textmatch: { color: "hsl(30, 3%, 29%)", fontWeight: 500 },
   textnomatch: { color: "#333", fontWeight: 400 }
 };
@@ -63,20 +71,18 @@ class ResultatListe extends Component {
                   key={item.url}
                 >
                   <Bildeavatar size="small" kode={item.kode} url={item.url} />
-                  <ListItemText classes={{ primary: classes.text }}>
-                    {ResultatListe.highlightMatch(navn, query, classes)}
+                  <ListItemText classes={{ primary: classes.listitemtext }}>
+                    <div className={classes.text}>
+                      {ResultatListe.highlightMatch(navn, query, classes)}
+                    </div>
+                    <div className={classes.kode}>
+                      {ResultatListe.highlightMatch(
+                        this.filtrer(item.kode),
+                        query,
+                        classes
+                      )}
+                    </div>
                   </ListItemText>
-                  <ListItemSecondaryAction>
-                    <ListItemText>
-                      <div className={classes.itemtext}>
-                        {ResultatListe.highlightMatch(
-                          this.filtrer(item.kode),
-                          query,
-                          classes
-                        )}
-                      </div>
-                    </ListItemText>
-                  </ListItemSecondaryAction>
                 </ListItem>
                 <Divider className={classes.inset} />
               </React.Fragment>

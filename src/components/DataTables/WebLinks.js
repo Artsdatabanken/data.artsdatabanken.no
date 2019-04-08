@@ -33,6 +33,11 @@ const vern = [
 
 const links = [
   {
+    tittel: "Kart: Innsynsløsning",
+    url: "https://nin.artsdatabanken.no/%URL%",
+    host: "Artsdatabanken"
+  },
+  {
     tittel: "Artsdatabanken",
     url: "https://artsdatabanken.no/Databank/Content/237662?q=%TITTEL%",
     beskrivelse: "Artikler",
@@ -121,7 +126,6 @@ const fixUrl = (url, kode, relUrl, tittel) => {
     "%VV%",
     "VV" + padLeft(kode.substring(3), 8) // 00002885
   );
-  console.log("--", padLeft(a, 8), padLeft(kode.substring(2), 8));
   return a
     .replace("%KODE%", kode)
     .replace("%ID%", kode.split("-")[1])

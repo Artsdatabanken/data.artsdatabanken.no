@@ -3,7 +3,7 @@ import React from "react";
 const Blokk = ({ tittel, children }) => {
   return (
     <div class="blokk">
-      <h4>{tittel}</h4>
+      <h4 class="blokk">{tittel}</h4>
       {children}
     </div>
   );

@@ -23,13 +23,13 @@ const Søskne = ({ kode, tittel, url, farge, nåværende, barn }) => {
         {tittel1 !== nåværende && (
           <li className="sidebar_link sidebar_sister_child">{tittel1}</li>
         )}
-        {tittel1 === nåværende && (
-          <React.Fragment>
-            <li className="sidebar_link sidebar_active_child">{tittel1}</li>
-            <Barna barn={barn} />
-          </React.Fragment>
-        )}
       </a>
+      {tittel1 === nåværende && (
+        <React.Fragment>
+          <li className="sidebar_link sidebar_active_child">{tittel1}</li>
+          <Barna barn={barn} />
+        </React.Fragment>
+      )}
     </React.Fragment>
   );
 };

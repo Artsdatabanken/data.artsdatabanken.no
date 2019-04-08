@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^3.9.3",
+    "@wardpeet/gatsby-plugin-static-site": "0.0.1",
     "axios": "^0.18.0",
     "gatsby": "^2.3.4",
     "gatsby-plugin-react-helmet": "^3.0.11",
@@ -36,6 +37,11 @@
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "eslintConfig": {
+    "rules": {
+      "react/jsx-pascal-case": 0
     }
   },
   "bugs": {

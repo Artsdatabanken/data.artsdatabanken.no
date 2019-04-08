@@ -1,4 +1,3 @@
-import Tag from "./Tag";
 import React from "react";
 import Blokk from "./Blokk";
 
