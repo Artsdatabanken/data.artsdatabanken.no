@@ -9,20 +9,20 @@ class SidebarForStaticPage extends Component {
         <a href="/">
           <li className="sidebar_link">Hovedsiden</li>
         </a>
-        {false && (
-          <a href="/Datakilde">
-            <li className="sidebar_link">Datakilde</li>
+        {true && (
+          <a href="/Biota">
+            <li className="sidebar_link">Arter</li>
           </a>
         )}
         <a href="/Natur_i_Norge">
           <li className="sidebar_link">Natur i Norge</li>
         </a>
-        {false && (
+        {true && (
           <a href="/Naturvernområde">
             <li className="sidebar_link">Naturvernområde</li>
           </a>
         )}
-        {false && (
+        {true && (
           <a href="/Fylke">
             <li className="sidebar_link">Fylke</li>
           </a>
@@ -33,8 +33,8 @@ class SidebarForStaticPage extends Component {
           </a>
         )}
         {false && (
-          <a href="/Biota">
-            <li className="sidebar_link">Arter</li>
+          <a href="/Datakilde">
+            <li className="sidebar_link">Datakilde</li>
           </a>
         )}
         <SidebarStaticElements tittel={tittel} />

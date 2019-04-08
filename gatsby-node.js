@@ -6,6 +6,14 @@ const dataPath = "./data/";
 const metadataFilename = "metadata_med_undertyper.json";
 const isDeveloping = process.env.NODE_ENV === "development";
 
+exports.onPreBuild = () => {
+  let promise = new Promise(function(resolve, reject) {
+    lastNedFiler()
+      .then(() => resolve())
+      .catch(err => reject(err));
+  });
+};
+
 exports.createPages = ({ actions }) => {
   const { createPage } = actions;
   return new Promise((resolve, reject) => {
@@ -13,6 +21,17 @@ exports.createPages = ({ actions }) => {
     resolve();
   });
 };
+
+async function lastNedFiler() {
+  await lesUrl("Natur_i_Norge/Natursystem");
+  await lesUrl("Natur_i_Norge/Landskap");
+  await lesUrl("Biota");
+  await lesUrl("Fylke");
+  await lesUrl("Naturvernområde");
+  await lesUrl("Datakilde");
+  await lesUrl("Truet_art_natur");
+  await lesUrl("index.json");
+}
 
 async function loadAll(createPage) {
   const filindeks = await lesFilindeks();
@@ -26,33 +45,36 @@ async function loadAll(createPage) {
 }
 
 async function lesFilindeks() {
-  const fn = await lesUrl("index.json");
-  return JSON.parse(fs.readFileSync(fn));
+  const filepath = dataPath + "index.json";
+  return JSON.parse(fs.readFileSync(filepath));
 }
 
 async function lesDatafil(relUrl, createPage) {
-  const url = relUrl + "/" + metadataFilename;
-  const dataFilePath = await lesUrl(url);
-  console.log("df", dataFilePath);
-  read(dataFilePath, createPage);
+  let filePath = dataFilePath(relUrl);
+  read(filePath, createPage);
+}
+
+function dataFilePath(relUrl, file) {
+  file = file || metadataFilename;
+  return dataPath + relUrl.replace(/\//g, "_") + "_" + file;
 }
 
 async function lesUrl(relUrl) {
   if (!fs.existsSync(dataPath)) fs.mkdirSync(dataPath);
-  const dataFilePath = dataPath + relUrl.replace(/\//g, "_");
   const url = dataUrl + relUrl;
-  if (fs.existsSync(dataFilePath)) return dataFilePath;
+  const filePath = dataFilePath(relUrl) + metadataFilename;
+  if (fs.existsSync(filePath)) return filePath;
   console.log("Downloading " + url);
   const response = await fetch(url);
   if (response.status !== 200) throw new Error(response.status + " " + url);
   const data = await response.text();
-  fs.writeFileSync(dataFilePath, data);
-  console.log("Wrote", dataFilePath);
-  return dataFilePath;
+  fs.writeFileSync(filePath, data);
+  console.log("Wrote", filePath);
+  return filePath;
 }
 
-function read(dataFilePath, createPage) {
-  const data = fs.readFileSync(dataFilePath);
+function read(filePath, createPage) {
+  const data = fs.readFileSync(filePath);
   let types = JSON.parse(data);
   if (types.data) types = types.data;
   Object.values(types).forEach(type => {
@@ -64,12 +86,15 @@ function read(dataFilePath, createPage) {
       oo[topindex].url = oo[topindex].url;
       oo[topindex].tittel.nb = oo[topindex].tittel.nb;
     }
-    if (type.kode === "~") {
+    /*    if (type.kode === "~") {
       type.barn = type.barn.filter(x => x.url === "Natur_i_Norge");
     }
     if (type.kode === "NN")
       type.søsken = type.søsken.filter(x => x.url === "Natur_i_Norge");
+*/
   });
+  console.log(filePath, types.length);
+
   makePages(createPage, types);
 }
 
@@ -82,9 +107,8 @@ function makePages(createPage, types) {
     createPage({
       path: isDeveloping ? `/${type.url}/` : `${type.kode}.html`,
       component: component,
-      jsonName: type.kode + ".json",
-      jsonPath: type.kode + ".json",
       matchPath: type.url === "~" ? "/*" : `/${type.url}/*`,
+      //matchPath: "/*",
       context: type
     });
   });

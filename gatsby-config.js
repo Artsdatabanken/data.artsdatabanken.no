@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Artsdatabanken åpne data`
+    title: "Artsdatabanken åpne data"
   },
   plugins: [
     "@wardpeet/gatsby-plugin-static-site",
