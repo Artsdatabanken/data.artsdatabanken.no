@@ -19,6 +19,7 @@ export default props => {
   const { pageContext: type } = props;
   const tittel = Object.values(type.tittel)[0];
   const foto = type.foto.banner || type.foto.forside;
+  const updateTime = preval`module.exports = new Date().toISOString()`;
   return (
     <div className="page_padding">
       <Header />
@@ -67,7 +68,7 @@ export default props => {
                 <Kilder kilder={type.datakilde} />
                 <p>
                   <small>
-                    Oppdatert {new Date().toISOString()} -{" "}
+                    Oppdatert {updateTime} -{" "}
                     <a href="https://github.com/Artsdatabanken/adb-data-portal/">
                       Kildekode
                     </a>

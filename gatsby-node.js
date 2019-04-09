@@ -57,7 +57,6 @@ function read(filePath, createPage) {
       type.søsken = type.søsken.filter(x => x.url === "Natur_i_Norge");
 */
   });
-  console.log(filePath, types.length);
 
   makePages(createPage, types);
 }
