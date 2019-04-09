@@ -5,7 +5,7 @@
 #- echo "TRAVIS_BRANCH=$TRAVIS_BRANCH, PR=$PR, BRANCH=$BRANCH"
 echo $BRANCH
 BRANCH=$1
-echo "Making archive...."
+echo "Making archive..."
 tar -czf $BRANCH.tar.gz public/ deploy-www.js
 echo "Deploying..."
 sshpass -p $scp_pass scp -o StrictHostKeyChecking=no $BRANCH.tar.gz $scp_user@$scp_dest
