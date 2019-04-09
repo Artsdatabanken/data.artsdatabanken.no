@@ -5,6 +5,7 @@ module.exports = {
   plugins: [
     "@wardpeet/gatsby-plugin-static-site",
     "gatsby-transformer-json",
-    "gatsby-plugin-react-helmet"
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-preval"
   ]
 };
