@@ -12,11 +12,11 @@ script:
 deploy:
   skip_cleanup: true
   provider: script
-  script: bash ./deploy.sh $BRANCH ops "deploy adb-data-portal"
+  script: bash ./deploy.sh $BRANCH
   on:
     branch: master
 after_success:
-  - ./deploy.sh $BRANCH ops "deploy adb-data-portal"
+  - ./deploy.sh $BRANCH
 notifications:
   slack:
     on_success: change
