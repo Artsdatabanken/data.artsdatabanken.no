@@ -1,18 +1,12 @@
 const fs = require("fs");
 const fetch = require("node-fetch");
+const {
+  dataPath,
+  metadataFilename,
+  getLocalDataFilePathForUrl
+} = require("./config");
 
-const dataUrl = "https://data.artsdatabanken.no/";
-const dataPath = "./data/";
-const metadataFilename = "metadata_med_undertyper.json";
 const isDeveloping = process.env.NODE_ENV === "development";
-
-exports.onPreBuild = () => {
-  let promise = new Promise(function(resolve, reject) {
-    lastNedFiler()
-      .then(() => resolve())
-      .catch(err => reject(err));
-  });
-};
 
 exports.createPages = ({ actions }) => {
   const { createPage } = actions;
@@ -21,17 +15,6 @@ exports.createPages = ({ actions }) => {
     resolve();
   });
 };
-
-async function lastNedFiler() {
-  await lesUrl("Natur_i_Norge/Natursystem");
-  await lesUrl("Natur_i_Norge/Landskap");
-  await lesUrl("Biota");
-  await lesUrl("Fylke");
-  await lesUrl("Naturvernområde");
-  await lesUrl("Datakilde");
-  await lesUrl("Truet_art_natur");
-  await lesUrl("index.json");
-}
 
 async function loadAll(createPage) {
   const filindeks = await lesFilindeks();
@@ -50,27 +33,8 @@ async function lesFilindeks() {
 }
 
 async function lesDatafil(relUrl, createPage) {
-  let filePath = dataFilePath(relUrl);
+  let filePath = getLocalDataFilePathForUrl(relUrl, metadataFilename);
   read(filePath, createPage);
-}
-
-function dataFilePath(relUrl, file) {
-  file = file || metadataFilename;
-  return dataPath + relUrl.replace(/\//g, "_") + "_" + file;
-}
-
-async function lesUrl(relUrl) {
-  if (!fs.existsSync(dataPath)) fs.mkdirSync(dataPath);
-  const url = dataUrl + relUrl;
-  const filePath = dataFilePath(relUrl) + metadataFilename;
-  if (fs.existsSync(filePath)) return filePath;
-  console.log("Downloading " + url);
-  const response = await fetch(url);
-  if (response.status !== 200) throw new Error(response.status + " " + url);
-  const data = await response.text();
-  fs.writeFileSync(filePath, data);
-  console.log("Wrote", filePath);
-  return filePath;
 }
 
 function read(filePath, createPage) {
