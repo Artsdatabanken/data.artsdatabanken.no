@@ -3,7 +3,7 @@
 #These lines should also be added in the "script block" of travis.yml.
 #- export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
 #- echo "TRAVIS_BRANCH=$TRAVIS_BRANCH, PR=$PR, BRANCH=$BRANCH"
-echo $BRANCH
+#echo $BRANCH
 echo $TRAVIS_REPO_SLUG
 echo $TRAVIS_PULL_REQUEST
 BRANCH=$1
