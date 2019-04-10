@@ -5,6 +5,7 @@
 #- echo "TRAVIS_BRANCH=$TRAVIS_BRANCH, PR=$PR, BRANCH=$BRANCH"
 echo $BRANCH
 echo $TRAVIS_REPO_SLUG
+echo $TRAVIS_PULL_REQUEST
 BRANCH=$1
 echo "Making archive..."
 tar -czf $BRANCH.tar.gz public/ deploy-www.js
