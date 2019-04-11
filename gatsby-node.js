@@ -66,12 +66,12 @@ function makePages(createPage, types) {
 
   Object.keys(types).forEach(kode => {
     const type = types[kode];
-    if (isDeveloping && type.url.length > 92) return; // Filenames are too long
+    const url = type.url;
     createPage({
-      path: isDeveloping ? `/${type.url}/` : `${type.kode}.html`,
+      path: `/${url}/`,
       component: component,
-      matchPath: type.url === "~" ? "/*" : `/${type.url}/*`,
-      //matchPath: "/*",
+      matchPath: type.url === "~" ? "/*" : `/${url}/*`,
+      jsonName: `/${url}/metadata.json`,
       context: type
     });
   });
