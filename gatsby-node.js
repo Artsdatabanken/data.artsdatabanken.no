@@ -68,7 +68,7 @@ function makePages(createPage, types) {
     const type = types[kode];
     const url = type.url;
     createPage({
-      path: `/${url}/`,
+      path: `/${url}`,
       component: component,
       matchPath: type.url === "~" ? "/*" : `/${url}/*`,
       jsonName: `/${url}/metadata.json`,
