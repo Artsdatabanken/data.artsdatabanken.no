@@ -12,8 +12,8 @@ const Søsken = ({ søsken, nåværende, barn }) => {
   );
 };
 
-const Søskne = ({ kode, tittel, url, farge, nåværende, barn }) => {
-  var tittel1 = Object.values(tittel)[0];
+const Søskne = ({ tittel, url, farge, nåværende, barn }) => {
+  var tittel1 = tittel.nb || Object.values(tittel)[0];
   if (tittel1 === "Katalog") {
     tittel1 = "Hovedsiden";
   }
