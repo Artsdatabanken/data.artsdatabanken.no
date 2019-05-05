@@ -65,7 +65,7 @@ export default props => {
 
             {type.datakilde && type.datakilde.length > 0 && (
               <>
-                <h2>Dataleverandør</h2>
+                <h2>Datakilde</h2>
                 <Kilder kilder={type.datakilde} />
                 <p>
                   <small>
