@@ -21,7 +21,6 @@ const arter = [
 const opendata = [
   {
     tittel: "Kart: GeoJSON",
-    url: "polygon.4326.geojson",
     downloadUrl: "%URL%/polygon.4326.geojson",
     projeksjon: 4326,
     protokoll: "GeoJSON",
@@ -29,7 +28,6 @@ const opendata = [
   },
   {
     tittel: "Kart: GeoJSON",
-    url: "polygon.32633.geojson",
     downloadUrl: "%URL%/polygon.32633.geojson",
     projeksjon: 32633,
     protokoll: "GeoJSON",
