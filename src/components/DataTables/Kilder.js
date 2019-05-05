@@ -16,30 +16,27 @@ class Kilde extends Component {
 
     return (
       <div
-        className="_source_container"
-        style={{ _display: "grid", backgroundColor: "#f8f8f8" }}
+        className="source_container"
+        style={{ display: "grid", backgroundColor: "#f8f8f8" }}
       >
-        <div className="_source_item" style={{ textAlign: "left" }}>
-          <div style={{ _float: "left", width: "80%" }}>
+        <div className="source_item" style={{ textAlign: "left" }}>
+          <div style={{ float: "left", width: "80%" }}>
             <a href={"/" + url}>
-              {false && (
-                <img
-                  style={{ _width: 100, display: "block", float: "left" }}
-                  src={
-                    "https://data.artsdatabanken.no/" + url + "/forside_408.png"
-                  }
-                />
-              )}
+              <img
+                style={{ paddingRight: 8, display: "block", float: "left" }}
+                src={"https://data.artsdatabanken.no/" + url + "/avatar_40.png"}
+              />
               <span style={{ fontSize: 22 }}>{tittel && tittel.nb}</span>
             </a>
             <div className="_licences_container">
               Lisens: <a href={lisenser[lisenskode]}>{lisenskode}</a>
+              {geonorgeurl && (
+                <span>
+                  {" "}
+                  - <a href={geonorgeurl}>Datasett</a>
+                </span>
+              )}
             </div>
-            {geonorgeurl && (
-              <div className="_licences_container">
-                <a href={geonorgeurl}>Datasett på Geonorge</a>
-              </div>
-            )}
           </div>
           <div style={{ position: "relative", _float: "right" }} />
         </div>
