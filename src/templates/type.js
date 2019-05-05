@@ -48,7 +48,7 @@ export default props => {
               kode={type.kode}
               url={type.url}
             />
-            <h2>Aktuelle websider</h2>
+            <h2>Aktuelle lenker</h2>
             <WebLinks
               api={type.api}
               tittel={tittel}
