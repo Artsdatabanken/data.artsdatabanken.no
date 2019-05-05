@@ -54,6 +54,7 @@ export default props => {
               tittel={tittel}
               kode={type.kode}
               url={type.url}
+              lenke={type.lenke}
             />
             {false && <OpenData kartformater={type.kart.format} />}
 

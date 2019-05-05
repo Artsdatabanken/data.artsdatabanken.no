@@ -22,33 +22,40 @@ const arter = [
   }
 ];
 
-const vern = [
-  {
-    tittel: "Verneområde: Faktaark",
-    url: "https://faktaark.naturbase.no/?id=%VV%",
-    protokoll: "REST XML",
-    host: "Miljødirektoratet"
-  }
-];
-
 const links = [
   {
-    tittel: "Kart: Innsynsløsning",
+    tittel: "Natur i Norge: App",
     url: "https://nin.artsdatabanken.no/%URL%",
     host: "Artsdatabanken"
-  },
-  {
+  }
+  /*  {
     tittel: "Artsdatabanken",
     url: "https://artsdatabanken.no/Databank/Content/237662?q=%TITTEL%",
     beskrivelse: "Artikler",
     host: "Artsdatabanken"
-  }
+  }*/
 ];
+
+//https://lovdata.no/for/lf/mv/xv-         2006 06 30-0830.html
+//https://lovdata.no/dokument/LF/forskrift/2006-06-30- 830
+const lenketyper = {
+  faktaark: { navn: "Naturbase faktaark", host: "Miljødirektoratet" },
+  iucn: {
+    navn: "IUCN protected areas category",
+    host: "IUCN"
+  },
+  offisiell: {
+    navn: "Offisiell webside"
+  },
+  verneforskrift: { navn: "Verneforskrift", host: "Lovdata" },
+  wikidata: { navn: "Wikidata", host: "Wikidata" },
+  wikipedia: { navn: "Wikipedia", host: "Wikipedia" }
+};
+
 class WebLinks extends Component {
   render() {
-    const { kode, url, tittel } = this.props;
+    const { kode, lenke, url, tittel } = this.props;
     const art = url.startsWith("Biota");
-    const vv = url.startsWith("Naturvernområde");
     return (
       <table className="open_api">
         <thead>
@@ -68,16 +75,21 @@ class WebLinks extends Component {
               relUrl={url}
             />
           ))}
-          {vv &&
-            vern.map(e => (
-              <WebLink
-                key={e.tittel}
-                {...e}
-                kode={kode}
-                sidetittel={tittel}
-                relUrl={url}
-              />
-            ))}
+          {lenke &&
+            Object.keys(lenke).map(key => {
+              const meta = lenketyper[key];
+              if (!meta) throw new Error(key);
+              return (
+                <WebLink
+                  key={key}
+                  kode={kode}
+                  tittel={meta.navn}
+                  host={meta.host}
+                  beskrivelse={meta.beskrivelse}
+                  url={lenke[key]}
+                />
+              );
+            })}
           {art &&
             arter.map(e => (
               <WebLink

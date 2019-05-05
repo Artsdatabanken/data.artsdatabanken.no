@@ -58,17 +58,17 @@ const opendata = [
     protokoll: "WFS",
     beskrivelse: "Web Feature Service"
   },*/
-  {
+  /*  {
     tittel: "Statistikk",
     url: "https://romlig.artsdatabanken.no/%URL%",
     protokoll: "REST JSON",
     beskrivelse: "Frekvens"
-  },
+  },*/
   {
-    tittel: "Egenskaper",
+    tittel: "Metadata",
     downloadUrl: "/%URL%/metadata.json",
     protokoll: "REST JSON",
-    projeksjon: "4326",
+    projeksjon: "",
     beskrivelse: `Oppsummering av tilgjengelige egenskapsdata`
   }
 ];
