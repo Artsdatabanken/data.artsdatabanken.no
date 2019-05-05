@@ -10,7 +10,7 @@ const arter = [
   },
   {
     tittel: "GBIF",
-    url: "https://www.gbif.org/search?q=%TITTEL%",
+    url: "https://www.gbif.org/occurrence/map?q=%TITTEL%",
     beskrivelse: "Observasjoner, Arter, Datasett",
     host: "Global Biodiversity Information Facility"
   },
