@@ -22,7 +22,7 @@ const opendata = [
   {
     tittel: "Kart: Vector tiles",
     url: "polygon.3857.mbtiles/",
-    downloadUrl: "polygon.3857.mbtiles",
+    downloadUrl: "%URL%/polygon.3857.mbtiles",
     projeksjon: 3857,
     protokoll: "XYZ PBF",
     beskrivelse: "Kartfliser i vektorformat for bruk i web-løsninger."
@@ -30,14 +30,14 @@ const opendata = [
   {
     tittel: "Kart: Raster tiles",
     url: "gradient.3857.mbtiles/",
-    downloadUrl: "gradient.3857.mbtiles",
+    downloadUrl: "%URL%/gradient.3857.mbtiles",
     projeksjon: 3857,
     protokoll: "XYZ PNG",
     beskrivelse: "Kartfliser i rasterformat for bruk i web-løsninger."
   },
   {
     tittel: "Kart: Spatialite database",
-    downloadUrl: "polygon.spatialite.4326.sqlite",
+    downloadUrl: "%URL%/polygon.spatialite.4326.sqlite",
     projeksjon: 4326,
     protokoll: "SQLITE",
     beskrivelse: "Vektorkart i sqlite romlig database"
@@ -50,14 +50,14 @@ const opendata = [
     protokoll: "WMS",
     beskrivelse: "Web Map Service"
   },
-  {
+  /*  {
     tittel: "Kart: OGC WFS",
     url:
-      "https://nintest.artsdatabanken.no/?map=/maps/%KODE%.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "https://wms.artsdatabanken.no/?map=/maps/%KODE%.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
     projeksjon: 32633,
     protokoll: "WFS",
     beskrivelse: "Web Feature Service"
-  },
+  },*/
   {
     tittel: "Statistikk",
     url: "https://romlig.artsdatabanken.no/%URL%",
@@ -66,7 +66,7 @@ const opendata = [
   },
   {
     tittel: "Egenskaper",
-    downloadUrl: "metadata.json",
+    downloadUrl: "/%URL%/metadata.json",
     protokoll: "REST JSON",
     projeksjon: "4326",
     beskrivelse: `Oppsummering av tilgjengelige egenskapsdata`
