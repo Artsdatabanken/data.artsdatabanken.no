@@ -1,27 +1,15 @@
 import React from "react";
 
-function harFornuftigKart(url) {
-  const urlparts = (url || "").split("/");
-  if (urlparts.length < 1) return null;
-  if (urlparts.length > 2) return true;
-  switch (urlparts[0]) {
-    case "Fylke":
-    case "Naturvernområde":
-      return true;
-    default:
-      return false;
-  }
-}
-
-const Kart = ({ url, children }) => {
-  if (!harFornuftigKart(url)) return null;
+const Geografi = ({ url, utbredelse, children }) => {
+  if (!utbredelse) return null;
   const previewUrl = `https://data.artsdatabanken.no/${url}/thumbnail.32633.blur.png`;
   return (
     <div className="table" style={{}}>
-      <h4>Utbredelse</h4>
+      <h2>Geografi</h2>
       {children}
+      <h4>Utbredelse</h4>
       <div className="imagecontainer">
-        <a href={"http://nin.artsdatabanken.no/" + url}>
+        <a href={"https://nin.artsdatabanken.no/" + url}>
           <img
             src="https://data.artsdatabanken.no/Basiskart/NaturalEarth/bak_liten_grå.32633.png"
             alt="bakgrunnskart"
@@ -33,4 +21,4 @@ const Kart = ({ url, children }) => {
   );
 };
 
-export default Kart;
+export default Geografi;
