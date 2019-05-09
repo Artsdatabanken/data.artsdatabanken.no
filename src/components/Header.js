@@ -3,7 +3,6 @@ import Resultatliste from "./Search/Resultatliste";
 import LookupControl from "./Search/LookupControl";
 import axios from "axios";
 import HeaderView from "./HeaderView";
-//import "./TopBar.css";
 
 const Header = () => {
   const [hits, setHits] = useState([]);
@@ -26,7 +25,7 @@ const Header = () => {
           backgroundColor: "transparent",
           color: "#4c4a48",
           zIndex: 5,
-          right: 100,
+          right: 12,
           top: 8,
           paddingLeft: 8,
           paddingRight: 8,
