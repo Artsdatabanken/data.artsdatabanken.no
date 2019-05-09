@@ -21,14 +21,14 @@ const arter = [
 const opendata = [
   {
     tittel: "Kart: GeoJSON",
-    downloadUrl: "%URL%/polygon.4326.geojson",
+    downloadUrl: "polygon.4326.geojson",
     projeksjon: 4326,
     protokoll: "GeoJSON",
     beskrivelse: ""
   },
   {
     tittel: "Kart: GeoJSON",
-    downloadUrl: "%URL%/polygon.32633.geojson",
+    downloadUrl: "polygon.32633.geojson",
     projeksjon: 32633,
     protokoll: "GeoJSON",
     beskrivelse: ""
@@ -36,7 +36,7 @@ const opendata = [
   {
     tittel: "Kart: Vector tiles",
     url: "polygon.3857.mbtiles/",
-    downloadUrl: "%URL%/polygon.3857.mbtiles",
+    downloadUrl: "polygon.3857.mbtiles",
     projeksjon: 3857,
     protokoll: "XYZ PBF",
     beskrivelse: "Kartfliser i vektorformat for bruk i web-løsninger."
@@ -44,14 +44,14 @@ const opendata = [
   {
     tittel: "Kart: Raster tiles",
     url: "gradient.3857.mbtiles/",
-    downloadUrl: "%URL%/gradient.3857.mbtiles",
+    downloadUrl: "gradient.3857.mbtiles",
     projeksjon: 3857,
     protokoll: "XYZ PNG",
     beskrivelse: "Kartfliser i rasterformat for bruk i web-løsninger."
   },
   {
     tittel: "Kart: Spatialite database",
-    downloadUrl: "%URL%/polygon.spatialite.4326.sqlite",
+    downloadUrl: "polygon.spatialite.4326.sqlite",
     projeksjon: 4326,
     protokoll: "SQLITE",
     beskrivelse: "Vektorkart i sqlite romlig database"
@@ -89,8 +89,10 @@ const opendata = [
 
 class OpenApi extends Component {
   render() {
-    const { kode, url, tittel } = this.props;
+    const { kode, url, tittel, kartformat } = this.props;
     const art = url.startsWith("Biota");
+    //    data = opendata.filter(e => kartformat[e.url]);
+    const data = opendata;
     return (
       <table className="open_api">
         <thead>
@@ -105,7 +107,7 @@ class OpenApi extends Component {
           </tr>
         </thead>
         <tbody>
-          {opendata.map(e => (
+          {data.map(e => (
             <Api
               key={e.tittel}
               {...e}
