@@ -7,7 +7,7 @@ const Geografi = ({ url, utbredelse, children }) => {
     <div className="table" style={{}}>
       <h2>Geografi</h2>
       {children}
-      <h4>Utbredelse</h4>
+      <h3>Utbredelse</h3>
       <div className="imagecontainer">
         <a href={"https://nin.artsdatabanken.no/" + url}>
           <img
