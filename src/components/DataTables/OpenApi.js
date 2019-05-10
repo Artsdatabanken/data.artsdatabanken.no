@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import Projeksjon from "../../templates/Projeksjon";
+import { CloudDownload } from "@material-ui/icons";
 
 const arter = [
   {
-    tittel: "Artskart: Observasjoner",
+    tittel: "Artskart",
     url:
       "https://artskart.artsdatabanken.no/appapi/api/data/SearchLocations?&TaxonIds%5B%5D=%ID%&IncludeSubTaxonIds=true",
     protokoll: "REST JSON",
     beskrivelse: "Lokaliteter hvor arten er observert"
   },
   {
-    tittel: "Artskart: søk takson",
+    tittel: "Artssøk takson",
     url:
       "https://artskart.artsdatabanken.no/appapi/api/data/SearchTaxons?maxCount=15&name=%TITTEL%",
     protokoll: "REST XML",
@@ -20,21 +21,7 @@ const arter = [
 
 const opendata = [
   {
-    tittel: "Kart: GeoJSON",
-    downloadUrl: "polygon.4326.geojson",
-    projeksjon: 4326,
-    protokoll: "GeoJSON",
-    beskrivelse: ""
-  },
-  {
-    tittel: "Kart: GeoJSON",
-    downloadUrl: "polygon.32633.geojson",
-    projeksjon: 32633,
-    protokoll: "GeoJSON",
-    beskrivelse: ""
-  },
-  {
-    tittel: "Kart: Vector tiles",
+    tittel: "Vector tiles",
     url: "polygon.3857.mbtiles/",
     downloadUrl: "polygon.3857.mbtiles",
     projeksjon: 3857,
@@ -42,7 +29,7 @@ const opendata = [
     beskrivelse: "Kartfliser i vektorformat for bruk i web-løsninger."
   },
   {
-    tittel: "Kart: Raster tiles",
+    tittel: "Raster tiles",
     url: "gradient.3857.mbtiles/",
     downloadUrl: "gradient.3857.mbtiles",
     projeksjon: 3857,
@@ -50,22 +37,36 @@ const opendata = [
     beskrivelse: "Kartfliser i rasterformat for bruk i web-løsninger."
   },
   {
-    tittel: "Kart: Spatialite database",
-    downloadUrl: "polygon.spatialite.4326.sqlite",
-    projeksjon: 4326,
-    protokoll: "SQLITE",
-    beskrivelse: "Vektorkart i sqlite romlig database"
-  },
-  {
-    tittel: "Kart: OGC WMS",
+    tittel: "OGC WMS",
     url:
       "https://wms.artsdatabanken.no/?map=/maps/%KODE%.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
     projeksjon: 32633,
     protokoll: "WMS",
     beskrivelse: "Web Map Service"
   },
+  {
+    tittel: "Spatialite database",
+    downloadUrl: "polygon.spatialite.4326.sqlite",
+    projeksjon: 4326,
+    protokoll: "SQLITE",
+    beskrivelse: "Vektorkart i sqlite romlig database"
+  },
+  {
+    tittel: "GeoJSON",
+    downloadUrl: "polygon.4326.geojson",
+    projeksjon: 4326,
+    protokoll: "GeoJSON",
+    beskrivelse: ""
+  },
+  {
+    tittel: "GeoJSON",
+    downloadUrl: "polygon.32633.geojson",
+    projeksjon: 32633,
+    protokoll: "GeoJSON",
+    beskrivelse: ""
+  }
   /*  {
-    tittel: "Kart: OGC WFS",
+    tittel: "OGC WFS",
     url:
       "https://wms.artsdatabanken.no/?map=/maps/%KODE%.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
     projeksjon: 32633,
@@ -78,13 +79,6 @@ const opendata = [
     protokoll: "REST JSON",
     beskrivelse: "Frekvens"
   },*/
-  {
-    tittel: "Metadata",
-    downloadUrl: "/%URL%/metadata.json",
-    protokoll: "REST JSON",
-    projeksjon: "",
-    beskrivelse: `Oppsummering av tilgjengelige egenskapsdata`
-  }
 ];
 
 class OpenApi extends Component {
@@ -152,7 +146,15 @@ const Api = ({
       <td>{beskrivelse}</td>
       <td>{protokoll}</td>
       <td>{fullUrl && <a href={fullUrl}>API</a>} </td>
-      <td>{fullDownloadUrl && <a href={fullDownloadUrl}>Last ned</a>}</td>
+      <td>
+        {fullDownloadUrl && (
+          <a href={fullDownloadUrl}>
+            <CloudDownload
+              style={{ top: -3, position: "relative", fontSize: 24 }}
+            />
+          </a>
+        )}
+      </td>
     </tr>
   );
 };
