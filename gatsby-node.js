@@ -17,7 +17,6 @@ exports.createPages = ({ actions }) => {
 };
 
 async function loadAll(createPage) {
-  const filindeks = await lesFilindeks();
   await lesDatafil("Natur_i_Norge/Natursystem", createPage);
   await lesDatafil("Natur_i_Norge/Landskap", createPage);
   await lesDatafil("Biota", createPage);
@@ -25,11 +24,6 @@ async function loadAll(createPage) {
   await lesDatafil("Naturvernområde", createPage);
   await lesDatafil("Datakilde", createPage);
   await lesDatafil("Truet_art_natur", createPage);
-}
-
-async function lesFilindeks() {
-  const filepath = dataPath + "index.json";
-  return JSON.parse(fs.readFileSync(filepath));
 }
 
 async function lesDatafil(relUrl, createPage) {
