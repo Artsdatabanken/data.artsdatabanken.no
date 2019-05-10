@@ -5,7 +5,7 @@ const Søsken = ({ søsken, nåværende, barn }) => {
   if (!søsken) return null;
   return (
     <React.Fragment>
-      {søsken.reverse().map(e => (
+      {sorter(søsken).map(e => (
         <Søskne nåværende={nåværende} barn={barn} key={e.kode} {...e} />
       ))}
     </React.Fragment>
@@ -19,7 +19,7 @@ const Søskne = ({ tittel, url, farge, nåværende, barn }) => {
   }
   return (
     <React.Fragment>
-      <a href={url === "Katalog" ? "/" : `/${url}/index.html`}>
+      <a href={url === "Katalog" ? "/" : `/${url}`}>
         {tittel1 !== nåværende && (
           <li className="sidebar_link sidebar_sister_child">{tittel1}</li>
         )}
@@ -33,5 +33,11 @@ const Søskne = ({ tittel, url, farge, nåværende, barn }) => {
     </React.Fragment>
   );
 };
+
+function sorter(søsken) {
+  return søsken.sort((a, b) => (tittel(a) > tittel(b) ? 1 : -1));
+}
+
+const tittel = tittel => tittel.nb || tittel.la;
 
 export default Søsken;

@@ -51,11 +51,12 @@ class ResultatListe extends Component {
     if (!searchResults) return null;
     if (!searchResults.length > 0) return null;
     return (
-      <Paper elevation={3}>
+      <Paper elevation={1}>
         <List
           style={{
             paddingTop: 0,
-            paddingBottom: 0
+            paddingBottom: 0,
+            maxHeight: "90%"
           }}
         >
           {searchResults.map(item => {

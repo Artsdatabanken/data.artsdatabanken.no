@@ -3,7 +3,7 @@ Graphic profile Artsdatabanken
 Just for keeping it nice and availiable
 */
 
-@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 
 body {
   box-sizing: border-box;
@@ -93,7 +93,7 @@ h1,
 h2,
 h3 {
   color: #777368;
-  font-family: "Roboto Condensed";
+  font-family: "Roboto";
   font-weight: 700;
 }
 
@@ -198,7 +198,7 @@ img {
 .source_item {
   display: inline-block;
   font-size: 10pt;
-  padding: 5px;
+  padding-bottom: 16px;
 }
 
 .licences_container {

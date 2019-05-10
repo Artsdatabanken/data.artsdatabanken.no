@@ -15,7 +15,7 @@ const Barn = ({ kode, tittel, url, farge, intervall }) => {
   const tittel1 = Object.values(tittel)[0];
   return (
     <React.Fragment>
-      <a href={"/" + url + "/index.html"}>
+      <a href={"/" + url}>
         <li className="sidebar_link sidebar_children">{tittel1}</li>
       </a>
       <div style={{ display: "flex" }}>

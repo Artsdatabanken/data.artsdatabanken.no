@@ -1,19 +1,15 @@
 import { Input, Paper } from "@material-ui/core";
 import React, { useEffect, useRef } from "react";
 
-const SearchBox = ({ isSearching, onBlur, onQueryChange, query, classes }) => {
+const SearchBox = ({ isSearching, onBlur, onQueryChange, query }) => {
   const inputEl = useRef(null);
   useEffect(() => {
     if (isSearching) inputEl.current.focus();
   }, [isSearching]);
   return (
-    <Paper
-      elevation={3}
-      square={false}
-      style={{ _color: "#4c4a48", _margin: 0 }}
-    >
+    <Paper elevation={1} square={false}>
       <Input
-        style={{ marginLeft: 8 }}
+        style={{ marginLeft: 8, width: "100%" }}
         inputRef={inputEl}
         value={query}
         placeholder={"Søk..."}

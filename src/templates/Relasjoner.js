@@ -24,14 +24,12 @@ const Relasjoner = ({ noder }) => (
 const RelasjonNode = ({ relasjon, kode, tittel, farge, url }) => {
   const tittel1 = Object.values(tittel)[0];
   return (
-    <React.Fragment>
-      <a href={"/" + url + "/index.html"}>
-        <li className="sidebar_link">
-          {tittel1}
-          <div>{relasjon ? "(" + relasjon + ")" : ""}</div>
-        </li>
-      </a>
-    </React.Fragment>
+    <a href={"/" + url}>
+      <li className="sidebar_link">
+        {tittel1}
+        <div>{relasjon ? "(" + relasjon + ")" : ""}</div>
+      </li>
+    </a>
   );
 };
 

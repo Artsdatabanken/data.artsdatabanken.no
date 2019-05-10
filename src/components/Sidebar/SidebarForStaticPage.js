@@ -9,7 +9,7 @@ class SidebarForStaticPage extends Component {
         <a href="/">
           <li className="sidebar_link">Hovedsiden</li>
         </a>
-        {true && (
+        {false && (
           <a href="/Biota">
             <li className="sidebar_link">Arter</li>
           </a>

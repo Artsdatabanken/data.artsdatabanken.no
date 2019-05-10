@@ -16,7 +16,7 @@ const Overordnet = ({ kode, tittel, url, farge }) => {
   }
   return (
     <React.Fragment>
-      <a href={url === "Katalog" ? "/" : `/${url}/index.html`}>
+      <a href={url === "Katalog" ? "/" : `/${url}`}>
         <li className="sidebar_link">{tittel1}</li>
       </a>
     </React.Fragment>

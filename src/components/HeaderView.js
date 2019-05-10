@@ -5,7 +5,9 @@ const HeaderView = () => {
     <div className="header_background">
       <div className="header_padding">
         <img src="/logo.png" className="top_image" alt="artsdatabanken logo" />
-        <h1 className="header_title">Artsdatabankens åpne data </h1>
+        <h1 style={{ fontWeight: 500, color: "#eee" }} className="header_title">
+          Åpne data{" "}
+        </h1>
       </div>
     </div>
   );

@@ -320,10 +320,7 @@ class FrontPage extends Component {
 
               <h2 id="233735">Norsk Natur Informasjon (NNI)</h2>
               <p>
-                Hjemmeside:{" "}
-                <a href="http://www.nni.no/index.html">
-                  http://www.nni.no/index.html
-                </a>
+                Hjemmeside: <a href="http://www.nni.no">http://www.nni.no</a>
               </p>
               <p>
                 For å gi til tilbakemelding på konkrete funn fra NNI, kontakt;

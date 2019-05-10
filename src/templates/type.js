@@ -2,7 +2,7 @@ import WebLinks from "../components/DataTables/WebLinks";
 import React from "react";
 import Seo from "../components/Seo";
 import Header from "../components/Header";
-import Kart from "./Kart";
+import Geografi from "./Geografi";
 import OpenData from "../components/DataTables/OpenData";
 import OpenApi from "../components/DataTables/OpenApi";
 import Bilde from "./Bilde";
@@ -18,14 +18,23 @@ import "../style/style.css";
 export default props => {
   const { pageContext: type } = props;
   const tittel = Object.values(type.tittel)[0];
-  const foto = type.foto.banner || type.foto.forside;
   const updateTime = preval`module.exports = new Date().toISOString()`;
   return (
     <div className="page_padding">
       <Header />
       <Seo pageMeta={type} tittel={tittel} />
       <div>
-        <h1>{tittel}</h1>
+        <h1>
+          {tittel}
+          <img
+            src={"/" + type.url + "/logo_48.png"}
+            style={{
+              verticalAlign: "middle",
+              filter: "saturate(0%)",
+              paddingLeft: 12
+            }}
+          />
+        </h1>
         <div className="contentContainer">
           <div className="sideContent">
             <div>
@@ -33,22 +42,27 @@ export default props => {
             </div>
           </div>
           <div className="mainContent">
-            <div>
-              <Bilde {...foto} alt={"Foto av " + tittel.toLowerCase()} />
-              {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
-            </div>
+            {type.bilde.banner && (
+              <div>
+                <Bilde
+                  {...type.bilde.banner}
+                  alt={"Foto av " + tittel.toLowerCase()}
+                />
+                {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
+              </div>
+            )}
 
             {/* Currently working on this:
             <Kilder api={type.api} tittel={tittel} kartformater={type.kartformat} />*/}
 
-            <h2>Tilgjengelige data</h2>
+            <h2>Kart</h2>
             <OpenApi
-              api={type.api}
+              api={type.kartformat}
               tittel={tittel}
               kode={type.kode}
               url={type.url}
             />
-            <h2>Aktuelle lenker</h2>
+            <h2>Lenker</h2>
             <WebLinks
               api={type.api}
               tittel={tittel}
@@ -59,9 +73,12 @@ export default props => {
             {false && <OpenData kartformater={type.kart.format} />}
 
             <br />
-            <Kart url={type.url}>
+            <Geografi
+              url={type.url}
+              utbredelse={type.bilde["thumbnail.32633.blur"]}
+            >
               <Statistikk tittel={tittel} {...type.stats} />
-            </Kart>
+            </Geografi>
 
             {type.datakilde && type.datakilde.length > 0 && (
               <>
@@ -70,8 +87,8 @@ export default props => {
                 <p>
                   <small>
                     Oppdatert {updateTime} -{" "}
-                    <a href="https://github.com/Artsdatabanken/adb-data-portal/">
-                      Kildekode
+                    <a href="https://github.com/Artsdatabanken/data.artsdatabanken.no">
+                      Bidra
                     </a>
                   </small>
                 </p>

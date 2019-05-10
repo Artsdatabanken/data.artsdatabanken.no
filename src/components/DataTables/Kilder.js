@@ -19,14 +19,16 @@ class Kilde extends Component {
         className="source_container"
         style={{ display: "grid", backgroundColor: "#f8f8f8" }}
       >
-        <div className="source_item" style={{ textAlign: "left" }}>
+        <div className="source_item">
           <div style={{ float: "left", width: "80%" }}>
-            <a href={"/" + url}>
+            <a href={"/" + url} style={{ textDecoration: "none" }}>
               <img
                 style={{ paddingRight: 8, display: "block", float: "left" }}
                 src={"https://data.artsdatabanken.no/" + url + "/avatar_40.png"}
               />
-              <span style={{ fontSize: 22 }}>{tittel && tittel.nb}</span>
+              <span style={{ fontSize: 16, fontWeight: 500, color: "#4c4a48" }}>
+                {tittel && tittel.nb}
+              </span>
             </a>
             <div className="_licences_container">
               Lisens: <a href={lisenser[lisenskode]}>{lisenskode}</a>

@@ -27,6 +27,12 @@ const links = [
     tittel: "Natur i Norge: App",
     url: "https://nin.artsdatabanken.no/%URL%",
     host: "Artsdatabanken"
+  },
+  {
+    tittel: "Metadata: %TITTEL%",
+    url: "/%URL%/metadata.json",
+    beskrivelse: `Oppsummering av tilgjengelige egenskapsdata`,
+    host: "Artsdatabanken"
   }
   /*  {
     tittel: "Artsdatabanken",
@@ -115,11 +121,12 @@ const WebLink = ({
   kode,
   beskrivelse
 }) => {
-  let fullUrl = fixUrl(url, kode, relUrl, sidetittel);
+  let fullUrl = expandVars(url, kode, relUrl, sidetittel);
+  let fullTittel = expandVars(tittel, kode, relUrl, sidetittel);
   return (
     <tr>
       <td>
-        <a href={fullUrl}>{tittel}</a>
+        <a href={fullUrl}>{fullTittel}</a>
       </td>
       <td>{beskrivelse}</td>
       <td>{host}</td>
@@ -133,7 +140,7 @@ const padLeft = (s, i) => {
   return s;
 };
 
-const fixUrl = (url, kode, relUrl, tittel) => {
+const expandVars = (url, kode, relUrl, tittel) => {
   const a = (url || "").replace(
     "%VV%",
     "VV" + padLeft(kode.substring(3), 8) // 00002885
