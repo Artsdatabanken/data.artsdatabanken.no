@@ -26,7 +26,7 @@ const Header = () => {
           color: "#4c4a48",
           zIndex: 5,
           right: 12,
-          top: 8,
+          top: 9,
           paddingLeft: 8,
           paddingRight: 8,
           width: 392
@@ -47,7 +47,7 @@ const Header = () => {
           <Resultatliste
             query={query}
             searchResults={hits}
-            onSelect={item => {
+            onSelect={() => {
               setQuery(null);
             }}
           />
