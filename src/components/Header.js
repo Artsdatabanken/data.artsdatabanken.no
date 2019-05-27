@@ -4,7 +4,7 @@ import LookupControl from "./Search/LookupControl";
 import axios from "axios";
 import HeaderView from "./HeaderView";
 
-const Header = () => {
+const Header = ({ title }) => {
   const [hits, setHits] = useState([]);
   const [query, setQuery] = useState();
   useEffect(() => {
@@ -17,8 +17,8 @@ const Header = () => {
     fetchData();
   }, [query]);
   return (
-    <>
-      <HeaderView />
+    <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 5 }}>
+      <HeaderView title={title} />
       <div
         style={{
           position: "absolute",
@@ -32,28 +32,32 @@ const Header = () => {
           width: 392
         }}
       >
-        <LookupControl
-          onBlur={() => {
-            setQuery("");
-          }}
-          onQueryChange={e => setQuery(e.target.value)}
-          query={query}
-        />
-        <div
-          style={{
-            marginTop: 1
-          }}
-        >
-          <Resultatliste
-            query={query}
-            searchResults={hits}
-            onSelect={() => {
-              setQuery(null);
-            }}
-          />
-        </div>
+        {!title && (
+          <>
+            <LookupControl
+              onBlur={() => {
+                setQuery("");
+              }}
+              onQueryChange={e => setQuery(e.target.value)}
+              query={query}
+            />
+            <div
+              style={{
+                marginTop: 1
+              }}
+            >
+              <Resultatliste
+                query={query}
+                searchResults={hits}
+                onSelect={() => {
+                  setQuery(null);
+                }}
+              />
+            </div>
+          </>
+        )}
       </div>
-    </>
+    </div>
   );
 };
 
