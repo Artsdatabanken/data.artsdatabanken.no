@@ -31,21 +31,27 @@ class Kilde extends Component {
               </span>
             </a>
             <div className="_licences_container">
-              Lisens: <a href={lisenser[lisenskode]}>{lisenskode}</a>
-              {geonorgeurl && (
-                <span>
-                  {" "}
-                  - <a href={geonorgeurl}>Datasett</a>
-                </span>
+              {geonorgeurl ? (
+                <>
+                  <span>
+                    <a href={geonorgeurl}>Datasett</a>
+                  </span>
+                  &nbsp; (
+                  <Lisens kode={lisenskode} />)
+                </>
+              ) : (
+                <Lisens kode={lisenskode} />
               )}
             </div>
           </div>
-          <div style={{ position: "relative", _float: "right" }} />
+          <div style={{ position: "relative" }} />
         </div>
       </div>
     );
   }
 }
+
+const Lisens = ({ kode }) => <a href={lisenser[kode]}>{kode}</a>;
 
 const lisenser = {
   "CC BY SA 3.0": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
