@@ -1,3 +1,4 @@
+import { useWindowScroll } from "react-use";
 import WebLinks from "../components/DataTables/WebLinks";
 import React from "react";
 import Seo from "../components/Seo";
@@ -19,9 +20,11 @@ export default props => {
   const { pageContext: type } = props;
   const tittel = Object.values(type.tittel)[0];
   const updateTime = preval`module.exports = new Date().toISOString()`;
+  const { x, y } = useWindowScroll();
+
   return (
     <div className="page_padding">
-      <Header />
+      <Header title={y > 120 && tittel} />
       <Seo pageMeta={type} tittel={tittel} />
       <div>
         <h1>
@@ -37,9 +40,7 @@ export default props => {
         </h1>
         <div className="contentContainer">
           <div className="sideContent">
-            <div>
-              <Sidebar type={type} tittel={tittel} />
-            </div>
+            <Sidebar type={type} tittel={tittel} />
           </div>
           <div className="mainContent">
             {type.bilde.banner && (
@@ -51,10 +52,6 @@ export default props => {
                 {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
               </div>
             )}
-
-            {/* Currently working on this:
-            <Kilder api={type.api} tittel={tittel} kartformater={type.kartformat} />*/}
-
             <h2>Kart</h2>
             <OpenApi
               api={type.kartformat}
@@ -71,7 +68,6 @@ export default props => {
               lenke={type.lenke}
             />
             {false && <OpenData kartformater={type.kart.format} />}
-
             <br />
             <Geografi
               url={type.url}
@@ -79,7 +75,6 @@ export default props => {
             >
               <Statistikk tittel={tittel} {...type.stats} />
             </Geografi>
-
             {type.datakilde && type.datakilde.length > 0 && (
               <>
                 <h2>Datakilde</h2>
