@@ -1,18 +1,18 @@
 import React from "react";
 import Barna from "../../templates/Barna";
 
-const Søsken = ({ søsken, nåværende, barn }) => {
+const AlleBarna = ({ søsken, nåværende, barn }) => {
   if (!søsken) return null;
   return (
     <React.Fragment>
-      {sorter(søsken).map(e => (
-        <Søskne nåværende={nåværende} barn={barn} key={e.kode} {...e} />
+      {søsken.map(e => (
+        <EttBarn nåværende={nåværende} barn={barn} key={e.kode} {...e} />
       ))}
     </React.Fragment>
   );
 };
 
-const Søskne = ({ tittel, url, farge, nåværende, barn }) => {
+const EttBarn = ({ tittel, url, farge, nåværende, barn }) => {
   var tittel1 = tittel.nb || Object.values(tittel)[0];
   if (tittel1 === "Katalog") {
     tittel1 = "Hovedsiden";
@@ -40,4 +40,4 @@ function sorter(søsken) {
 
 const tittel = tittel => tittel.nb || tittel.la;
 
-export default Søsken;
+export default AlleBarna;

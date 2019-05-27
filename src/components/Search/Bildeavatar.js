@@ -4,33 +4,27 @@ import React, { Component } from "react";
 
 const styles = {
   img: {
-    objectFit: "contain",
-    filter: "drop-shadow(1px 1px 1px #666)"
-  },
-  big: {},
-  small: { width: 24, height: 24, fontSize: 13 },
-  big_noborder: {
-    borderRadius: 0,
-    paddingBottom: 2
-  },
-  small_noborder: {
-    borderRadius: 0,
     width: 24,
     height: 24,
-    fontSize: 13,
-    paddingBottom: 2
+    position: "relative",
+    objectFit: "contain",
+    filter: "drop-shadow(1px 1px 2px #999)"
+  },
+  big: {},
+  root: {
+    display: "contents",
+    borderRadius: 0
   }
 };
 
 class BildeAvatar extends Component {
   render() {
-    const { farge, farge0, classes, kode, url } = this.props;
-    const size = this.props.size || "big";
+    const { classes, url } = this.props;
     return (
       <Avatar
         alt="logo"
         classes={{
-          root: classes[size + "_noborder"],
+          root: classes.root,
           img: classes.img
         }}
         src={"https://data.artsdatabanken.no/" + url + "/logo_24.png"}
