@@ -20,13 +20,15 @@ async function lastNedFiler() {
   await lesUrl("", "index.json");
 }
 
-async function lesUrl(relUrl, file = metadataFilename) {
+async function lesUrl(relUrl, file) {
   if (!fs.existsSync(dataPath)) {
     console.log("Creating " + dataPath);
     fs.mkdirSync(dataPath);
   }
+  console.log(relUrl, file);
+  if (!file) file = metadataFilename;
   const relativePath = relUrl ? relUrl + "/" : "";
-  const url = dataUrl + relativePath + metadataFilename;
+  const url = dataUrl + relativePath + file;
   const filePath = getLocalDataFilePathForUrl(relUrl, file);
   if (fs.existsSync(filePath)) return filePath;
   console.log("Downloading " + url + " til " + filePath);
