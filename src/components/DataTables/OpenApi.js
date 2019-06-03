@@ -39,7 +39,7 @@ const opendata = [
   {
     tittel: "OGC WMS",
     url:
-      "https://wms.artsdatabanken.no/?map=/maps/%KODE%.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "https://wms.artsdatabanken.no/?map=/maps/mapfiles/la.map&?&request=GetCapabilities&service=WMS&version=1.1.1&", // %KODE%
     projeksjon: 32633,
     protokoll: "WMS",
     beskrivelse: "Web Map Service"
