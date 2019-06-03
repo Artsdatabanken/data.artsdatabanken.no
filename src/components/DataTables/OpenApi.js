@@ -150,7 +150,11 @@ const Api = ({
         {fullDownloadUrl && (
           <a href={fullDownloadUrl}>
             <CloudDownload
-              style={{ top: -3, position: "relative", fontSize: 24 }}
+              style={{
+                top: -3,
+                position: "relative",
+                width: 24
+              }}
             />
           </a>
         )}
