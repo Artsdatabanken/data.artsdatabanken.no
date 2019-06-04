@@ -69,7 +69,7 @@ export default props => {
             <br />
             <Geografi
               url={type.url}
-              utbredelse={type.bilde["thumbnail.32633.blur"]}
+              utbredelse={type.files["thumbnail.32633.blur"]}
             >
               <Statistikk tittel={tittel} {...type.stats} />
             </Geografi>
