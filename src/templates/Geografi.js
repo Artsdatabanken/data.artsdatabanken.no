@@ -1,7 +1,6 @@
 import React from "react";
 
-const Geografi = ({ url, utbredelse, children }) => {
-  if (!utbredelse) return null;
+const Geografi = ({ url, children }) => {
   const previewUrl = `https://data.artsdatabanken.no/${url}/thumbnail.32633.blur.png`;
   return (
     <div className="table" style={{}}>

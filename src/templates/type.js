@@ -67,12 +67,11 @@ export default props => {
               lenke={type.lenke}
             />
             <br />
-            <Geografi
-              url={type.url}
-              utbredelse={type.files["thumbnail.32633.blur"]}
-            >
-              <Statistikk tittel={tittel} {...type.stats} />
-            </Geografi>
+            {type.files["thumbnail.32633.blur.png"] && (
+              <Geografi url={type.url}>
+                <Statistikk tittel={tittel} {...type.stats} />
+              </Geografi>
+            )}
             {type.datakilde && type.datakilde.length > 0 && (
               <>
                 <h2>Datakilde</h2>
