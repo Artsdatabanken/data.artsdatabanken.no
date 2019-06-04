@@ -4,7 +4,6 @@ import React from "react";
 import Seo from "../components/Seo";
 import Header from "../components/Header";
 import Geografi from "./Geografi";
-import OpenData from "../components/DataTables/OpenData";
 import OpenApi from "../components/DataTables/OpenApi";
 import Bilde from "./Bilde";
 import Statistikk from "./Statistikk";
@@ -67,7 +66,6 @@ export default props => {
               url={type.url}
               lenke={type.lenke}
             />
-            {false && <OpenData kartformater={type.kart.format} />}
             <br />
             <Geografi
               url={type.url}
