@@ -20,7 +20,7 @@ const arter = [
   }
 ];
 
-const opendata = [
+const wms = [
   {
     tittel: "OGC WMS",
     url:
@@ -50,7 +50,6 @@ class OpenApi extends Component {
     const { kode, url, tittel, files } = this.props;
     if (!files) return null;
     const art = url.startsWith("Biota");
-    const data = opendata;
     return (
       <table className="open_api">
         <thead>
@@ -78,15 +77,16 @@ class OpenApi extends Component {
                 />
               );
             })}
-          {data.map(e => (
-            <Api
-              key={e.tittel}
-              {...e}
-              kode={kode}
-              sidetittel={tittel}
-              relUrl={url}
-            />
-          ))}
+          {url.indexOf("Landskap") > 0 && // TODO: WMS for alle lag
+            wms.map(e => (
+              <Api
+                key={e.tittel}
+                {...e}
+                kode={kode}
+                sidetittel={tittel}
+                relUrl={url}
+              />
+            ))}
           {art &&
             arter.map(e => (
               <Api
