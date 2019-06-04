@@ -8,6 +8,9 @@
   "logo_950.png": {
     "obsolete": true
   },
+  "logo_med_navn_408.png": {
+    "obsolete": true
+  },
   "logo_40.png": {
     "obsolete": true
   },
@@ -64,6 +67,11 @@
   },
   "metadata.json": {
     "beskrivelse": "Egenskaper",
+    "filtype": "JSON",
+    "kategori": "meta"
+  },
+  "metadata_med_undertyper.json": {
+    "beskrivelse": "Egenskaper inklusive alle undertyper",
     "filtype": "JSON",
     "kategori": "meta"
   },
