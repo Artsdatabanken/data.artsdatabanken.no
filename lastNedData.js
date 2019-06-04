@@ -25,7 +25,6 @@ async function lesUrl(relUrl, file) {
     console.log("Creating " + dataPath);
     fs.mkdirSync(dataPath);
   }
-  console.log(relUrl, file);
   if (!file) file = metadataFilename;
   const relativePath = relUrl ? relUrl + "/" : "";
   const url = dataUrl + relativePath + file;
