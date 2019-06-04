@@ -54,10 +54,10 @@ export default props => {
             )}
             <h2>Kart</h2>
             <OpenApi
-              api={type.kartformat}
               tittel={tittel}
               kode={type.kode}
               url={type.url}
+              files={type.files}
             />
             <h2>Lenker</h2>
             <WebLinks
