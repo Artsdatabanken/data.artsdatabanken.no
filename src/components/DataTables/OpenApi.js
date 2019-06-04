@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Projeksjon from "../../templates/Projeksjon";
 import { CloudDownload } from "@material-ui/icons";
+import filmeta from "./filtype";
 
 const arter = [
   {
@@ -119,63 +120,6 @@ const finnProjeksjon = fil => {
   if (fil.indexOf("32633") > 0) return 32633;
   if (fil.indexOf("4326") > 0) return 4326;
   return null;
-};
-
-const filmeta = {
-  "avatar_40.jpg": { obsolete: true },
-  "avatar_40.png": { obsolete: true },
-  "forside_408.jpg": { obsolete: true },
-  "forside_950.jpg": { obsolete: true },
-  "forside_950.png": { obsolete: true },
-  "foto_408.jpg": {
-    beskrivelse: "Forsidefoto (408 px)",
-    filtype: "JPEG",
-    kategori: "media"
-  },
-  "logo.svg": {
-    beskrivelse: "Logo (vektor)",
-    filtype: "SVG",
-    kategori: "media"
-  },
-  "logo_24.png": {
-    beskrivelse: "Logo (24 px)",
-    filtype: "PNG",
-    kategori: "media"
-  },
-  "logo_48.png": {
-    beskrivelse: "Logo (48 px)",
-    filtype: "PNG",
-    kategori: "media"
-  },
-  "metadata.json": {
-    beskrivelse: "Egenskaper",
-    filtype: "JSON",
-    kategori: "meta"
-  },
-  "polygon.32633.geojson": {
-    beskrivelse: "GeoJSON polygoner",
-    filtype: "GeoJSON"
-  },
-  "polygon.4326.geojson": {
-    beskrivelse: "GeoJSON polygoner",
-    filtype: "GeoJSON"
-  },
-  "polygon.3857.mbtiles": {
-    beskrivelse: "Vector tiles",
-    filtype: "MBTiles"
-  },
-  "polygon.spatialite.4326.sqlite": {
-    beskrivelse: "Spatialite database med vektordata",
-    filtype: "Spatialite"
-  },
-  "raster_indexed.3857.mbtiles": {
-    beskrivelse: "Raster tiles (data)",
-    filtype: "MBTiles"
-  },
-  "raster_indexed_palette.png": {
-    beskrivelse: "Raster tiles (data): Palettfil/LUT",
-    filtype: "MBTiles"
-  }
 };
 
 const Download = ({ relUrl, filename, size, modified }) => {
