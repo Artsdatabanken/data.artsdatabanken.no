@@ -21,49 +21,12 @@ const arter = [
 
 const opendata = [
   {
-    tittel: "Vector tiles",
-    url: "polygon.3857.mbtiles/",
-    downloadUrl: "polygon.3857.mbtiles",
-    projeksjon: 3857,
-    protokoll: "XYZ PBF",
-    beskrivelse: "Kartfliser i vektorformat for bruk i web-løsninger."
-  },
-  {
-    tittel: "Raster tiles",
-    url: "gradient.3857.mbtiles/",
-    downloadUrl: "gradient.3857.mbtiles",
-    projeksjon: 3857,
-    protokoll: "XYZ PNG",
-    beskrivelse: "Kartfliser i rasterformat for bruk i web-løsninger."
-  },
-  {
     tittel: "OGC WMS",
     url:
       "https://wms.artsdatabanken.no/?map=/maps/mapfiles/la.map&?&request=GetCapabilities&service=WMS&version=1.1.1&", // %KODE%
     projeksjon: 32633,
     protokoll: "WMS",
     beskrivelse: "Web Map Service"
-  },
-  {
-    tittel: "Spatialite database",
-    downloadUrl: "polygon.spatialite.4326.sqlite",
-    projeksjon: 4326,
-    protokoll: "SQLITE",
-    beskrivelse: "Vektorkart i sqlite romlig database"
-  },
-  {
-    tittel: "GeoJSON",
-    downloadUrl: "polygon.4326.geojson",
-    projeksjon: 4326,
-    protokoll: "GeoJSON",
-    beskrivelse: ""
-  },
-  {
-    tittel: "GeoJSON",
-    downloadUrl: "polygon.32633.geojson",
-    projeksjon: 32633,
-    protokoll: "GeoJSON",
-    beskrivelse: ""
   }
   /*  {
     tittel: "OGC WFS",
@@ -94,7 +57,7 @@ class OpenApi extends Component {
             <th>Tittel</th>
             <th>Projeksjon</th>
 
-            <th>Beskrivelse</th>
+            <th>Oppdatert</th>
             <th>Format</th>
             <th />
             <th />
