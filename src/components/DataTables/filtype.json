@@ -1,5 +1,16 @@
 {
-  "avatar_40.jpg": { "obsolete": true },
+  "avatar_40.jpg": {
+    "obsolete": true
+  },
+  "logo_40.jpg": {
+    "obsolete": true
+  },
+  "logo_40.png": {
+    "obsolete": true
+  },
+  "index.html": {
+    "obsolete": true
+  },
   "avatar_40.png": { "obsolete": true },
   "forside_408.jpg": { "obsolete": true },
   "forside_950.jpg": { "obsolete": true },
@@ -7,6 +18,16 @@
   "foto_408.jpg": {
     "beskrivelse": "Forsidefoto (408 px)",
     "filtype": "JPEG",
+    "kategori": "media"
+  },
+  "logo_408.png": {
+    "beskrivelse": "Logo (408 px)",
+    "filtype": "PNG",
+    "kategori": "media"
+  },
+  "foto_408.png": {
+    "beskrivelse": "Forsidefoto (408 px)",
+    "filtype": "PNG",
     "kategori": "media"
   },
   "logo.svg": {
