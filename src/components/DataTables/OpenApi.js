@@ -83,9 +83,9 @@ const opendata = [
 
 class OpenApi extends Component {
   render() {
-    const { kode, url, tittel, kartformat } = this.props;
+    const { kode, url, tittel, files } = this.props;
+    if (!files) return null;
     const art = url.startsWith("Biota");
-    //    data = opendata.filter(e => kartformat[e.url]);
     const data = opendata;
     return (
       <table className="open_api">
@@ -101,6 +101,19 @@ class OpenApi extends Component {
           </tr>
         </thead>
         <tbody>
+          {files &&
+            Object.keys(files).map(key => {
+              const e = files[key];
+              return (
+                <Download
+                  key={key}
+                  relUrl={url}
+                  filename={key}
+                  size={e.size}
+                  modified={e.mtime}
+                />
+              );
+            })}
           {data.map(e => (
             <Api
               key={e.tittel}
@@ -126,6 +139,118 @@ class OpenApi extends Component {
   }
 }
 
+const prettySize = size => {
+  if (size < 2048) return size + " B";
+  if (size < 1024 * 1024) return Math.round(size / 1024) + " kB";
+  if (size < 1024 * 1024 * 1024) return Math.round(size / 1024 / 1024) + " MB";
+  return Math.round(size / 1024 / 1024 / 1024) + " GB";
+};
+
+const prettyDate = date => {
+  return new Date(date).toISOString().substring(0, 10);
+};
+
+const finnProjeksjon = fil => {
+  if (fil.indexOf("3857") > 0) return 3857;
+  if (fil.indexOf("25833") > 0) return 25833;
+  if (fil.indexOf("32633") > 0) return 32633;
+  if (fil.indexOf("4326") > 0) return 4326;
+  return null;
+};
+
+const filmeta = {
+  "avatar_40.jpg": { obsolete: true },
+  "avatar_40.png": { obsolete: true },
+  "forside_408.jpg": { obsolete: true },
+  "forside_950.jpg": { obsolete: true },
+  "forside_950.png": { obsolete: true },
+  "foto_408.jpg": {
+    beskrivelse: "Forsidefoto (408 px)",
+    filtype: "JPEG",
+    kategori: "media"
+  },
+  "logo.svg": {
+    beskrivelse: "Logo (vektor)",
+    filtype: "SVG",
+    kategori: "media"
+  },
+  "logo_24.png": {
+    beskrivelse: "Logo (24 px)",
+    filtype: "PNG",
+    kategori: "media"
+  },
+  "logo_48.png": {
+    beskrivelse: "Logo (48 px)",
+    filtype: "PNG",
+    kategori: "media"
+  },
+  "metadata.json": {
+    beskrivelse: "Egenskaper",
+    filtype: "JSON",
+    kategori: "meta"
+  },
+  "polygon.32633.geojson": {
+    beskrivelse: "GeoJSON polygoner",
+    filtype: "GeoJSON"
+  },
+  "polygon.4326.geojson": {
+    beskrivelse: "GeoJSON polygoner",
+    filtype: "GeoJSON"
+  },
+  "polygon.3857.mbtiles": {
+    beskrivelse: "Vector tiles",
+    filtype: "MBTiles"
+  },
+  "polygon.spatialite.4326.sqlite": {
+    beskrivelse: "Spatialite database med vektordata",
+    filtype: "Spatialite"
+  },
+  "raster_indexed.3857.mbtiles": {
+    beskrivelse: "Raster tiles (data)",
+    filtype: "MBTiles"
+  },
+  "raster_indexed_palette.png": {
+    beskrivelse: "Raster tiles (data): Palettfil/LUT",
+    filtype: "MBTiles"
+  }
+};
+
+const Download = ({ relUrl, filename, size, modified }) => {
+  const { beskrivelse, filtype, obsolete, kategori } = filmeta[filename] || {};
+  if (obsolete) return null;
+  if (!filtype) {
+    console.warn("OpenApi: Ukjent fil: " + filename);
+    return null;
+  }
+  if (kategori && kategori !== "kart") return null; // Ikke kart
+  const projeksjon = finnProjeksjon(filename);
+  const fullUrl = relUrl + "/" + filename + "/";
+  const fullDownloadUrl = relUrl + "/" + filename;
+  return (
+    <tr>
+      <td>{beskrivelse}</td>
+      <td>{projeksjon && <Projeksjon epsg={projeksjon} />}</td>
+      <td>{prettyDate(modified)}</td>
+      <td>{filtype}</td>
+      <td>{fullUrl && <a href={fullUrl}>API</a>} </td>
+      <td>
+        {fullDownloadUrl && (
+          <a href={fullDownloadUrl}>
+            <CloudDownload
+              style={{
+                top: -3,
+                position: "relative",
+                width: 24
+              }}
+            />
+            {prettySize(size)}
+          </a>
+        )}
+      </td>
+    </tr>
+  );
+};
+
 const Api = ({
   protokoll,
   tittel,
@@ -134,8 +259,7 @@ const Api = ({
   downloadUrl,
   relUrl,
   projeksjon,
-  kode,
-  beskrivelse
+  kode
 }) => {
   let fullUrl = fixUrl(url, kode, relUrl, sidetittel);
   let fullDownloadUrl = fixUrl(downloadUrl, kode, relUrl, sidetittel);
@@ -143,7 +267,7 @@ const Api = ({
     <tr>
       <td>{tittel}</td>
       <td>{projeksjon && <Projeksjon epsg={projeksjon} />}</td>
-      <td>{beskrivelse}</td>
+      <td />
       <td>{protokoll}</td>
       <td>{fullUrl && <a href={fullUrl}>API</a>} </td>
       <td>
