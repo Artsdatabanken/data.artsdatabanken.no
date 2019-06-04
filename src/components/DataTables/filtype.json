@@ -18,7 +18,18 @@
     "obsolete": true
   },
   "avatar_40.png": { "obsolete": true },
-  "forside_408.jpg": { "obsolete": true },
+  "forside_408.jpg": {
+    "obsolete": true
+  },
+  "forside_408.png": {
+    "obsolete": true
+  },
+  "grid.32633.tif": {
+    "beskrivelse": "Utbredelse (1km/px)",
+    "filtype": "GeoTIFF"
+  },
+  "polygon.3857.mbtiles.bak": { "obsolete": true },
+  "grid.32633.png.aux.xml": { "obsolete": true },
   "forside_950.jpg": { "obsolete": true },
   "forside_950.png": { "obsolete": true },
   "foto_408.jpg": {
