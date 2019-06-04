@@ -235,7 +235,7 @@ const Download = ({ relUrl, filename, size, modified }) => {
       <td>{fullUrl && <a href={fullUrl}>API</a>} </td>
       <td>
         {fullDownloadUrl && (
-          <a href={fullDownloadUrl}>
+          <a href={fullDownloadUrl} style={{ display: "flex" }}>
             <CloudDownload
               style={{
                 top: -3,
@@ -243,7 +243,7 @@ const Download = ({ relUrl, filename, size, modified }) => {
                 width: 24
               }}
             />
-            {prettySize(size)}
+            &nbsp;{prettySize(size)}
           </a>
         )}
       </td>
