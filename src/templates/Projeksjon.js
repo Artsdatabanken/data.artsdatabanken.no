@@ -1,8 +1,12 @@
 import React from "react";
 
 const Projeksjon = ({ epsg }) => {
-  if (projections[epsg]) return <a href={projections[epsg].url}>{epsg}</a>;
-  return epsg;
+  const e = projections[epsg] ? (
+    <a href={projections[epsg].url}>{epsg}</a>
+  ) : (
+    epsg
+  );
+  return <div style={{ paddingRight: 4 }}>{e}</div>;
 };
 
 const projections = {
