@@ -25,7 +25,7 @@ const wms = [
     tittel: "OGC WMS",
     url:
       "https://wms.artsdatabanken.no/?map=/maps/mapfiles/la.map&?&request=GetCapabilities&service=WMS&version=1.1.1&", // %KODE%
-    projeksjon: 32633,
+    projeksjon: [32633, 4326, 3857],
     protokoll: "WMS",
     beskrivelse: "Web Map Service"
   }
@@ -55,7 +55,11 @@ class OpenApi extends Component {
         <thead>
           <tr>
             <th>Tittel</th>
-            <th>Projeksjon</th>
+            <th>
+              Projeksjon
+              <br />
+              EPSG
+            </th>
 
             <th>Oppdatert</th>
             <th>Format</th>
@@ -64,6 +68,16 @@ class OpenApi extends Component {
           </tr>
         </thead>
         <tbody>
+          {url.indexOf("Landskap") > 0 && // TODO: WMS for alle lag
+            wms.map(e => (
+              <Api
+                key={e.tittel}
+                {...e}
+                kode={kode}
+                sidetittel={tittel}
+                relUrl={url}
+              />
+            ))}
           {files &&
             Object.keys(files).map(key => {
               const e = files[key];
@@ -77,16 +91,6 @@ class OpenApi extends Component {
                 />
               );
             })}
-          {url.indexOf("Landskap") > 0 && // TODO: WMS for alle lag
-            wms.map(e => (
-              <Api
-                key={e.tittel}
-                {...e}
-                kode={kode}
-                sidetittel={tittel}
-                relUrl={url}
-              />
-            ))}
           {art &&
             arter.map(e => (
               <Api
@@ -131,13 +135,14 @@ const Download = ({ relUrl, filename, size, modified }) => {
   }
   if (kategori && kategori !== "kart") return null; // Ikke kart
   const projeksjon = finnProjeksjon(filename);
-  const fullUrl =
-    filename.indexOf("mbtiles") > 0 ? relUrl + "/" + filename + "/" : null;
-  const fullDownloadUrl = relUrl + "/" + filename;
+  const fullUrl = filename.indexOf("mbtiles") > 0 ? filename + "/" : null;
+  const fullDownloadUrl = "/" + filename;
   return (
     <tr>
       <td>{beskrivelse}</td>
-      <td>{projeksjon && <Projeksjon epsg={projeksjon} />}</td>
+      <td>
+        <Projeksjon epsg={projeksjon} />
+      </td>
       <td>{prettyDate(modified)}</td>
       <td>{filtype}</td>
       <td>{fullUrl && <a href={fullUrl}>API</a>} </td>
@@ -174,7 +179,11 @@ const Api = ({
   return (
     <tr>
       <td>{tittel}</td>
-      <td>{projeksjon && <Projeksjon epsg={projeksjon} />}</td>
+      <td>
+        {projeksjon.map(p => (
+          <Projeksjon key={p} epsg={p} />
+        ))}
+      </td>
       <td />
       <td>{protokoll}</td>
       <td>{fullUrl && <a href={fullUrl}>API</a>} </td>
