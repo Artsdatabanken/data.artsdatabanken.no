@@ -135,8 +135,11 @@ const Download = ({ relUrl, filename, size, modified }) => {
   }
   if (kategori && kategori !== "kart") return null; // Ikke kart
   const projeksjon = finnProjeksjon(filename);
-  const fullUrl = filename.indexOf("mbtiles") > 0 ? filename + "/" : null;
-  const fullDownloadUrl = "/" + filename;
+  const fullUrl =
+    filename.indexOf("mbtiles") > 0
+      ? "/" + relUrl + "/" + filename + "/"
+      : null;
+  const fullDownloadUrl = "/" + relUrl + "/" + filename;
   return (
     <tr>
       <td>{beskrivelse}</td>
