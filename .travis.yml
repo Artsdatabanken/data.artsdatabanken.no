@@ -9,14 +9,15 @@ script:
   - yarn build
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
   - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH, PR=$PR, BRANCH=$BRANCH"
-deploy:
-  skip_cleanup: true
-  provider: script
-  script: bash ./deploy.sh $BRANCH ops "deploy adb-data-portal"
-  on:
-    branch: master
+  - echo $BRANCH
+#deploy:
+#  skip_cleanup: true
+#  provider: script
+#  script: bash ./deploy.sh $BRANCH
+#  on:
+#    branch: master
 after_success:
-  - ./deploy.sh $BRANCH ops "deploy adb-data-portal"
+  - ./deploy.sh $BRANCH
 notifications:
   slack:
     on_success: change
