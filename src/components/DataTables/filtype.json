@@ -31,6 +31,11 @@
     "beskrivelse": "Utbredelse (1km/px)",
     "filtype": "GeoTIFF"
   },
+  "grid.32633.png": {
+    "beskrivelse": "Utbredelse (1km/px)",
+    "filtype": "PNG"
+  },
+  "thumbnail.32633.blur.png": { "obsolete": true },
   "polygon.3857.mbtiles.bak": { "obsolete": true },
   "grid.32633.png.aux.xml": { "obsolete": true },
   "forside_950.jpg": { "obsolete": true },
