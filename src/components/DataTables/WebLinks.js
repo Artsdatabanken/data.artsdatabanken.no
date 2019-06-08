@@ -10,13 +10,13 @@ const arter = [
   },
   {
     tittel: "GBIF",
-    url: "https://www.gbif.org/occurrence/map?q=%TITTEL%",
+    url: "https://www.gbif.org/occurrence/map?q=%TITTEL_LA%",
     beskrivelse: "Observasjoner, Arter, Datasett",
     host: "Global Biodiversity Information Facility"
   },
   {
     tittel: "Wikipedia: Artikkel",
-    url: "https://no.wikipedia.org/wiki/%TITTEL%",
+    url: "https://no.wikipedia.org/wiki/%TITTEL_NO%",
     beskrivelse: "Arter",
     host: "Wikimedia Foundation"
   }
@@ -33,13 +33,13 @@ const links = [
     url: "/%URL%/metadata.json",
     beskrivelse: `Oppsummering av tilgjengelige egenskapsdata`,
     host: "Artsdatabanken"
-  }
-  /*  {
+  },
+  {
     tittel: "Artsdatabanken",
-    url: "https://artsdatabanken.no/Databank/Content/237662?q=%TITTEL%",
+    url: "https://artsdatabanken.no/Taxon/%TITTEL_LA%/%ID%",
     beskrivelse: "Artikler",
     host: "Artsdatabanken"
-  }*/
+  }
 ];
 
 //https://lovdata.no/for/lf/mv/xv-         2006 06 30-0830.html
@@ -77,7 +77,7 @@ class WebLinks extends Component {
               key={e.tittel}
               {...e}
               kode={kode}
-              sidetittel={tittel}
+              metanavn={tittel}
               relUrl={url}
             />
           ))}
@@ -89,7 +89,7 @@ class WebLinks extends Component {
                 <WebLink
                   key={key}
                   kode={kode}
-                  tittel={meta.navn}
+                  metanavn={tittel}
                   host={meta.host}
                   beskrivelse={meta.beskrivelse}
                   url={lenke[key]}
@@ -102,7 +102,7 @@ class WebLinks extends Component {
                 key={e.tittel}
                 {...e}
                 kode={kode}
-                sidetittel={tittel}
+                metanavn={tittel}
                 relUrl={url}
               />
             ))}
@@ -113,16 +113,16 @@ class WebLinks extends Component {
 }
 
 const WebLink = ({
+  metanavn,
   tittel,
-  sidetittel,
   url,
   relUrl,
   host,
   kode,
   beskrivelse
 }) => {
-  let fullUrl = expandVars(url, kode, relUrl, sidetittel);
-  let fullTittel = expandVars(tittel, kode, relUrl, sidetittel);
+  let fullUrl = expandVars(url, kode, relUrl, metanavn);
+  let fullTittel = expandVars(tittel, kode, relUrl, metanavn);
   return (
     <tr>
       <td>
@@ -140,7 +140,7 @@ const padLeft = (s, i) => {
   return s;
 };
 
-const expandVars = (url, kode, relUrl, tittel) => {
+const expandVars = (url, kode, relUrl, metanavn) => {
   const a = (url || "").replace(
     "%VV%",
     "VV" + padLeft(kode.substring(3), 8) // 00002885
@@ -149,5 +149,7 @@ const expandVars = (url, kode, relUrl, tittel) => {
     .replace("%KODE%", kode)
     .replace("%ID%", kode.split("-")[1])
     .replace("%URL%", relUrl)
-    .replace("%TITTEL%", tittel);
+    .replace("%TITTEL%", metanavn.no || metanavn.la)
+    .replace("%TITTEL_NO%", metanavn.nb)
+    .replace("%TITTEL_LA%", metanavn.la);
 };

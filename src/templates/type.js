@@ -61,7 +61,7 @@ export default props => {
             <h2>Lenker</h2>
             <WebLinks
               api={type.api}
-              tittel={tittel}
+              tittel={type.tittel}
               kode={type.kode}
               url={type.url}
               lenke={type.lenke}
