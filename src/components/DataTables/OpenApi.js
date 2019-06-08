@@ -183,9 +183,7 @@ const Api = ({
     <tr>
       <td>{tittel}</td>
       <td>
-        {projeksjon.map(p => (
-          <Projeksjon key={p} epsg={p} />
-        ))}
+        {projeksjon && projeksjon.map(p => <Projeksjon key={p} epsg={p} />)}
       </td>
       <td />
       <td>{protokoll}</td>
