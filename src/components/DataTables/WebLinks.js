@@ -89,7 +89,8 @@ class WebLinks extends Component {
                 <WebLink
                   key={key}
                   kode={kode}
-                  metanavn={tittel}
+                  tittel={meta.navn}
+                  metanavn={{}}
                   host={meta.host}
                   beskrivelse={meta.beskrivelse}
                   url={lenke[key]}
