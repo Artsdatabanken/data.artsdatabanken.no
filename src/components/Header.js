@@ -11,7 +11,7 @@ const Header = ({ title }) => {
     if (!query) return setHits([]);
 
     const fetchData = async () => {
-      const result = await axios("https://ogapi.artsdatabanken.no/" + query);
+      const result = await axios("https://lookup.artsdatabanken.no/" + query);
       setHits(result.data.result);
     };
     fetchData();
