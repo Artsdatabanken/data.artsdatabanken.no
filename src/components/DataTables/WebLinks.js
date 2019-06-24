@@ -149,7 +149,7 @@ const expandVars = (url, kode, relUrl, metanavn) => {
     .replace("%KODE%", kode)
     .replace("%ID%", kode.split("-")[1])
     .replace("%URL%", relUrl)
-    .replace("%TITTEL%", metanavn.no || metanavn.la)
+    .replace("%TITTEL%", metanavn.nb || metanavn.la)
     .replace("%TITTEL_NO%", metanavn.nb)
     .replace("%TITTEL_LA%", metanavn.la);
 };
