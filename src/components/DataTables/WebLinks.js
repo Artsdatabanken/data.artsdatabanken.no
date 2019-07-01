@@ -33,12 +33,6 @@ const links = [
     url: "/%URL%/metadata.json",
     beskrivelse: `Oppsummering av tilgjengelige egenskapsdata`,
     host: "Artsdatabanken"
-  },
-  {
-    tittel: "Artsdatabanken",
-    url: "https://artsdatabanken.no/Taxon/%TITTEL_LA%/%ID%",
-    beskrivelse: "Artikler",
-    host: "Artsdatabanken"
   }
 ];
 
