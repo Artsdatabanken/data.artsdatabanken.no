@@ -5,6 +5,12 @@ module.exports = {
   plugins: [
     "gatsby-transformer-json",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-preval"
+    "gatsby-plugin-preval",
+    {
+      resolve: "gatsby-plugin-html-attributes",
+      options: {
+        lang: "no"
+      }
+    }
   ]
 };
