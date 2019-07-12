@@ -1,5 +1,4 @@
 const fs = require("fs");
-const fetch = require("node-fetch");
 const {
   dataPath,
   metadataFilename,
@@ -16,14 +15,23 @@ exports.createPages = ({ actions }) => {
   });
 };
 
+let filindeks = {};
+
 async function loadAll(createPage) {
+  filindeks = await lesFilindeks();
+  await lesDatafil("Fylke", createPage);
   await lesDatafil("Natur_i_Norge/Natursystem", createPage);
   await lesDatafil("Natur_i_Norge/Landskap", createPage);
   await lesDatafil("Biota", createPage);
-  await lesDatafil("Fylke", createPage);
   await lesDatafil("Naturvernområde", createPage);
   await lesDatafil("Datakilde", createPage);
-  await lesDatafil("Truet_art_natur", createPage);
+  //  await lesDatafil("Truet_art_natur", createPage);
+  /**/
+}
+
+async function lesFilindeks() {
+  const filepath = dataPath + "index.json";
+  return JSON.parse(fs.readFileSync(filepath));
 }
 
 async function lesDatafil(relUrl, createPage) {
@@ -60,6 +68,7 @@ function makePages(createPage, types) {
 
   Object.keys(types).forEach(kode => {
     const type = types[kode];
+    type.files = filindeks[type.url] || {};
     const url = type.url;
     createPage({
       path: `/${url}`,
