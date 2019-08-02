@@ -51,6 +51,7 @@ export default props => {
                 {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
               </div>
             )}
+            {type.ingress}
             <h2>Kart</h2>
             <OpenApi
               tittel={tittel}
