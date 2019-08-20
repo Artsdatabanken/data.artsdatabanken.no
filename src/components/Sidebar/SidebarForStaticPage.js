@@ -16,7 +16,7 @@ class SidebarForStaticPage extends Component {
         {false && <Link url="/Biota">Arter</Link>}
         <Link url="/Natur_i_Norge">Natur i Norge</Link>
         <Link url="/Naturvernområde">Naturvernområde</Link>
-        <Link url="/Fylke">Fylke</Link>
+        <Link url="/Administrativ_grense">Administrativ grense</Link>
         <SidebarStaticElements tittel={tittel} />
       </ul>
     );
