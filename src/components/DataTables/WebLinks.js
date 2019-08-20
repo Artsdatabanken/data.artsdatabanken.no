@@ -77,8 +77,10 @@ class WebLinks extends Component {
           ))}
           {lenke &&
             Object.keys(lenke).map(key => {
-              const meta = lenketyper[key];
-              if (!meta) throw new Error(key);
+              const meta = lenke[key];
+              if (!meta) {
+                throw new Error(key);
+              }
               return (
                 <WebLink
                   key={key}
