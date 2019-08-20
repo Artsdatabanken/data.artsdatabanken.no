@@ -10,6 +10,7 @@
     "prebuild": "node lastNedData.js",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "deploy": "./deployfromlocal.sh",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "dependencies": {
