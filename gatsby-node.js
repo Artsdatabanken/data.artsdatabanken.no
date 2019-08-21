@@ -52,12 +52,6 @@ function read(filePath, createPage) {
       oo[topindex].url = oo[topindex].url;
       oo[topindex].tittel.nb = oo[topindex].tittel.nb;
     }
-    /*    if (type.kode === "~") {
-      type.barn = type.barn.filter(x => x.url === "Natur_i_Norge");
-    }
-    if (type.kode === "NN")
-      type.søsken = type.søsken.filter(x => x.url === "Natur_i_Norge");
-*/
   });
 
   makePages(createPage, types);
