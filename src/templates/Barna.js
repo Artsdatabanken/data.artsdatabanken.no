@@ -18,9 +18,6 @@ const Barn = ({ kode, tittel, url, farge, intervall }) => {
       <a href={"/" + url}>
         <li className="sidebar_link sidebar_children">{tittel1}</li>
       </a>
-      <div style={{ display: "flex" }}>
-        <Intervaller intervall={intervall} />
-      </div>
     </React.Fragment>
   );
 };
