@@ -31,6 +31,10 @@
     "beskrivelse": "Utbredelse (1km/px)",
     "filtype": "GeoTIFF"
   },
+  "raster.32633.tif": {
+    "beskrivelse": "Kontinuerlige data (100m/px)",
+    "filtype": "GeoTIFF"
+  },
   "grid.32633.png": {
     "beskrivelse": "Utbredelse (1km/px)",
     "filtype": "PNG"
@@ -98,6 +102,10 @@
   },
   "raster_indexed.3857.mbtiles": {
     "beskrivelse": "Raster tiles (data)",
+    "filtype": "MBTiles"
+  },
+  "raster_gradient.3857.mbtiles": {
+    "beskrivelse": "Raster tiles (kontinuerlige data)",
     "filtype": "MBTiles"
   },
   "raster_indexed_palette.png": {

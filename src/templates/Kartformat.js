@@ -69,7 +69,8 @@ function mkdate(date) {
 
 const titler = {
   "polygon.3857.geojson": "",
-  "raster.gradient.3857.mbtiles":
+  "raster.32633.tif": "GeoTIFF med kontinuerlige data",
+  "raster_gradient.3857.mbtiles":
     "Mapbox Raster tile set (MVT) med kontinuerlige data",
   "raster.indexed.3857.mbtiles":
     "Mapbox Raster tile set (MVT) med klassedelte data",
