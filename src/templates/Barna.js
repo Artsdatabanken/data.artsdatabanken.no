@@ -12,7 +12,7 @@ const Barna = ({ barn }) => {
 };
 
 const Barn = ({ kode, tittel, url, farge, intervall }) => {
-  const tittel1 = Object.values(tittel)[0];
+  const tittel1 = tittel.nb || Object.values(tittel)[0];
   return (
     <React.Fragment>
       <a href={"/" + url}>

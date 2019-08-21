@@ -17,7 +17,7 @@ import "../style/style.css";
 
 export default props => {
   const { pageContext: type } = props;
-  const tittel = Object.values(type.tittel)[0];
+  const tittel = type.tittel.nb || Object.values(type.tittel)[0];
   const updateTime = preval`module.exports = new Date().toISOString()`;
   const { x, y } = useWindowScroll();
 
@@ -51,7 +51,6 @@ export default props => {
                 {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
               </div>
             )}
-            {type.ingress}
             <h2>Kart</h2>
             <OpenApi
               tittel={tittel}
@@ -68,7 +67,7 @@ export default props => {
               lenke={type.lenke}
             />
             <br />
-            {type.files["thumbnail.32633.blur.png"] && (
+            {type.files["thumbnail.png"] && (
               <Geografi url={type.url}>
                 <Statistikk tittel={tittel} {...type.stats} />
               </Geografi>
