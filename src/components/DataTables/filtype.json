@@ -116,6 +116,6 @@
   },
   "raster_indexed_palette.png": {
     "beskrivelse": "Raster tiles (data): Palett/LUT",
-    "filtype": "MBTiles"
+    "filtype": "PNG"
   }
 }
