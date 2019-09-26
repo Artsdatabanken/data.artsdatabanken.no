@@ -17,7 +17,8 @@ const seo = {
 const Seo = ({ pageMeta, tittel }) => {
   const title = (tittel || seo.title) + ": Åpne data fra Artsdatabanken";
   const description = pageMeta.ingress || seo.description;
-  const image = pageMeta.bilde.foto ? pageMeta.bilde.foto.url : seo.image;
+  const image =
+    pageMeta.bilde && pageMeta.bilde.foto ? pageMeta.bilde.foto.url : seo.image;
   const url = pageMeta.slug
     ? `${seo.canonicalUrl}${path.sep}${pageMeta.slug}`
     : seo.canonicalUrl;
