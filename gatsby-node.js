@@ -45,8 +45,7 @@ function read(filePath, createPage) {
   if (types.data) types = types.data;
   Object.values(types).forEach(type => {
     type.url = type.url;
-    type.tittel.nb = type.tittel.nb;
-    const topindex = type.overordnet.length - 1;
+    const topindex = (type.overordnet ? type.overordnet.length : 0) - 1;
     if (topindex >= 0) {
       const oo = type.overordnet;
       oo[topindex].url = oo[topindex].url;
