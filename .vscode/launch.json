@@ -11,6 +11,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run-script", "develop"],
       "port": 9229
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "program": "${file}"
     }
   ]
 }
