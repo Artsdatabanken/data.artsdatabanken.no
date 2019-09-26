@@ -10,7 +10,7 @@ const arter = [
   },
   {
     tittel: "GBIF",
-    url: "https://www.gbif.org/occurrence/map?q=%TITTEL_LA%",
+    url: "https://www.gbif.org/occurrence/map?q=%TITTEL_SN%",
     beskrivelse: "Observasjoner, Arter, Datasett",
     host: "Global Biodiversity Information Facility"
   },
@@ -118,6 +118,8 @@ const WebLink = ({
   kode,
   beskrivelse
 }) => {
+  if (!kode) throw new Error(kode + "_" + tittel);
+  console.log(tittel, kode);
   let fullUrl = expandVars(url, kode, relUrl, metanavn);
   let fullTittel = expandVars(tittel, kode, relUrl, metanavn);
   return (
@@ -146,7 +148,7 @@ const expandVars = (url, kode, relUrl, metanavn) => {
     .replace("%KODE%", kode)
     .replace("%ID%", kode.split("-")[1])
     .replace("%URL%", relUrl)
-    .replace("%TITTEL%", metanavn.nb || metanavn.la)
+    .replace("%TITTEL%", metanavn.nb || metanavn.sn)
     .replace("%TITTEL_NO%", metanavn.nb)
-    .replace("%TITTEL_LA%", metanavn.la);
+    .replace("%TITTEL_SN%", metanavn.sn);
 };
