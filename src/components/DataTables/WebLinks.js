@@ -118,8 +118,6 @@ const WebLink = ({
   kode,
   beskrivelse
 }) => {
-  if (!kode) throw new Error(kode + "_" + tittel);
-  console.log(tittel, kode);
   let fullUrl = expandVars(url, kode, relUrl, metanavn);
   let fullTittel = expandVars(tittel, kode, relUrl, metanavn);
   return (
@@ -140,10 +138,12 @@ const padLeft = (s, i) => {
 };
 
 const expandVars = (url, kode, relUrl, metanavn) => {
-  const a = (url || "").replace(
-    "%VV%",
-    "VV" + padLeft(kode.substring(3), 8) // 00002885
-  );
+  let a = url || "";
+  if (kode)
+    a = a.replace(
+      "%VV%",
+      "VV" + padLeft(kode.substring(3), 8) // 00002885
+    );
   return a
     .replace("%KODE%", kode)
     .replace("%ID%", kode.split("-")[1])
