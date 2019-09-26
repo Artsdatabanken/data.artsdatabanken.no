@@ -20,11 +20,12 @@ let filindeks = {};
 async function loadAll(createPage) {
   filindeks = await lesFilindeks();
   await lesDatafil("Fylke", createPage);
-  await lesDatafil("Natur_i_Norge/Natursystem", createPage);
+  /*  await lesDatafil("Natur_i_Norge/Natursystem", createPage);
   await lesDatafil("Natur_i_Norge/Landskap", createPage);
   await lesDatafil("Biota", createPage);
   await lesDatafil("Naturvernområde", createPage);
   await lesDatafil("Datakilde", createPage);
+*/
   //  await lesDatafil("Truet_art_natur", createPage);
   /**/
 }
@@ -42,6 +43,8 @@ async function lesDatafil(relUrl, createPage) {
 function read(filePath, createPage) {
   const data = fs.readFileSync(filePath);
   let types = JSON.parse(data);
+  if (!types.items) throw new Error("Could not find any items array");
+  types = types.items;
   if (types.data) types = types.data;
   Object.values(types).forEach(type => {
     type.url = type.url;
@@ -64,10 +67,10 @@ function makePages(createPage, types) {
     type.files = filindeks[type.url] || {};
     const url = type.url;
     createPage({
-      path: `/${url}`,
+      path: `${url}`,
       component: component,
       matchPath: type.url === "~" ? "/*" : `/${url}/*`,
-      jsonName: `/${url}/metadata.json`,
+      jsonName: `${url}/metadata.json`,
       context: type
     });
   });
