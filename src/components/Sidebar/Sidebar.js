@@ -9,7 +9,7 @@ class Sidebar extends Component {
     const { tittel, type } = this.props;
     return (
       <ul className="sibebar_link_menu">
-        <DelAv overordnede={type.overordnet} />
+        {type.overordnet && <DelAv overordnede={type.overordnet} />}
         <AlleBarna søsken={type.søsken} nåværende={tittel} barn={type.barn} />
         {type.graf && type.graf.length > 0 && (
           <>
