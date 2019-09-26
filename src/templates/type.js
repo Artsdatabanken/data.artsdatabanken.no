@@ -42,7 +42,7 @@ export default props => {
             <Sidebar type={type} tittel={tittel} />
           </div>
           <div className="mainContent">
-            {type.bilde.banner && (
+            {type.bilde && type.bilde.banner && (
               <div>
                 <Bilde
                   {...type.bilde.banner}
