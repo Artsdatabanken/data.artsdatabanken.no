@@ -24,7 +24,7 @@ const Relasjoner = ({ noder }) => (
 const RelasjonNode = ({ relasjon, kode, tittel, farge, url }) => {
   const tittel1 = Object.values(tittel)[0];
   return (
-    <a href={"/" + url}>
+    <a href={url}>
       <li className="sidebar_link">
         {tittel1}
         <div>{relasjon ? "(" + relasjon + ")" : ""}</div>

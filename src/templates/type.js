@@ -29,7 +29,7 @@ export default props => {
         <h1>
           {tittel}
           <img
-            src={"/" + type.url + "/logo_48.png"}
+            src={type.url + "/logo_48.png"}
             style={{
               verticalAlign: "middle",
               filter: "saturate(0%)",
