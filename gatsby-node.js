@@ -45,8 +45,7 @@ function read(filePath, createPage) {
   let types = JSON.parse(data);
   if (!types.items) throw new Error("Could not find any items array");
   types = types.items;
-  if (types.data) types = types.data;
-  Object.values(types).forEach(type => {
+  types.forEach(type => {
     type.url = type.url;
     const topindex = (type.overordnet ? type.overordnet.length : 0) - 1;
     if (topindex >= 0) {
@@ -55,8 +54,9 @@ function read(filePath, createPage) {
       oo[topindex].tittel.nb = oo[topindex].tittel.nb;
     }
   });
-
-  makePages(createPage, types);
+  const r = {};
+  types.forEach(e => (r[e.kode] = e));
+  makePages(createPage, r);
 }
 
 function makePages(createPage, types) {
@@ -65,11 +65,20 @@ function makePages(createPage, types) {
   Object.keys(types).forEach(kode => {
     const type = types[kode];
     type.files = filindeks[type.url] || {};
+    if (type.overordnet.length > 0) {
+      const forelder = type.overordnet[0].kode;
+      console.log(kode, JSON.stringify(forelder));
+      if (types[forelder]) {
+        console.log(kode, JSON.stringify(types[forelder]));
+        type.søsken = types[forelder].barn;
+      }
+    }
     const url = type.url;
+    console.log(url);
     createPage({
       path: `${url}`,
       component: component,
-      matchPath: type.url === "~" ? "/*" : `/${url}/*`,
+      matchPath: url === "~" ? "/*" : `/${url}/*`,
       jsonName: `${url}/metadata.json`,
       context: type
     });
