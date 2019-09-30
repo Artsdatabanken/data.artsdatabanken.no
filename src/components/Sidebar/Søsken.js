@@ -19,7 +19,7 @@ const EttBarn = ({ tittel, url, farge, nåværende, barn }) => {
   }
   return (
     <React.Fragment>
-      <a href={url === "Katalog" ? "/" : `/${url}`}>
+      <a href={url === "Katalog" ? "/" : `${url}`}>
         {tittel1 !== nåværende && (
           <li className="sidebar_link sidebar_sister_child">{tittel1}</li>
         )}

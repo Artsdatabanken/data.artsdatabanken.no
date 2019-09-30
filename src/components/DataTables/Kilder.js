@@ -21,7 +21,7 @@ class Kilde extends Component {
       >
         <div className="source_item">
           <div style={{ float: "left", width: "80%" }}>
-            <a href={"/" + url} style={{ textDecoration: "none" }}>
+            <a href={url} style={{ textDecoration: "none" }}>
               <img
                 style={{ paddingRight: 8, display: "block", float: "left" }}
                 src={"https://data.artsdatabanken.no/" + url + "/logo_48.png"}

@@ -67,7 +67,7 @@ class ResultatListe extends Component {
                   button={true}
                   className={classes.listitem}
                   onMouseDown={() => {
-                    window.location = "/" + item.url;
+                    window.location = item.url;
                   }}
                   key={item.url}
                 >
