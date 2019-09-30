@@ -48,7 +48,7 @@ export default props => {
                   {...type.bilde.banner}
                   alt={"Foto av " + tittel.toLowerCase()}
                 />
-                {type.ingress} <a href={type.infoUrl}>{type.infoUrl}</a>
+                {type.ingress.nb} <a href={type.infoUrl}>{type.infoUrl}</a>
               </div>
             )}
             <h2>Kart</h2>
