@@ -5,15 +5,13 @@ import {
   withPhenomicApi,
   query
 } from "@phenomic/preset-react-app/lib/client";
-
-const Home = () => (
-  <div>
-    <p>This is a homepage</p>
-  </div>
-);
+import Type from "./src/templates/type";
 
 const Test = props => {
   if (!props.page.node) return null;
+  const node = props.page.node;
+  console.error("node", node);
+  return <Type pageContext={node} />;
   return (
     <div>
       <h1>{props.page.node.kode}</h1> {JSON.stringify(props)};<h1>1_</h1>{" "}
