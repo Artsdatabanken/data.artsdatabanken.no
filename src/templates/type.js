@@ -18,7 +18,7 @@ import "../style/style.css";
 export default props => {
   const { pageContext: type } = props;
   const tittel = type.tittel.nb || Object.values(type.tittel)[0];
-  const updateTime = preval`module.exports = new Date().toISOString()`;
+  const updateTime = new Date().toISOString(); // preval`module.exports = new Date().toISOString()`;
   const { x, y } = useWindowScroll();
 
   return (
@@ -68,7 +68,7 @@ export default props => {
               lenke={type.lenke}
             />
             <br />
-            {type.files["thumbnail.png"] && (
+            {type.files && type.files["thumbnail.png"] && (
               <Geografi url={type.url}>
                 <Statistikk tittel={tittel} {...type.stats} />
               </Geografi>
