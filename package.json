@@ -4,12 +4,16 @@
   "description": "Directory of Artsdatabanken open data and open APIs.",
   "version": "0.1.0",
   "license": "MIT",
+  "phenomic": {
+    "presets": [
+      "@phenomic/preset-react-app"
+    ]
+  },
   "scripts": {
+    "start": "phenomic start",
+    "build": "phenomic build",
     "develop": "gatsby develop",
-    "start": "npm run develop",
     "prebuild": "node lastNedData.js",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
     "deploy": "./deployfromlocal.sh",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
@@ -17,12 +21,6 @@
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
     "axios": "^0.19.0",
-    "gatsby": "^2.3.17",
-    "gatsby-plugin-html-attributes": "^1.0.5",
-    "gatsby-plugin-preval": "^1.0.0",
-    "gatsby-plugin-react-helmet": "^3.0.12",
-    "gatsby-source-filesystem": "^2.0.29",
-    "gatsby-transformer-json": "^2.1.11",
     "keyboardjs": "^2.5.1",
     "node-fetch": "^2.6.0",
     "react": "^16.8.6",
@@ -32,6 +30,10 @@
     "rebound": "^0.1.0"
   },
   "devDependencies": {
+    "@phenomic/core": "^1.0.0-alpha.1",
+    "@phenomic/cli": "^1.0.0-alpha.1",
+    "@phenomic/preset-react-app": "^1.0.0-alpha.1",
+    "react-router": "^3.2.0",
     "babel-plugin-preval": "^3.0.1",
     "husky": "^1.3.1",
     "lint-staged": "^8.2.1",
