@@ -1,32 +1,24 @@
 const fs = require("fs");
+const path = require("path");
 const {
   dataPath,
   metadataFilename,
   getLocalDataFilePathForUrl
 } = require("./config");
 
-const isDeveloping = process.env.NODE_ENV === "development";
-
-exports.createPages = ({ actions }) => {
-  const { createPage } = actions;
-  return new Promise((resolve, reject) => {
-    loadAll(createPage);
-    resolve();
-  });
-};
-
 let filindeks = {};
+loadAll();
 
-async function loadAll(createPage) {
+async function loadAll() {
   filindeks = await lesFilindeks();
-  await lesDatafil("Fylke", createPage);
-  /*  await lesDatafil("Natur_i_Norge/Natursystem", createPage);
-  await lesDatafil("Natur_i_Norge/Landskap", createPage);
-  await lesDatafil("Biota", createPage);
-  await lesDatafil("Naturvernområde", createPage);
-  await lesDatafil("Datakilde", createPage);
+  await lesDatafil("Fylke");
+  /*  await lesDatafil("Natur_i_Norge/Natursystem");
+  await lesDatafil("Natur_i_Norge/Landskap");
+  await lesDatafil("Biota");
+  await lesDatafil("Naturvernområde");
+  await lesDatafil("Datakilde");
 */
-  //  await lesDatafil("Truet_art_natur", createPage);
+  //  await lesDatafil("Truet_art_natur");
   /**/
 }
 
@@ -35,12 +27,12 @@ async function lesFilindeks() {
   return JSON.parse(fs.readFileSync(filepath));
 }
 
-async function lesDatafil(relUrl, createPage) {
+async function lesDatafil(relUrl) {
   let filePath = getLocalDataFilePathForUrl(relUrl, metadataFilename);
-  read(filePath, createPage);
+  read(filePath);
 }
 
-function read(filePath, createPage) {
+function read(filePath) {
   const data = fs.readFileSync(filePath);
   let types = JSON.parse(data);
   if (!types.items) throw new Error("Could not find any items array");
@@ -56,31 +48,22 @@ function read(filePath, createPage) {
   });
   const r = {};
   types.forEach(e => (r[e.kode] = e));
-  makePages(createPage, r);
+  makePages(r);
 }
 
-function makePages(createPage, types) {
-  const component = require.resolve("./src/templates/type.js");
-
+function makePages(types) {
   Object.keys(types).forEach(kode => {
     const type = types[kode];
     type.files = filindeks[type.url] || {};
     if (type.overordnet.length > 0) {
       const forelder = type.overordnet[0].kode;
-      console.log(kode, JSON.stringify(forelder));
       if (types[forelder]) {
-        console.log(kode, JSON.stringify(types[forelder]));
         type.søsken = types[forelder].barn;
       }
     }
-    const url = type.url;
-    console.log(url);
-    createPage({
-      path: `${url}`,
-      component: component,
-      matchPath: url === "~" ? "/*" : `/${url}/*`,
-      jsonName: `${url}/metadata.json`,
-      context: type
-    });
+    const jsonPath = path.join(dataPath, type.url + ".json");
+    const dpath = path.dirname(jsonPath);
+    fs.mkdirSync(dpath, { recursive: true });
+    fs.writeFileSync(jsonPath, JSON.stringify(type));
   });
 }
