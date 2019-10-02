@@ -12,12 +12,6 @@ const Test = props => {
   const node = props.page.node;
   console.error("node", node);
   return <Type pageContext={node} />;
-  return (
-    <div>
-      <h1>{props.page.node.kode}</h1> {JSON.stringify(props)};<h1>1_</h1>{" "}
-      {JSON.stringify(props.page.node)};
-    </div>
-  );
 };
 
 const TestContainer = withPhenomicApi(Test, props => ({
