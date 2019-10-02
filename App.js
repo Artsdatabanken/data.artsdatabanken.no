@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Route, browserHistory, Link } from "react-router";
+import { Router, Route, browserHistory } from "react-router";
 import {
   createApp,
   withPhenomicApi,
