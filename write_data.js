@@ -12,14 +12,13 @@ loadAll();
 async function loadAll() {
   filindeks = await lesFilindeks();
   await lesDatafil("Fylke");
-  /*  await lesDatafil("Natur_i_Norge/Natursystem");
+  await lesDatafil("Natur_i_Norge/Natursystem");
   await lesDatafil("Natur_i_Norge/Landskap");
   await lesDatafil("Biota");
   await lesDatafil("Naturvernområde");
   await lesDatafil("Datakilde");
-*/
+
   //  await lesDatafil("Truet_art_natur");
-  /**/
 }
 
 async function lesFilindeks() {
