@@ -18,9 +18,8 @@ import "../style/style.css";
 export default props => {
   const { pageContext: type } = props;
   const tittel = type.tittel.nb || Object.values(type.tittel)[0];
-  const updateTime = new Date().toISOString(); // preval`module.exports = new Date().toISOString()`;
+  const updateTime = preval`module.exports = new Date().toISOString()`;
   const { x, y } = useWindowScroll();
-  console.warn("###", type.files);
   return (
     <div className="page_padding">
       <Header title={y > 120 && tittel} />
