@@ -27,9 +27,9 @@ export default props => {
       <Seo pageMeta={type} tittel={tittel} />
       <div>
         <h1>
-          __{tittel}
+          {tittel}
           <img
-            src={type.url + "/logo_48.png"}
+            src={"https://data.artsdatabanken.no" + type.url + "/logo_48.png"}
             style={{
               verticalAlign: "middle",
               filter: "saturate(0%)",

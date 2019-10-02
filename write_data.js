@@ -61,7 +61,7 @@ function makePages(types) {
         type.søsken = types[forelder].barn;
       }
     }
-    const jsonPath = path.join(dataPath, type.url + ".json");
+    const jsonPath = path.join("content", type.url + ".json");
     const dpath = path.dirname(jsonPath);
     fs.mkdirSync(dpath, { recursive: true });
     fs.writeFileSync(jsonPath, JSON.stringify(type));

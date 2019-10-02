@@ -24,7 +24,7 @@ class Kilde extends Component {
             <a href={url} style={{ textDecoration: "none" }}>
               <img
                 style={{ paddingRight: 8, display: "block", float: "left" }}
-                src={"https://data.artsdatabanken.no/" + url + "/logo_48.png"}
+                src={"https://data.artsdatabanken.no" + url + "/logo_48.png"}
               />
               <span style={{ fontSize: 16, fontWeight: 500, color: "#4c4a48" }}>
                 {tittel && tittel.nb}

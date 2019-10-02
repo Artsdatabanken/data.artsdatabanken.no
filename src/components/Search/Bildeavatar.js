@@ -27,7 +27,7 @@ class BildeAvatar extends Component {
           root: classes.root,
           img: classes.img
         }}
-        src={"https://data.artsdatabanken.no/" + url + "/logo_24.png"}
+        src={"https://data.artsdatabanken.no" + url + "/logo_24.png"}
       />
     );
   }

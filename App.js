@@ -15,7 +15,7 @@ const Test = props => {
 };
 
 const TestContainer = withPhenomicApi(Test, props => ({
-  page: query({ path: "content/data", id: props.params.splat })
+  page: query({ path: "content", id: props.params.splat })
 }));
 
 export default createApp(() => (
