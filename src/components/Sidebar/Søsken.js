@@ -13,10 +13,7 @@ const AlleBarna = ({ søsken, nåværende, barn }) => {
 };
 
 const EttBarn = ({ tittel, url, farge, nåværende, barn }) => {
-  var tittel1 = tittel.nb || Object.values(tittel)[0];
-  if (tittel1 === "Katalog") {
-    tittel1 = "Hovedsiden";
-  }
+  var tittel1 = tittel.nb || tittel.sn;
   return (
     <React.Fragment>
       <a href={url === "Katalog" ? "/" : `${url}`}>

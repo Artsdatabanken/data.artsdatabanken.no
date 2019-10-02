@@ -22,15 +22,11 @@ class FrontPage extends Component {
               <h2>Hent data fra Artsdatabanken</h2>
               <p>
                 <b>
-                  Hos Artsdatabanken finnes mengder av data og informasjon om
-                  naturmangfoldet i Norge som du fritt kan laste ned. Disse er
-                  levert av kunnskapsinstitusjoner, frivillige organisasjoner,
-                  forvaltning, næringsliv og privatpersoner.
+                  Her finner du data om naturmangfoldet i Norge som fritt kan
+                  lastes ned. Disse er levert av kunnskapsinstitusjoner,
+                  frivillige organisasjoner, forvaltning, næringsliv og
+                  privatpersoner.
                 </b>
-              </p>
-              <p>
-                Dersom du ønsker å hente data fra Artsdatabanken finner du det
-                du leter etter ved å søke i eller laste ned datasett.
               </p>
             </div>
           </div>

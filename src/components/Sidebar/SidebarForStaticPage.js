@@ -12,7 +12,7 @@ class SidebarForStaticPage extends Component {
     const { tittel } = this.props;
     return (
       <ul className="sibebar_link_menu">
-        <Link url="/">Hovedsiden</Link>
+        <Link url="/">Hovedside</Link>
         {false && <Link url="/Biota">Arter</Link>}
         <Link url="/Natur_i_Norge">Natur i Norge</Link>
         <Link url="/Naturvernområde">Naturvernområde</Link>
