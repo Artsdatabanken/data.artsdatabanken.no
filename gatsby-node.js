@@ -54,7 +54,7 @@ function read(filePath) {
 function makePages(types) {
   Object.keys(types).forEach(kode => {
     const type = types[kode];
-    type.files = filindeks[type.url] || {};
+    type.files = filindeks[type.url.substring(1)] || {};
     if (type.overordnet.length > 0) {
       const forelder = type.overordnet[0].kode;
       if (types[forelder]) {
