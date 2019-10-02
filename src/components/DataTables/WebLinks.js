@@ -25,7 +25,7 @@ const arter = [
 const links = [
   {
     tittel: "Natur i Norge: App",
-    url: "https://nin.artsdatabanken.no/%URL%",
+    url: "https://nin.artsdatabanken.no%URL%",
     host: "Artsdatabanken"
   },
   {
