@@ -24,7 +24,7 @@ const wms = [
   {
     tittel: "OGC WMS",
     url:
-      "https://wms.artsdatabanken.no/?map=/maps/mapfiles/la.map&?&request=GetCapabilities&service=WMS&version=1.1.1&", // %KODE%
+      "https://wms.artsdatabanken.no/?map=/maps/mapfiles/la.map&?&request=GetCapabilities&service=WMS&version=1.3.0&", // %KODE%
     projeksjon: [32633, 4326, 3857],
     protokoll: "WMS",
     beskrivelse: "Web Map Service"
