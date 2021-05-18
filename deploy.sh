@@ -13,7 +13,9 @@ tar -czf $BRANCH.tar.gz public/ deploy-www.js
 echo "Deploying..."
 sshpass -p $scp_pass scp -o StrictHostKeyChecking=no $BRANCH.tar.gz $scp_user@$scp_dest
 echo "Posting to slack to trigger deployment"
-curl -X POST --data-urlencode "payload={\"channel\": \"$slack_chan\", \"username\": \"travis not the band\", \"text\": \"$slack_command\", \"icon_emoji\": \":ghost:\"}" https://hooks.slack.com/services/$SLACK_TOKEN
+#curl -X POST --data-urlencode "payload={\"channel\": \"$slack_chan\", \"username\": \"travis not the band\", \"text\": \"$slack_command\", \"icon_emoji\": \":ghost:\"}" https://hooks.slack.com/services/$SLACK_TOKEN
+#erstatt test med adb-data-portal
+curl -X POST -H 'Content-type: application/json' --data '{"text":"deploy test"}' $slackaddy
 if [ "${TRAVIS_PULL_REQUEST}" != "false" ]
 then
 echo "Posting to github ..."
