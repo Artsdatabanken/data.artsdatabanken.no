@@ -13,8 +13,8 @@ async function lastNedFiler() {
   await lesUrl("Natur_i_Norge/Natursystem");
   await lesUrl("Natur_i_Norge/Landskap");
   await lesUrl("Biota");
-  await lesUrl("Administrativ_grense/Territorialområde/Fastlands-Norge");
-  await lesUrl("Naturvernområde");
+  await lesUrl("Administrativ_grense/Territorialomr%C3%A5de/Fastlands-Norge");
+  await lesUrl("Naturvernomr%C3%A5de");
   await lesUrl("Datakilde");
   await lesUrl("Truet_art_natur");
   await lesUrl("", "index.json");
