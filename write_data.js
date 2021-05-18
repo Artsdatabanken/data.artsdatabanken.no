@@ -11,7 +11,7 @@ loadAll();
 
 async function loadAll() {
   filindeks = await lesFilindeks();
-  await lesDatafil("Fylke");
+  await lesUrl("Administrativ_grense/Territorialomr%C3%A5de/Fastlands-Norge");
   await lesDatafil("Natur_i_Norge/Natursystem");
   await lesDatafil("Natur_i_Norge/Landskap");
   await lesDatafil("Biota");
