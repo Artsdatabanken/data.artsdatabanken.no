@@ -12,7 +12,7 @@ echo "Making archive..."
 tar -czf $BRANCH.tar.gz public/ deploy-www.js
 echo "Deploying..."
 sshpass -p $scp_pass scp -o StrictHostKeyChecking=no $BRANCH.tar.gz $scp_user@$scp_dest
-#Posting to slack to trigger deployment
+echo "Posting to slack to trigger deployment"
 curl -X POST --data-urlencode "payload={\"channel\": \"$slack_chan\", \"username\": \"travis not the band\", \"text\": \"$slack_command\", \"icon_emoji\": \":ghost:\"}" https://hooks.slack.com/services/$SLACK_TOKEN
 if [ "${TRAVIS_PULL_REQUEST}" != "false" ]
 then
