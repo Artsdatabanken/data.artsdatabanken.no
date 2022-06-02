@@ -25,7 +25,7 @@ class FrontPage extends Component {
                   Her finner du data om naturmangfoldet i Norge som fritt kan
                   lastes ned. Disse er levert av kunnskapsinstitusjoner,
                   frivillige organisasjoner, forvaltning, næringsliv og
-                  privatpersoner.
+                  privatpersoner. Hepp
                 </b>
               </p>
             </div>
