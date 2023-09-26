@@ -1,6 +1,8 @@
 const fs = require("fs");
 const path = require("path");
-const {io} = require('@artsdatabanken/lastejobb')
+const {io, log} = require('@artsdatabanken/lastejobb')
+
+//io.mkdirSync('temp/page_data')
 
 let downloadable_files = {};
 loadAll();

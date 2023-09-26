@@ -1,9 +1,9 @@
 {
-  "name": "renderfiletest",
+  "name": "data.artsdatabanken.no",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@artsdatabanken/lastejobb": "file:../lastejobb",
+    "@artsdatabanken/lastejobb": "^4.0.12",
     "@babel/core": "^7.22.11",
     "@babel/node": "^7.22.10",
     "@babel/preset-env": "^7.22.10",
@@ -74,7 +74,8 @@
   },
   "scripts": {
     "download": "node node_modules/@artsdatabanken/lastejobb/lastejobb stages/download",
-    "transform": "export NODE_ENV=development && npx babel-node src/renderStatic.js",
+    "transform": "node node_modules/@artsdatabanken/lastejobb/lastejobb stages/transform",
+    "transform_": "export NODE_ENV=development && npx babel-node src/renderStatic.js",
     "build": "npm run download && npm run transform",
     "test": "node scripts/test.js"
   },
