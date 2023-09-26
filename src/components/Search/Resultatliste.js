@@ -4,8 +4,8 @@ import {
   ListItem,
   ListItemText,
   Paper
-} from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
+} from "@mui/material";
+import { withStyles } from "@mui/styles";
 import React, { Component } from "react";
 import Bildeavatar from "./Bildeavatar";
 

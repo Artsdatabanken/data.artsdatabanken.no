@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import SearchField from "./SearchField";
 
-const LookupControl = ({ query, classes, onBlur, onQueryChange }) => {
-  const [isSearching, setIsSearching] = useState(false);
+const LookupControl = ({ query, onBlur, onQueryChange }) => {
   return (
     <SearchField
-      isSearching={isSearching}
       query={query}
       onFocus={() => {}}
       onBlur={onBlur}

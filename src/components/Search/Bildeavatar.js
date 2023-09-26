@@ -1,5 +1,5 @@
-import { Avatar } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
+import { Avatar } from "@mui/material";
+import { withStyles } from "@mui/styles";
 import React, { Component } from "react";
 
 const styles = {
@@ -27,7 +27,8 @@ class BildeAvatar extends Component {
           root: classes.root,
           img: classes.img
         }}
-        src={"https://data.artsdatabanken.no" + url + "/logo_24.png"}
+        src={"https://data.artsdatabanken.no" + 
+        "/Administrativ_grense/Territorialområde/Fastlands-Norge/Trøndelag" + "/logo_24.png"}
       />
     );
   }

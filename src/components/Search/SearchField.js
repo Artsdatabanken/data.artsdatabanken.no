@@ -1,11 +1,8 @@
-import { Input, Paper } from "@material-ui/core";
-import React, { useEffect, useRef } from "react";
+import { Input, Paper } from "@mui/material";
+import React, { useRef } from "react";
 
-const SearchBox = ({ isSearching, onBlur, onQueryChange, query }) => {
+const SearchField = ({ onBlur, onQueryChange, query }) => {
   const inputEl = useRef(null);
-  useEffect(() => {
-    if (isSearching) inputEl.current.focus();
-  }, [isSearching]);
   return (
     <Paper elevation={1} square={false}>
       <Input
@@ -21,4 +18,4 @@ const SearchBox = ({ isSearching, onBlur, onQueryChange, query }) => {
   );
 };
 
-export default SearchBox;
+export default SearchField;
