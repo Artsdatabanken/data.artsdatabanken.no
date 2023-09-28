@@ -32,6 +32,8 @@ function read(filePath) {
     }
   });
   const r = {};
+  if(process.env.TEST_RUN)
+    types = [types[0]]
   types.forEach(e => (r[e.kode] = e));
   makePages(r);
 }
@@ -39,8 +41,6 @@ function read(filePath) {
 function makePages(types) {
   Object.keys(types).forEach(kode => {
     const type = types[kode];
-    if(type.altkode==="3TO") 
-    debugger
     type.files = downloadable_files[type.url.substring(1)] || {};
     if (type.overordnet.length > 0) {
       const forelder = type.overordnet[0].kode;
