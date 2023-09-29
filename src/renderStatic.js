@@ -5,6 +5,7 @@ import path from 'node:path'
 import Type from './templates/type'
 import { Helmet } from "react-helmet";
 import {findFiles} from '@artsdatabanken/lastejobb/lib/io'
+import {log} from '@artsdatabanken/lastejobb'
 
 const JSON_PROPS_SRC_DIR = 'temp/page_data'
 const BUILD_DIR = 'build'
@@ -68,7 +69,7 @@ const r = findFiles(JSON_PROPS_SRC_DIR,'.json')
 r.forEach(srcFile => {
     let relativePath = srcFile.replace(JSON_PROPS_SRC_DIR, '')
     relativePath = relativePath.replace(path.extname(srcFile),'')
-    console.log(relativePath)
     const props = JSON.parse(fs.readFileSync(srcFile))
     renderStaticPage(Type, props, relativePath+'.html')
 }) 
+log.info(`Skrev ${r.length} statiske websider.`)
