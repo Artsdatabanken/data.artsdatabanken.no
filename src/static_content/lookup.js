@@ -37,14 +37,29 @@ document.addEventListener("DOMContentLoaded", () => {
             this.selectedIndex = 0
             displayResults();
         } else {
-            resetSearch()
+            hideDropdown()
         }
     }
 
     searchInput.addEventListener('focus', runQuery)
-    searchInput.addEventListener('input', runQuery);
-    searchInput.addEventListener('blur', resetSearch);
+    searchInput.addEventListener('input', runQuery)
+    searchInput.addEventListener('blur', hideDropdown)
 
+    // Focus lookup if user starts typing
+    document.addEventListener('keydown', function(event) {
+        console.log(event.key)
+        const isCharacterOrNumber = (event.key.length === 1);        
+        if (isCharacterOrNumber&&(document.activeElement !== searchInput))
+          searchInput.focus();
+      });    
+
+    // Hide dropdown when clicking outside it
+    document.addEventListener('click', (event) => {
+        if (!resultsDropdown.contains(event.target) && event.target !== searchInput) {
+            hideDropdown()
+        }
+    });
+    
     searchInput.addEventListener('keydown', e => {
         switch (e.key) {
             case 'ArrowUp':
@@ -120,20 +135,13 @@ function displayResults() {
     resultsDropdown.style.display = 'block'; // Show the dropdown
 }
 
-const resetSearch = () => {
+const hideDropdown = () => {
     this.previousQuery = ''
     this.results = []
     this.selectedIndex = 0
     searchContainer.className = "search-container search-container-dropdown-closed"
     resultsDropdown.style.display = 'none';
 }
-
-// Hide dropdown when clicking outside of it
-document.addEventListener('click', (event) => {
-    if (!resultsDropdown.contains(event.target) && event.target !== searchInput) {
-        resetSearch()
-    }
-});
 
 const makeel = (elementType, className) => {
     const el = document.createElement(elementType)
