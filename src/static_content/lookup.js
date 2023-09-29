@@ -76,8 +76,14 @@ function displayResults() {
         logoItem.src = `https://data.artsdatabanken.no/${result.url}/logo_24.png`
 
         const listItem = document.createElement('li');
-        listItem.textContent = result.title;
-       listItem.className = "hit"
+        const text = highlightMatch(result.title, this.previousQuery)
+        listItem.appendChild(div('text', text))
+        if(result.kode) {
+            const kode = highlightMatch(filterKode(result.kode), this.previousQuery)
+            listItem.appendChild(div('kode', kode))
+        }
+        listItem.title = result.title
+        listItem.className = "hit"
         if (index === this.selectedIndex)
             listItem.classList.add("hover-state");
         listItem.addEventListener('click', () => {
@@ -122,3 +128,59 @@ document.addEventListener('click', (event) => {
         resetSearch()
     }
 });
+
+const makeel = (elementType, className) => {
+    const el = document.createElement(elementType)
+    el.className = className
+    return el
+}
+
+const div = (className, child) => {
+    const div = makeel('div', className)
+    child && div.appendChild(child)
+ return div
+}
+
+const span = (text) => {
+    const el = makeel('span', null)
+    el.textContent = text
+    return el
+}
+function highlightMatch(text, query) {
+    if (!query) return span(text);
+    const q = query.toLowerCase().split(" ")[0];
+    const offset = text.toLowerCase().indexOf(q);
+    if (offset < 0) return span(text);
+
+    const end = offset + q.length;
+    const el = makeel('span', 'textnomatch')
+    el.appendChild(span(text.substring(0, offset)))
+    const hilight = makeel('span', 'textmatch')
+    hilight.appendChild(span(text.substring(offset, end)))
+    el.appendChild(hilight)
+    el.appendChild(span(text.substring(end, text.length)))
+    return el
+    /*
+        return (
+          <span className={classes.textnomatch}>
+            {text.substring(0, offset)}
+            <span className={classes.textmatch}>{text.substring(offset, end)}</span>
+            {text.substring(end, text.length)}
+          </span>
+        );
+        */
+}
+
+function filterKode(kode) {
+    const prefix = kode.substring(0, 2);
+    switch (prefix) {
+      case "AR":
+      case "AO":
+      case "VV":
+        return "";
+      default:
+        return kode.substring(3);
+    }
+  }
+
+

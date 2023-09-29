@@ -19,7 +19,7 @@
     background-color: white;
 }
 
-input:focus{
+input:focus {
     outline: none;
 }
 
@@ -45,30 +45,73 @@ input:focus{
 }
 
 .hit {
-    height: 36px;
+    height: 38px;
     position: relative;
     list-style-type: none;
     padding: 8px;
     padding-left: 36px;
-    display: flex;
-    align-items: center;
+    _display: flex;
+    _align-items: center;
     cursor: pointer;
+
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    _display: flex;
+    _justify-content: space-between;
 }
 
 .hit-logo {
     height: 24px;
     width: 24px;
-    top: 14px;
+    top: 15px;
     left: 8px;
     position: absolute;
     object-fit: contain;
     object-position: center top;
-  }
+    filter: drop-shadow(1px 1px 2px #999);
+}
 
 #no-hits {
     padding: 8px;
     cursor: default;
 }
+
+.text {
+    display: -webkit-box; /* Set as a block-level element */
+    -webkit-line-clamp: 2; /* Limit the text to 3 lines */
+    -webkit-box-orient: vertical; /* Display lines vertically */
+    white-space: normal; /* Allow wrapping within lines */
+    overflow: hidden; /* Hide any overflowing text */
+
+    _white-space: nowrap;
+    _text-overflow: ellipsis;
+    _overflow: hidden;
+
+    _display: flex;
+    _justify-content: space-between;
+}
+
+.textmatch {
+    color: hsl(30, 3%, 29%);
+    font-weight: 600;
+}
+
+.textnomatch {
+    color: #333;
+    font-weight: 400;
+}
+
+.kode {
+    color: #999;
+    font-size: 13;
+    font-weight: 400;
+    hyphens: unset;
+    white-space: nowrap;
+  }
+
 
 .hover-state {
     background-color: #ddd;
