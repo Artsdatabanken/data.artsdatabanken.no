@@ -10,18 +10,6 @@ import React, { Component } from "react";
 import Bildeavatar from "./Bildeavatar";
 
 const styles = {
-  listitemtext: {
-    fontSize: 13,
-    display: "flex",
-    justifyContent: "space-between"
-  },
-  text: {
-    whiteSpace: "nowrap",
-    textOverflow: "ellipsis",
-    overflow: "hidden"
-  },
-  inset: { marginLeft: 48 },
-  listitem: { height: 38, cursor: "pointer" },
   kode: {
     color: "#999",
     fontSize: 13,
@@ -29,8 +17,6 @@ const styles = {
     hyphens: "unset",
     whiteSpace: "nowrap"
   },
-  textmatch: { color: "hsl(30, 3%, 29%)", fontWeight: 500 },
-  textnomatch: { color: "#333", fontWeight: 400 }
 };
 
 class ResultatListe extends Component {
