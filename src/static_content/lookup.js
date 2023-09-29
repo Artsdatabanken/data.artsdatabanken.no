@@ -1,7 +1,8 @@
+// Lookup kontroll for søk
 var link = document.createElement('link');
 link.rel = 'stylesheet';
 link.type = 'text/css';
-link.href = 'lookup.css'; 
+link.href = 'lookup.css';
 document.head.appendChild(link);
 
 let searchContainer
@@ -46,12 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
     searchInput.addEventListener('blur', hideDropdown)
 
     // Focus lookup if user starts typing
-    document.addEventListener('keydown', function(event) {
+    document.addEventListener('keydown', function (event) {
         console.log(event.key)
-        const isCharacterOrNumber = (event.key.length === 1);        
-        if (isCharacterOrNumber&&(document.activeElement !== searchInput))
-          searchInput.focus();
-      });    
+        const isCharacterOrNumber = (event.key.length === 1);
+        if (isCharacterOrNumber && (document.activeElement !== searchInput))
+            searchInput.focus();
+    });
 
     // Hide dropdown when clicking outside it
     document.addEventListener('click', (event) => {
@@ -59,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
             hideDropdown()
         }
     });
-    
+
     searchInput.addEventListener('keydown', e => {
         switch (e.key) {
             case 'ArrowUp':
@@ -99,7 +100,7 @@ function displayResults() {
         const listItem = document.createElement('li');
         const text = highlightMatch(result.title, this.previousQuery)
         listItem.appendChild(div('text', text))
-        if(result.kode) {
+        if (result.kode) {
             const kode = highlightMatch(filterKode(result.kode), this.previousQuery)
             listItem.appendChild(div('kode', kode))
         }
@@ -143,23 +144,25 @@ const hideDropdown = () => {
     resultsDropdown.style.display = 'none';
 }
 
-const makeel = (elementType, className) => {
+const element = (elementType, className) => {
     const el = document.createElement(elementType)
-    el.className = className
+    if (className) el.className = className
     return el
 }
 
 const div = (className, child) => {
-    const div = makeel('div', className)
+    const div = element('div', className)
     child && div.appendChild(child)
- return div
+    return div
 }
 
 const span = (text) => {
-    const el = makeel('span', null)
+    const el = element('span', null)
     el.textContent = text
     return el
 }
+
+// Marker treff i substring i søketreff
 function highlightMatch(text, query) {
     if (!query) return span(text);
     const q = query.toLowerCase().split(" ")[0];
@@ -167,34 +170,26 @@ function highlightMatch(text, query) {
     if (offset < 0) return span(text);
 
     const end = offset + q.length;
-    const el = makeel('span', 'textnomatch')
+    const el = element('span', 'textnomatch')
     el.appendChild(span(text.substring(0, offset)))
-    const hilight = makeel('span', 'textmatch')
+    const hilight = element('span', 'textmatch')
     hilight.appendChild(span(text.substring(offset, end)))
     el.appendChild(hilight)
     el.appendChild(span(text.substring(end, text.length)))
     return el
-    /*
-        return (
-          <span className={classes.textnomatch}>
-            {text.substring(0, offset)}
-            <span className={classes.textmatch}>{text.substring(offset, end)}</span>
-            {text.substring(end, text.length)}
-          </span>
-        );
-        */
 }
 
+// Fjerner en del prefix på koder, eks. NN-NA-T1 => NA-T1
 function filterKode(kode) {
     const prefix = kode.substring(0, 2);
     switch (prefix) {
-      case "AR":
-      case "AO":
-      case "VV":
-        return "";
-      default:
-        return kode.substring(3);
+        case "AR":
+        case "AO":
+        case "VV":
+            return "";
+        default:
+            return kode.substring(3);
     }
-  }
+}
 
 
