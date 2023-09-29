@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Projeksjon from "../../templates/Projeksjon";
-import { CloudDownload } from "@mui/icons-material";
 import filmeta from "./filtype";
 
 const arter = [
@@ -155,7 +154,7 @@ const Download = ({ relUrl, filename, size, modified }) => {
       <td>
         {fullDownloadUrl && (
           <a href={fullDownloadUrl} style={{ display: "flex" }}>
-            <CloudDownload
+            <img src="cloud_download.svg"
               style={{
                 top: -3,
                 position: "relative",
