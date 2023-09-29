@@ -1,3 +1,9 @@
+var link = document.createElement('link');
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = 'lookup.css'; 
+document.head.appendChild(link);
+
 let searchContainer
 let searchInput
 let resultsDropdown
