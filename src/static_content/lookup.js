@@ -34,7 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
         this.previousQuery = query
         if (query.length > 0) {
             const response = await fetch(`https://lookup.artsdatabanken.no/v1/query?q=${query}`);
-            this.results = await response.json();
+            const possibly_stale_result = await response.json();
+            if(this.previousQuery !== possibly_stale_result.query) return // Stale
+            this.results = possibly_stale_result
             this.selectedIndex = 0
             displayResults();
         } else {
@@ -48,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Focus lookup if user starts typing
     document.addEventListener('keydown', function (event) {
-        console.log(event.key)
         const isCharacterOrNumber = (event.key.length === 1);
         if (isCharacterOrNumber && (document.activeElement !== searchInput))
             searchInput.focus();
@@ -90,24 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function displayResults() {
-    if (this.results.query !== this.previousQuery) return // stale request
     resultsList.innerHTML = '';
     this.results.result.forEach((result, index) => {
-        const logoItem = document.createElement('img');
-        logoItem.className = "hit-logo"
-        logoItem.src = `https://data.artsdatabanken.no/${result.url}/logo_24.png`
-
         const listItem = document.createElement('li');
-        const text = highlightMatch(result.title, this.previousQuery)
-        listItem.appendChild(div('text', text))
-        if (result.kode) {
-            const kode = highlightMatch(filterKode(result.kode), this.previousQuery)
-            listItem.appendChild(div('kode', kode))
-        }
         listItem.title = result.title
         listItem.className = "hit"
-        if (index === this.selectedIndex)
-            listItem.classList.add("hover-state");
         listItem.addEventListener('click', () => {
             searchInput.value = result.title;
             resultsDropdown.style.display = 'none'; // Hide the dropdown
@@ -115,14 +103,21 @@ function displayResults() {
             window.url = result.url
         });
 
-        listItem.addEventListener("mouseover", function () {
-            listItem.classList.add("hover-state");
-        });
-
-        listItem.addEventListener("mouseout", function () {
-            listItem.classList.remove("hover-state");
-        });
+        listItem.addEventListener("mouseover", () => listItem.classList.add("hover-state"));
+        listItem.addEventListener("mouseout", () => listItem.classList.remove("hover-state"));
+        const logoItem = img("hit-logo", `https://data.artsdatabanken.no/${result.url}/logo_24.png`)
         listItem.appendChild(logoItem)
+        const text = highlightMatch(result.title, this.previousQuery, 'tittel')
+        const textContainer = div("hit-text-container")
+        listItem.appendChild(textContainer)
+        textContainer.appendChild(div('text', text))
+        if (result.kode) {
+            const kode = highlightMatch(filterKode(result.kode), this.previousQuery, 'kode')
+            textContainer.appendChild(kode)
+//            textContainer.appendChild(div('kode', kode))
+        }
+        if (index === this.selectedIndex)
+            listItem.classList.add("hover-state");
         resultsList.appendChild(listItem);
     });
     if (results.result.length <= 0) {
@@ -150,32 +145,34 @@ const element = (elementType, className) => {
     return el
 }
 
+const img = (className, src) => {
+    const img = element('img', className)
+    img.src = src
+    return img
+}
 const div = (className, child) => {
     const div = element('div', className)
     child && div.appendChild(child)
     return div
 }
 
-const span = (text) => {
-    const el = element('span', null)
+const span = (text, className) => {
+    const el = element('span', className)
     el.textContent = text
     return el
 }
 
 // Marker treff i substring i søketreff
-function highlightMatch(text, query) {
-    if (!query) return span(text);
-    const q = query.toLowerCase().split(" ")[0];
+function highlightMatch(text, query, className) {
+    const q = (query||'').toLowerCase().split(" ")[0];
     const offset = text.toLowerCase().indexOf(q);
-    if (offset < 0) return span(text);
+    if (offset < 0) return span(text, className+'-no-match');
 
     const end = offset + q.length;
-    const el = element('span', 'textnomatch')
-    el.appendChild(span(text.substring(0, offset)))
-    const hilight = element('span', 'textmatch')
-    hilight.appendChild(span(text.substring(offset, end)))
+    const el = span(text.substring(0, offset), className+'-no-match')
+    const hilight = span(text.substring(offset, end), className+'-match')
     el.appendChild(hilight)
-    el.appendChild(span(text.substring(end, text.length)))
+    el.appendChild(span(text.substring(end, text.length)), className+'-no-match')
     return el
 }
 
@@ -191,5 +188,3 @@ function filterKode(kode) {
             return kode.substring(3);
     }
 }
-
-
