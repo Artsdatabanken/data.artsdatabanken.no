@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Resultatliste from "./Search/Resultatliste";
-import LookupControl from "./Search/LookupControl";
 import axios from "axios";
 import HeaderView from "./HeaderView";
 
@@ -32,30 +30,6 @@ const Header = ({ title }) => {
           width: 392
         }}
       >
-        {!title && (
-          <>
-            <LookupControl
-              onBlur={() => {
-                setQuery("");
-              }}
-              onQueryChange={e => setQuery(e.target.value)}
-              query={query}
-            />
-            <div
-              style={{
-                marginTop: 1
-              }}
-            >
-              <Resultatliste
-                query={query}
-                searchResults={hits}
-                onSelect={() => {
-                  setQuery(null);
-                }}
-              />
-            </div>
-          </>
-        )}
       </div>
     </div>
   );
