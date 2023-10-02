@@ -26,8 +26,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Send Slack Message
-        uses: rtCamp/action-slack@v2
+        uses: rtCamp/action-slack-notify@v2
         with:
           args: '{"text":"deploy data.artsdatabanken.no"}'
         env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK: ${{ secrets.POST_SLACK }}
