@@ -9,13 +9,6 @@ import Bilde from "./Bilde";
 import Statistikk from "./Statistikk";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Kilder from "../components/DataTables/Kilder";
-/*
-import "../style/table.css";
-import "../style/graphic-profile.css";
-import "../style/map.css";
-import "../style/sidebar.css";
-import "../style/style.css";
-*/
 
 export default type => {
   const tittel = type.tittel.nb || Object.values(type.tittel)[0];
