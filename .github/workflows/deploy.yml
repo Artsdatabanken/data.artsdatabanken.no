@@ -17,7 +17,7 @@ jobs:
       - run: npm install
       - run: npm update
       - run: npm run download
-      - run: npm run transform
+      - run: npm run transform_test
       - name: Run deployment script
         run: ./.github/workflows/deploy.sh
         shell: bash
@@ -28,4 +28,4 @@ jobs:
           tag: v_${{ github.run_number }}
       - name: post to slack
         run: ./.github/workflows/slack.sh ${{ secrets.POST_SLACK }}
-        shell: bash  
+        shell: bash
