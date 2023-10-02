@@ -1,0 +1,513 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+table {
+  font-size: 11pt;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  vertical-align: top;
+}
+
+tr:nth-child(2n) {
+  background: transparent;
+}
+
+thead th {
+  text-align: left;
+  padding: 5px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+td {
+  text-align: center;
+}
+
+th:nth-of-type(3),
+td:nth-of-type(3) {
+  text-align: left;
+}
+
+th:last-child,
+td:last-child,
+th:first-child,
+td:first-child {
+  text-align: left;
+  padding-left: 0px;
+}
+
+/* Table for smaller screens */
+@media only screen and (max-width: 768px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  tr {
+    padding: 5px;
+    padding-left: 0px;
+    margin-bottom: 15px;
+  }
+
+  th:last-child,
+  td:last-child,
+  th:first-child,
+  td:first-child,
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 45%;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 0px;
+    white-space: nowrap;
+    text-align: left;
+  }
+
+  /* Label the data   */
+  .open_api td:nth-of-type(1):before {
+    content: "Tittel";
+  }
+  .open_api td:nth-of-type(2):before {
+    content: "Projeksjon";
+  }
+  .open_api td:nth-of-type(3):before {
+    content: "Protokoll";
+  }
+  .open_api td:nth-of-type(4):before {
+    content: "Attributter";
+  }
+  .open_api td:nth-of-type(5):before {
+    content: "Beskrivelse";
+  }
+
+  /* Label the data   */
+  .open_egenskap td:nth-of-type(1):before {
+    content: "Format";
+  }
+  .open_egenskap td:nth-of-type(2):before {
+    content: "Projeksjon";
+  }
+  .open_egenskap td:nth-of-type(3):before {
+    content: "Beskrivelse";
+  }
+
+  /* Label the data   */
+  .open_data td:nth-of-type(1):before {
+    content: "Tittel";
+  }
+  .open_data td:nth-of-type(2):before {
+    content: "Filending";
+  }
+  .open_data td:nth-of-type(3):before {
+    content: "St\F8rrelse";
+  }
+  .open_data td:nth-of-type(4):before {
+    content: "Sist oppdatert";
+  }
+  .open_data td:nth-of-type(5):before {
+    content: "Projeksjon";
+  }
+  .open_data td:nth-of-type(5):before {
+    content: "Beskrivelse";
+  }
+}
+
+.tabledata {
+  width: 100%;
+  height: 200px;
+  background: grey;
+}
+
+.graphic_profile{
+    background: #ffffff;
+    background:rgb(255,255,255);
+    background: #4c4a48;
+    background:rgb(76,74,72);
+    background: #7f726b;
+    background:rgb(128,115,105);
+    background: #de8608;
+    background:rgb(222,135,9);
+    background: #eb6109;
+    background:rgb(235,98,9);
+  }
+
+  a:link {
+    color:#7f726b;
+  }
+  a:visited {
+    color: #7f726b;
+  }
+  a:hover {
+    color:#eb6109;
+  }
+  
+/**** Anchoring images within a div ****/
+
+/* The container for the images */
+.imagecontainer {
+  position: relative;
+  max-width: 639px;
+  mix-blend-mode: multiply;
+}
+
+/* The images inside the container are all set to absolute,
+  which means they all start at the same coordinate and are set to
+  scale similarily*/
+.imagecontainer img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  max-width: 639px;
+}
+
+/* As absolute images don't push the page downwards (which we want
+  so we know how big a space it needs etc., we set the first instance
+  of an image inside the container to be relative. Which means
+  it is a regular part of the page */
+.imagecontainer img:first-child {
+  position: relative;
+  _opacity: 0.6;
+}
+
+/* Turning the top image into a filter by opacity */
+.imageFilter {
+  max-width: 1000px;
+  mix-blend-mode: multiply;
+  _opacity: 0.6;
+  /*
+    filter:saturate(300%) hue-rotate(170deg);
+    mix-blend-mode: multiply;  */
+}
+
+.sibebar_link_menu {
+  border-right: 1px solid #4c4a4830;
+}
+
+.sidebar_link,
+.sibebar_link_menu a {
+  text-decoration: none;
+}
+
+.sidebar_link {
+  color: #4c4a48;
+  display: block;
+  font-family: "Roboto";
+  margin-top: 10px;
+}
+
+.sidebar_children {
+  padding-left: 40px;
+}
+
+.sidebar_sister_child,
+.sidebar_active_child {
+  padding-left: 20px;
+}
+
+.sidebar_active_parent,
+.sidebar_active_child {
+  text-decoration: underline;
+  font-weight: 800;
+}
+
+ul {
+  padding: 0px;
+}
+
+.sidebar_link:hover {
+  color: #eb6109;
+}
+
+.colour_squares {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: rgb(83, 238, 83);
+  border-style: solid;
+  border-width: 1px;
+  margin-right: 4px;
+  box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 5px 0px;
+  border-color: rgba(0, 0, 0, 0.33);
+}
+
+.tag {
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  border-radius: 16px;
+  margin: 0px;
+  height: 26px;
+  color: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  white-space: nowrap;
+  justify-content: center;
+  margin-right: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.blokk {
+  _margin-top: 24px;
+}
+
+h4.blokk {
+  font-weight: 500;
+  margin-top: 24px;
+  margin-bottom: 0px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.blokk a {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+}
+
+/*
+Graphic profile Artsdatabanken
+Just for keeping it nice and availiable
+*/
+
+body {
+  box-sizing: border-box;
+  font-family: "Roboto";
+  background-color: hsl(344, 0%, 98%);
+  color: #4c4a48;
+}
+
+div {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/*Placement of items on the page */
+.header_padding,
+.page_padding {
+  max-width: 90%;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (min-width: 1000px) {
+  .header_padding,
+  .page_padding {
+    width: 90%;
+    max-width: calc(1300px);
+  }
+}
+
+.page_padding {
+  padding: 10px;
+  margin-top: calc(20px * 2);
+}
+
+/* The top bar*/
+.header_background {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+  background: #4c4a48;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 5;
+}
+
+.header_background h1 {
+  color: #ffffff;
+  margin: 0px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-left: calc(100px + 20px);
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.top_image {
+  top: 0px;
+  position: absolute;
+  width: 100px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 4px 6px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/*Contains everything, sets background etc. */
+.page_container {
+  max-width: 100%;
+  font-size: 12pt;
+  font-family: "Roboto", "sans-serif";
+}
+
+@media only screen and (max-width: 600px) {
+  .form_category,
+  .upper_description,
+  .page_wrapper h2,
+  .page_wrapper h1 {
+    padding-left: 5%;
+    padding-right: 5%;
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+}
+
+/* General styling based on our homepage */
+
+h1,
+h2,
+h3 {
+  color: #777368;
+  font-family: "Roboto";
+  font-weight: 700;
+}
+
+h1 {
+  margin-top: 50px;
+  line-height: 1.5;
+  font-size: 40px;
+}
+
+div,
+img {
+  max-width: 100%;
+}
+
+/* content boxes */
+
+.contentContainer {
+  width: 100%;
+}
+
+.sideContent {
+  display: inline-block;
+  width: 100%;
+  max-width: 250px;
+  position: relative;
+  left: 0px;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+.mainContent {
+  display: inline-block;
+  width: calc(100% - 300px);
+  position: relative;
+  left: 0px;
+  margin: 0px;
+  padding-left: 30px;
+  vertical-align: top;
+  background: hsl(344, 0%, 98%, 50%);
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 900px) {
+  .sideContent {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+
+  .mainContent {
+    width: 100%;
+    padding-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sideContent {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+
+  .mainContent {
+    width: 100%;
+  }
+}
+
+.main_content_image_container {
+  position: relative;
+  max-height: 300px;
+  overflow: hidden;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.main_content_image {
+  width: 100%;
+  vertical-align: middle;
+}
+
+/* The containers for data elements */
+
+.services_container {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.sources_container {
+  background: #fff;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.sources_text,
+.licences_container,
+.source_container {
+  display: inline-block;
+}
+
+.source_item {
+  display: inline-block;
+  font-size: 10pt;
+  padding-bottom: 16px;
+}
+
+.licences_container {
+  display: block;
+  text-align: center;
+}
+
+.sources_text {
+  width: calc(100% - 40px);
+}
+
+.licences_container img {
+  height: 25px;
+  margin: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
