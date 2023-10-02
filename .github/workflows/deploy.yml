@@ -17,7 +17,7 @@ jobs:
       - run: npm install
       - run: npm update
       - run: npm run download
-      - run: npm run transform_test
+      - run: npm run transform
       - name: Run deployment script
         run: ./.github/workflows/deploy.sh
         shell: bash

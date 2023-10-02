@@ -154,7 +154,7 @@ const Download = ({ relUrl, filename, size, modified }) => {
       <td>
         {fullDownloadUrl && (
           <a href={fullDownloadUrl} style={{ display: "flex" }}>
-            <img src="cloud_download.svg"
+            <img src="/cloud_download.svg"
               style={{
                 top: -3,
                 position: "relative",
