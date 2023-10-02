@@ -1,1 +1,1 @@
-curl -X POST -H 'Content-type: application/json' --data '{"text":"deploy nin-data-lastejobb"}' $1
+curl -X POST -H 'Content-type: application/json' --data '{"text":"deploy adb-data-portal"}' $1

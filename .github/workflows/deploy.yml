@@ -28,4 +28,4 @@ jobs:
           tag: v_${{ github.run_number }}
       - name: post to slack
         run: ./.github/workflows/slack.sh ${{ secrets.POST_SLACK }}
-        shell: bash  
+        shell: bash

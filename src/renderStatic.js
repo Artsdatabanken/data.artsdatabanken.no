@@ -70,6 +70,6 @@ r.forEach(srcFile => {
     let relativePath = srcFile.replace(JSON_PROPS_SRC_DIR, '')
     relativePath = relativePath.replace(path.extname(srcFile),'')
     const props = JSON.parse(fs.readFileSync(srcFile))
-    renderStaticPage(Type, props, relativePath+'.html')
+    renderStaticPage(Type, props, relativePath+'/index.html')
 }) 
 log.info(`Skrev ${r.length} statiske websider.`)
