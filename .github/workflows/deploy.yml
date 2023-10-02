@@ -26,7 +26,6 @@ jobs:
         with:
           artifacts: ${{ github.event.repository.name }}.tar.gz
           tag: v_${{ github.run_number }}
-          - name: Send Slack Message
       - name: post to slack
         run: ./.github/workflows/slack.sh ${{ secrets.POST_SLACK }}
         shell: bash  
