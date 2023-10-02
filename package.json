@@ -1,58 +1,52 @@
 {
-  "name": "adb-data-portal",
-  "private": true,
-  "description": "Directory of Artsdatabanken open data and open APIs.",
+  "name": "data.artsdatabanken.no",
   "version": "0.1.0",
-  "license": "MIT",
-  "phenomic": {
-    "presets": [
-      "@phenomic/preset-react-app"
-    ]
+  "private": true,
+  "dependencies": {
+    "@artsdatabanken/lastejobb": "^4.0.12",
+    "@babel/core": "^7.22.11",
+    "@babel/node": "^7.22.19",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-react": "^7.22.15",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.9",
+    "babel-plugin-preval": "^5.1.0",
+    "babel-preset-react-app": "^10.0.1",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-helmet": "^6.1.0",
+    "react-use": "^17.4.0"
   },
   "scripts": {
-    "start": "phenomic start",
-    "build": "phenomic build",
-    "prebuild": "node lastNedData.js",
-    "deploy": "./deployfromlocal.sh"
-  },
-  "dependencies": {
-    "@material-ui/core": "^4.4.3",
-    "@material-ui/icons": "^4.4.3",
-    "axios": "^0.19.0",
-    "keyboardjs": "^2.5.1",
-    "node-fetch": "^2.6.0",
-    "react": "^16.10.1",
-    "react-dom": "^16.10.1",
-    "react-helmet": "^5.2.1",
-    "react-use": "^12.2.2",
-    "rebound": "^0.1.0"
-  },
-  "devDependencies": {
-    "@phenomic/cli": "^1.0.0",
-    "@phenomic/core": "^1.0.0",
-    "@phenomic/preset-react-app": "^1.0.0",
-    "babel-plugin-preval": "^3.0.1",
-    "husky": "^3.0.8",
-    "lint-staged": "^9.4.1",
-    "prettier": "^1.18.2",
-    "pretty-quick": "^1.11.1",
-    "react-router": "^3.2.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Artsdatabanken/adb-data-portal"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
+    "download": "node node_modules/@artsdatabanken/lastejobb/lastejobb stages/download",
+    "transform": "node node_modules/@artsdatabanken/lastejobb/lastejobb stages/transform",
+    "transform_test": "export TEST_RUN=true && node node_modules/@artsdatabanken/lastejobb/lastejobb stages/transform",
+    "transform_": "export NODE_ENV=development && npx babel-node src/renderStatic.js",
+    "build": "npm run download && npm run transform"
   },
   "eslintConfig": {
-    "rules": {
-      "react/jsx-pascal-case": 0
-    }
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "bugs": {
-    "url": "https://github.com/Artsdatabanken/adb-data-portal/issues"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
   }
 }

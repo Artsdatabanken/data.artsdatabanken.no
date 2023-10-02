@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Projeksjon from "../../templates/Projeksjon";
-import { CloudDownload } from "@material-ui/icons";
 import filmeta from "./filtype";
 
 const arter = [
@@ -130,6 +129,9 @@ const Download = ({ relUrl, filename, size, modified }) => {
   const { beskrivelse, filtype, obsolete, kategori } = filmeta[filename] || {};
   if (obsolete) return null;
   if (!filtype) {
+    const prefix = filename.split("_")[0]
+    if("phylopic,logo,thumbnail,grid".indexOf(prefix)>=0)
+      return null // Ignore these files
     console.warn("OpenApi: Ukjent fil: " + filename);
     return null;
   }
@@ -152,7 +154,7 @@ const Download = ({ relUrl, filename, size, modified }) => {
       <td>
         {fullDownloadUrl && (
           <a href={fullDownloadUrl} style={{ display: "flex" }}>
-            <CloudDownload
+            <img src="cloud_download.svg"
               style={{
                 top: -3,
                 position: "relative",
