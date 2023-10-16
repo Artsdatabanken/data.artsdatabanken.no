@@ -67,7 +67,6 @@ const r = findFiles(JSON_PROPS_SRC_DIR,'.json')
 r.forEach(srcFile => {
     let relativePath = srcFile.replace(/\\/g, '/') // Windows hack needed for stripping base path
     relativePath = relativePath.replace(JSON_PROPS_SRC_DIR, '')
-    if(relativePath.indexOf('Natur_i_Norge.json')<0) return
     relativePath = relativePath.replace(path.extname(srcFile),'')
     const props = JSON.parse(fs.readFileSync(srcFile))
     renderStaticPage(Type, props, relativePath+'/index.html')

@@ -54,7 +54,6 @@ function makePages(types) {
         type.søsken = types[forelder].barn;
       }
     }
-    if(type.url !== '/Natur_i_Norge') return
     const jsonPath = path.join("temp/page_data", type.url + ".json");
     const dpath = path.dirname(jsonPath);
     fs.mkdirSync(dpath, { recursive: true });
