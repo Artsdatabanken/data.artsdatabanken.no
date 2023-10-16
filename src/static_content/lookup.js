@@ -91,8 +91,10 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function displayResults() {
+    const MAX_HITS_DISPLAYED = 10
     resultsList.innerHTML = '';
-    this.results.result.forEach((result, index) => {
+    const bestNHits = this.results.result.filter((v,e) => e < MAX_HITS_DISPLAYED)
+    bestNHits.forEach((result, index) => {
         const listItem = document.createElement('li');
         listItem.title = result.title
         listItem.className = "hit"
