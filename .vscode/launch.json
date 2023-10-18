@@ -21,6 +21,13 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Transform_test",
+      "program": "node_modules/@artsdatabanken/lastejobb/lastejobb",
+      "args": ["stages/transform"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Launch Program",
       "program": "${file}"
     }
