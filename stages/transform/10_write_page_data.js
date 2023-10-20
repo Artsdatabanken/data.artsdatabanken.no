@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const {io, log} = require('@artsdatabanken/lastejobb')
+const { io } = require('@artsdatabanken/lastejobb')
 
 //io.mkdirSync('temp/page_data')
 
@@ -42,6 +42,12 @@ function makePages(types) {
   Object.keys(types).forEach(kode => {
     const type = types[kode];
     type.files = downloadable_files[type.url.substring(1)] || {};
+    if(!type.overordnet || type.overordnet.length===0) {
+      type.overordnet = [{
+        url: "/", 
+        tittel: { nb: "Hovedside"}
+      }]
+    }
     if (type.overordnet.length > 0) {
       const forelder = type.overordnet[0].kode;
       if (types[forelder]) {

@@ -17,13 +17,13 @@
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-helmet": "^6.1.0",
-    "react-use": "^17.4.0"
+    "react-use": "^17.4.0",
+    "tslib": "^2.6.2"
   },
   "scripts": {
     "download": "node node_modules/@artsdatabanken/lastejobb/lastejobb stages/download",
     "transform": "node node_modules/@artsdatabanken/lastejobb/lastejobb stages/transform",
     "transform_test": "export TEST_RUN=true && node node_modules/@artsdatabanken/lastejobb/lastejobb stages/transform",
-    "transform_": "export NODE_ENV=development && npx babel-node src/renderStatic.js",
     "build": "npm run download && npm run transform"
   },
   "eslintConfig": {

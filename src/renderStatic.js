@@ -4,7 +4,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import Type from './templates/type'
 import { Helmet } from "react-helmet";
-import {findFiles} from '@artsdatabanken/lastejobb/lib/io'
+import {findFiles} from '@artsdatabanken/lastejobb/lib/io.js'
 import {log} from '@artsdatabanken/lastejobb'
 
 const JSON_PROPS_SRC_DIR = 'temp/page_data'
@@ -62,12 +62,11 @@ const renderStaticPage = (component, props, targetFile) => {
 }
 
 copyStaticContent(STATIC_CONTENT_DIR, BUILD_DIR)
-//const kartverket = JSON.parse(fs.readFileSync('content/Datakilde/Kartverket.json'))
-//renderStaticPage(Type, kartverket, 'type3.html')
 
 const r = findFiles(JSON_PROPS_SRC_DIR,'.json')
 r.forEach(srcFile => {
-    let relativePath = srcFile.replace(JSON_PROPS_SRC_DIR, '')
+    let relativePath = srcFile.replace(/\\/g, '/') // Windows hack needed for stripping base path
+    relativePath = relativePath.replace(JSON_PROPS_SRC_DIR, '')
     relativePath = relativePath.replace(path.extname(srcFile),'')
     const props = JSON.parse(fs.readFileSync(srcFile))
     renderStaticPage(Type, props, relativePath+'/index.html')
