@@ -23,8 +23,10 @@
   "scripts": {
     "download": "node node_modules/@artsdatabanken/lastejobb/lastejobb stages/download",
     "transform": "node node_modules/@artsdatabanken/lastejobb/lastejobb stages/transform",
+    "transform_debug": "export DEBUG=* && node node_modules/@artsdatabanken/lastejobb/lastejobb stages/transform",
     "transform_test": "export TEST_RUN=true && node node_modules/@artsdatabanken/lastejobb/lastejobb stages/transform",
-    "build": "npm run download && npm run transform"
+    "build": "npm run download && npm run transform",
+    "npminstall": "npm install"
   },
   "eslintConfig": {
     "extends": [

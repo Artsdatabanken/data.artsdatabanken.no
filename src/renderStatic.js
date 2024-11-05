@@ -47,14 +47,14 @@ const renderStaticPage = (component, props, targetFile) => {
     let page = htmlPageTemplate
     const variables = {
         body: staticHtml,
-        base: helmet.base.toString(),
-        body_attributes: helmet.bodyAttributes.toString(),
-        htmlattr: helmet.htmlAttributes.toString(),
+        // base: helmet.base.toString(),
+        // body_attributes: helmet.bodyAttributes.toString(),
+        // htmlattr: helmet.htmlAttributes.toString(),
         link: helmet.link.toString(),
         meta: helmet.meta.toString(),
-        noscript: helmet.noscript.toString(),
+        // noscript: helmet.noscript.toString(),
         script: helmet.script.toString(),
-        style: helmet.style.toString(),
+        // style: helmet.style.toString(),
         title: helmet.title.toString(),
     }
     const replacedContent = page.replace(/\{\{(\w+)\}\}/g, (_, variable) => variables[variable]);
