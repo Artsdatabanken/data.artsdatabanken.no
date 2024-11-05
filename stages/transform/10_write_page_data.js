@@ -74,25 +74,6 @@ function makePages(types) {
       if (types[forelder]) {
         type.søsken = types[forelder].barn;
       }
-      // else {
-      //   type.søsken = [
-      //     {
-      //       "kode": "AO",
-      //       "tittel": {
-      //         "nb": "Administrativ grense"
-      //       },
-      //       "url": "/Administrativ_grense"
-      //     },
-      //     {
-      //       "kode": "NN",
-      //       "tittel": {
-      //         "nb": "Natur i Norge"
-      //       },
-      //       "url": "/Natur_i_Norge"
-      //     }
-      //   ]
-      // }
-
     }
     const jsonPath = path.join("temp/page_data", type.url + ".json");
     const dpath = path.dirname(jsonPath);
