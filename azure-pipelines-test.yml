@@ -22,7 +22,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    contents: "src/*.*"
+    contents: "build/*"
     targetFolder: "$(build.artifactStagingDirectory)"
   displayName: Copy static files
 
