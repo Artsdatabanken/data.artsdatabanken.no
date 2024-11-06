@@ -7,10 +7,23 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch via NPM",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "develop"],
-      "port": 9229
+      "name": "Debug",
+      "program": "${file}",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "babel-node",
+        "--nolazy"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Transform_test",
+      "program": "node_modules/@artsdatabanken/lastejobb/lastejobb",
+      "args": ["stages/transform"]
     },
     {
       "type": "node",

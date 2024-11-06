@@ -1,0 +1,1 @@
+export NODE_ENV=development && npx babel-node src/renderStatic.js

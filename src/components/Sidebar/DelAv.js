@@ -4,13 +4,12 @@ const DelAv = ({ overordnede }) => {
   if (overordnede.length <= 0) return null;
   return (
     <React.Fragment>
-      <Overordnet tittel={{ nb: "Hovedside" }} url="/" />
-      {overordnede.map(e => <Overordnet key={e.kode} {...e} />).reverse()}
+      {overordnede.map(e => <Overordnet key={e.url} {...e} />).reverse()}
     </React.Fragment>
   );
 };
 
-const Overordnet = ({ kode, tittel, url, farge }) => {
+const Overordnet = ({ tittel, url }) => {
   var tekst = tittel.nb || tittel.sn;
   return (
     <a href={url}>

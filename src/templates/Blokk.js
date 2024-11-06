@@ -2,8 +2,8 @@ import React from "react";
 
 const Blokk = ({ tittel, children }) => {
   return (
-    <div class="blokk">
-      <h4 class="blokk">{tittel}</h4>
+    <div className="blokk">
+      <h4 className="blokk">{tittel}</h4>
       {children}
     </div>
   );
